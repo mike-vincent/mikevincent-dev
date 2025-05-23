@@ -11,20 +11,19 @@ Every week, I write about how to build good software, how to lead well, and how 
 
 ## Products Built and Run by Mike Vincent
 ### Anthology Radio
-[Anthology Radio](https://anthologyradio.com) in May 2025. 
-**Business Summary:**  
-Anthology Radio curates, streams, and monetizes vintage public domain radio recordings through a web-based platform. Anthology Radio provides continuous access to historical audio dramas and classic radio programming. Anthology Radio is established May 2025.
+#### Business Summary of Anthology Radio
+[Anthology Radio](https://anthologyradio.com) curates, streams, and monetizes vintage public domain radio recordings through a web-based platform. Anthology Radio provides continuous access to historical audio dramas and classic radio programming. Anthology Radio is established May 2025.
 
-## Classification
+### Business Classification of Anthology Radio
 
-### GICS (Global Industry Classification Standard)
+#### GICS (Global Industry Classification Standard)
 
 - **Sector:** Communication Services  
 - **Industry Group:** Media & Entertainment  
 - **Industry:** Entertainment  
 - **Sub-Industry:** Interactive Media & Services  
 
-### NAICS (North American Industry Classification System)
+#### NAICS (North American Industry Classification System)
 
 - **Primary:** 519130 – Internet Publishing and Broadcasting and Web Search Portals  
   For businesses that publish, stream, or exhibit digital content through the Internet.

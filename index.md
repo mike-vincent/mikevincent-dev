@@ -9,7 +9,7 @@ Every week, I write about how to build good software, how to lead well, and how 
 
 ---
 
-## Apps Mike builds and ship
+## Products Built and Run by Mike Vincent
 ### Anthology Radio
 [Anthology Radio](https://anthologyradio.com) in May 2025. 
 **Business Summary:**  

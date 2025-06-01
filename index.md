@@ -20,7 +20,7 @@ Discover something new today.
 ---
 
 ## _My Apps_
-I build and ship Anthology Radio, a place to listen to public-domain radio shows.
+I'm building Anthology Radio, a place to listen to public-domain radio shows. I started May 2025.
 
 - [anthologyradio.com](https://anthologyradio.com)
 

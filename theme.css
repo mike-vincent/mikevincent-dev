@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Specific styles for h1 based on user image */
 h1 {
   font-family: 'Libre Franklin', sans-serif;
-  color: #000000;
+  color: #282828;
   font-size: 3.625rem; /* 58px if 1rem = 16px */
   font-weight: 900;    /* Heavy */
   line-height: 0.875;

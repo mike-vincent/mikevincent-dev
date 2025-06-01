@@ -33,7 +33,7 @@ Every week, I write about coding and programming. Read what's in my Python serie
 
 ---
 
-## _Engineering Management Resume_
+## _Engineering Leadership Resume_
 I help businesses design, build and operate high-traffic software for brands like Lockheed Martin, Capital One, NY Fashion Week, Fannie Mae, NYC Metro, L.A. Metro, and many more.
 
 - [linkedin.com/in/michael-thomas-vincent](https://linkedin.com/in/michael-thomas-vincent)

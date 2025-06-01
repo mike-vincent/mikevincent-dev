@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="theme.css">
+
 Hi, I'm Mike Vincent, an American software engineer and writer based in Los Angeles, California.
 
 

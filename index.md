@@ -29,6 +29,6 @@ I build and ship Anthology Radio, a place to listen to public-domain radio shows
 ## _Engineering Resume_
 I help companies design, build and operate high-traffic software products for popular brands like Capital One, Canadian Tire, Lockheed Martin, Fannie Mae, NYC Metro, L.A. Metro, and many more.
 
-See what's inside my resume now.
+See what's in my resume.
 
 - [linkedin.com/in/michael-thomas-vincent](linkedin.com/in/michael-thomas-vincent)

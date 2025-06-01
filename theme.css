@@ -7,9 +7,9 @@ body {
   font-weight: 400;   
   line-height: 1.5;
   letter-spacing: -0.05em;
-  width: 500;
-  margin-bottom: 1rem;
-  padding:5px;
+  width: 500px;
+  margin: 0 auto 1rem auto;
+  padding: 5px;
 }
 
 h1, h2, h3, h4, h5, h6 {

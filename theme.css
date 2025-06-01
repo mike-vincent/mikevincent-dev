@@ -44,6 +44,17 @@ h2 {
   object-fit: cover;
   border-radius: 50px;
   display: block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   overflow: hidden;
+}
+
+hr {
+  margin: 0.5rem 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }

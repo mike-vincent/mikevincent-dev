@@ -1,8 +1,3 @@
----
-layout: default
-title: About
----
-
 Hi, I'm Mike Vincent, an American software engineer and writer based in Los Angeles, California.
 
 

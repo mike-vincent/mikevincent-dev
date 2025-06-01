@@ -42,7 +42,7 @@ h2 {
   width: 180px;
   height: 180px;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: 60% center;
   border-radius: 50px;
   display: block;
   margin-bottom: 0.5rem;

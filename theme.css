@@ -24,7 +24,7 @@ h1 {
   font-size: 3.625rem; /* 58px if 1rem = 16px */
   font-weight: 900;    /* Heavy */
   line-height: 0.875;
-  letter-spacing: -0.025em;
+  letter-spacing: 1em;
   margin-bottom: 1rem; /* Paragraph spacing */
 }
 

@@ -41,10 +41,11 @@ h2 {
 
 /* Styles for the headshot image */
 .headshot-image {
-  max-width: auto; /* You can adjust this value */
-  height: 200px;     /* Maintain aspect ratio */
-  border-radius: 25px; /* Adjust for desired roundness */
-  display: block;   /* Ensures it's on its own line and can have margins */
-  margin-bottom: 1.5rem; /* Adds some space below the image */
-  overflow: hidden; /* Helps ensure border-radius clips the image */
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 25px;
+  display: block;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
 }

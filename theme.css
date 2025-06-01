@@ -46,4 +46,5 @@ h2 {
   border-radius: 25px; /* Adjust for desired roundness */
   display: block;   /* Ensures it's on its own line and can have margins */
   margin-bottom: 1.5rem; /* Adds some space below the image */
+  overflow: hidden; /* Helps ensure border-radius clips the image */
 }

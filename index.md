@@ -34,7 +34,4 @@ See what's in my resume.
 - [linkedin.com/in/michael-thomas-vincent](linkedin.com/in/michael-thomas-vincent)
 
 ---
-
-## _My Stats_
-My website stats are publicly available at the following URL:
-- [https://cloud.umami.is/share/fmQv1u9c2nmastyG/mikevincent.dev](https://cloud.umami.is/share/fmQv1u9c2nmastyG/mikevincent.dev)
+[◼️](https://cloud.umami.is/share/fmQv1u9c2nmastyG/mikevincent.dev) Copyright © 2025 Mike Vincent. All Rights Reserved. 

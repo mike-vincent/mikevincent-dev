@@ -22,7 +22,7 @@ h1 {
   font-size: 3.625rem;
   font-weight: 900;
   line-height: 0.875;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
 }
 
@@ -34,6 +34,8 @@ h2 {
   line-height: 1;
   letter-spacing: -0.05;
   text-indent: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .headshot-image {

@@ -41,7 +41,7 @@ I help businesses design, build and operate high-traffic software for brands lik
 ---
 
 ## _Movie Technology_
-I founded and run Io Pictures Corporation, a profitable California C-Corporation that helps copyright owners with the technology to sell, license, and distribute motion picture titles to streaming services. 
+I founded and run Io Pictures Corporation, a profitable California C-Corp that buys and licenses film rights to streaming platforms. I manage vendor contracts, tax filings, and digital delivery systems.
 
 - [iopictures.com](iopictures.com)
 - [The Control Group 🎞️](https://tubitv.com/movies/100013165/the-control-group)

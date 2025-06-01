@@ -2,6 +2,8 @@
 layout: default
 title: Home
 ---
+<img src="assets/images/headshot.jpeg" alt="Mike Vincent headshot" class="headshot-image">
+
 # _Mike Vincent_
 Hi, I'm **Mike Vincent**, an American software engineer and writer based in Los Angeles, California.
 

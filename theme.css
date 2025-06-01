@@ -38,3 +38,12 @@ h2 {
   letter-spacing: -0.125em;
   text-indent: 0;      /* Indent Off */
 }
+
+/* Styles for the headshot image */
+.headshot-image {
+  max-width: 180px; /* You can adjust this value */
+  height: auto;     /* Maintain aspect ratio */
+  border-radius: 25px; /* Adjust for desired roundness */
+  display: block;   /* Ensures it's on its own line and can have margins */
+  margin-bottom: 1.5rem; /* Adds some space below the image */
+}

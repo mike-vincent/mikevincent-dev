@@ -7,7 +7,7 @@ body {
   font-weight: 400;    /* Regular */
   line-height: 1.5;
   letter-spacing: -0.05em;
-  max-width: 420px;
+  max-width: 300px;
   margin: 0 auto;
   padding: 20px; /* Optional: adds some space around the content */
 }

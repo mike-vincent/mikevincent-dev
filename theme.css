@@ -7,7 +7,7 @@ body {
   font-weight: 400;    /* Regular */
   line-height: 1.5;
   letter-spacing: -0.05em;
-  width: 500px;
+  width: 520px;
   margin: 0 auto;
   padding: 20px; /* Optional: adds some space around the content */
 }
@@ -24,7 +24,7 @@ h1 {
   font-size: 3.625rem; /* 58px if 1rem = 16px */
   font-weight: 900;    /* Heavy */
   line-height: 0.875;
-  letter-spacing: 1em;
+  letter-spacing: -0.25em;
   margin-bottom: 1rem; /* Paragraph spacing */
 }
 

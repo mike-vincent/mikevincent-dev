@@ -24,7 +24,7 @@ h1 {
   font-size: 3.625rem; /* 58px if 1rem = 16px */
   font-weight: 900;    /* Heavy */
   line-height: 0.875;
-  letter-spacing: -0.075em;
+  letter-spacing: -0.1em;
   margin-bottom: 1rem; /* Paragraph spacing */
 }
 
@@ -35,7 +35,7 @@ h2 {
   font-size: 2.25rem;  /* 36px if 1rem = 16px */
   font-weight: 900;    /* Heavy */
   line-height: 1;
-  letter-spacing: -0.075;
+  letter-spacing: -0.025;
   text-indent: 0;      /* Indent Off */
 }
 

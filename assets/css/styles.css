@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Libre+Franklin:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Libre Baskerville', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Libre Franklin', sans-serif;
+}

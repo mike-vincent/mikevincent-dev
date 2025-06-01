@@ -17,7 +17,7 @@ Every week, I write about how to build good software, how to lead well, and how 
 ## Products Built and Run by Mike Vincent
 ### Anthology Radio
 #### Business Summary of Anthology Radio
-[Anthology Radio](https://anthologyradio.com) curates, streams, and monetizes vintage public domain radio recordings through a web-based platform. Anthology Radio provides continuous access to historical audio dramas and classic radio programming. Anthology Radio is established May 2025.
+[Anthology Radio](https://anthologyradio.com) curates, streams, and monetizes vintage public domain radio recordings through a web-based platform. Anthology Radio provides continuous access to historical audio dramas and classic radio programming.  Anthology Radio is established May 2025.
 
 ### Business Classification of Anthology Radio
 

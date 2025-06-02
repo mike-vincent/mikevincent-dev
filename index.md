@@ -52,15 +52,6 @@ I founded and run Io Pictures Corporation, a profitable California C-Corp that b
 
 ---
 
-## _Music_
-I compose and publish original music across major platforms. I play live guitar and record electronic tracks without loops or samples. I handle licensing and distribution to streaming services.
-
-- [music.youtube.com](https://gate.sc/?url=https%3A%2F%2Fmusic.youtube.com%2Fchannel%2FUCl_5YqCu7JZg68o1KLh6cLQ&token=a5fd77-1-1748816871592)
-- [soundcloud.com](https://soundcloud.com/selfpollution)
-- [spotify.com](https://open.spotify.com/artist/6ba0FCCujZoHCOIfLj2BOp?si=VcbT6-xFSYi8e4anyHOJCw)
-
----
-
 ## _Portfolio_
 Here's my GitHub Pages site.
 

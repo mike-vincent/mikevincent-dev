@@ -34,9 +34,13 @@ Every week, I write about coding and programming. Read what's in my Python serie
 ---
 
 ## _Engineering Leadership Resume_
-I help businesses design, build and operate high-traffic software for brands like Lockheed Martin, Capital One, NY Fashion Week, Fannie Mae, NYC Metro, L.A. Metro, and many more.
+I design, build and operate high-traffic software for well-known businesses.
 
 - [linkedin.com/in/michael-thomas-vincent](https://linkedin.com/in/michael-thomas-vincent)
+
+> Fannie Mae • Capital One • Lockheed Martin • NY Fashion Week • U.S. Courts • Canadian Tire • NYC Metro • L.A. Metro • U.S.C.C.B. • Poison.org
+
+
 
 ---
 

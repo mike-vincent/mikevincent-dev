@@ -10,12 +10,6 @@ title: Home
 Hi, I'm **Mike Vincent**, an American software engineer and writer in Los Angeles, California.
 
 ---
-
-## _What do you do?_
-I'm a senior engineer. I lead software teams and build high-traffic systems. I ship things that work, run a profitable film technology business, publish original work, and build indie apps.
-
-
----
 ## _What's New?_
 ## _Indie Apps_
 I’m building Anthology Radio, a place to hear public-domain radio shows. Started in May 2025. Supabase, Vercel, Next.js.

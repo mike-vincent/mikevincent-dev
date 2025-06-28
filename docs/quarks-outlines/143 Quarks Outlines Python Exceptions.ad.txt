@@ -1,0 +1,1 @@
+How does Python handle errors? Learn about exceptions and how to use them. Read this week's Quark's Outlines: Python Exceptions to find out more.

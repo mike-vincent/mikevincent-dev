@@ -1,0 +1,202 @@
+# Quark’s Outlines: Python Numbers  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Numbers
+
+### What is a Python number?
+
+You often work with numbers in daily life. You count items, measure weight, track scores, and calculate cost. In Python, you use **numbers** to do these same tasks inside a program. A Python number is a value that holds a numeric amount.
+
+Python numbers come in three main types: integers, floating-point numbers, and complex numbers. Each type helps Python perform calculations the right way for the job. Numbers are **immutable**, which means their value cannot change after they are created. If you need a new value, you create a new number.
+
+**Python gives you three types of numbers: int, float, and complex.**
+
+```python
+a = 5        # integer
+b = 3.14     # float
+c = 2 + 4j   # complex
+print(a, b, c)
+# Output: 5 3.14 (2+4j)
+```
+
+### How are Python numbers created and used?
+
+When you write numbers directly into your code, you are writing **literals**. These can be whole numbers, decimal numbers, or complex numbers. Python creates a number object from the literal.
+
+You can also create numbers from expressions. When you use Python math operators, Python reads the numbers, runs the operation, and returns a new number.
+
+**Python lets you create numbers by writing them or calculating them.**
+
+```python
+x = 7
+y = x * 2
+z = y + 0.5
+print(z)
+# Output: 14.5
+```
+
+This shows how Python uses arithmetic to work with number objects.
+
+### What types of numbers does Python support?
+
+Python supports three built-in number types:
+
+- `int` — whole numbers with no decimal point
+- `float` — decimal numbers that use a dot to show the fraction
+- `complex` — numbers with a real part and an imaginary part, written with `j`
+
+Each number type follows rules. For example, a `float` cannot be used in a place that requires a whole number without conversion. A `complex` number always includes both parts, even if one is zero.
+
+**Python supports int, float, and complex numbers.**
+
+```python
+print(type(5))         # Output: <class 'int'>
+print(type(5.0))       # Output: <class 'float'>
+print(type(5 + 0j))    # Output: <class 'complex'>
+```
+
+Knowing the type helps you understand what the number can do.
+
+---
+
+## A Historical Timeline of Python Numbers  
+**Where do Python’s number types come from?**
+
+Python numbers follow long traditions in computing and math. Each type was added with care to match how people write and use numbers. This timeline shows how Python developed its numeric system.
+
+---
+
+### People created basic number types
+
+**1957 —** **Integer and float types** IBM FORTRAN added support for whole numbers and decimal numbers.  
+**1972 —** **Operators for numeric types** C language introduced rules for arithmetic types and numeric conversion.
+
+### People designed Python number types
+
+**1991 —** **int, float, and complex** Python 0.9.0 included built-in types for whole numbers, decimal numbers, and complex numbers.  
+**2000 —** **Unified int handling** Python 2.0 began handling plain and long integers together.
+
+### People expanded number features
+
+**2001 —** **True division rules** Python 2.2 changed `/` to produce float, `//` to produce int.  
+**2008 —** **Single int type** Python 3.0 merged plain and long integers into one `int` type with unlimited size.  
+**2016 —** **Underscores in literals** Python 3.6 allowed underscores in number literals for readability.  
+**2023 —** **Stable number model** Python core team made no new number types, keeping the model simple and complete.
+
+---
+
+## Problems & Solutions with Python Numbers  
+**How do you use Python numbers the right way?**
+
+Python numbers let you count, measure, and compute clearly. You can choose the right type of number for your task and let Python do the rest. These examples show how Python number types solve everyday problems.
+
+---
+
+### Problem: How do you represent whole numbers in Python?
+
+You are counting people in a room. You need a number that holds a total like 3, 5, or 12. You do not want any decimal part.
+
+**Problem:** You try to store a count using a decimal, but that adds clutter. You only want whole numbers.
+
+**Solution:** Python uses the `int` type to store whole numbers with no decimal part.
+
+**Python lets you count things using integers.**
+
+```python
+people = 5
+print(people)
+# Output: 5
+```
+
+Python reads `5` as an integer. This is the right type for counting whole units.
+
+---
+
+### Problem: How do you use decimal values for fractions in Python?
+
+You are tracking money. You need numbers that show cents, like 2.75 or 10.99. These are not whole numbers.
+
+**Problem:** You use integers, but then you lose the part after the decimal point.
+
+**Solution:** Python uses the `float` type to store decimal numbers.
+
+**Python lets you store fractions with floating-point numbers.**
+
+```python
+price = 10.99
+print(price)
+# Output: 10.99
+```
+
+Python reads `10.99` as a float. This is the right type for measuring and pricing.
+
+---
+
+### Problem: How do you describe electrical signals or math models in Python?
+
+You are writing a simulation. You need a number like `3 + 4j` to describe wave signals. You want to use math rules for imaginary numbers.
+
+**Problem:** Real numbers do not support imaginary math. You need a way to show both parts.
+
+**Solution:** Python supports the `complex` type for numbers with real and imaginary parts.
+
+**Python lets you use imaginary math with complex numbers.**
+
+```python
+z = 3 + 4j
+print(z.real, z.imag)
+# Output: 3.0 4.0
+```
+
+The real part is `3.0`. The imaginary part is `4.0`.
+
+---
+
+### Problem: How do you choose the right numeric type for size or speed in Python?
+
+You are working with a large number like `999999999999999999999999`. You do not know if it will work in all languages. You wonder if Python can store it.
+
+**Problem:** In other languages, big numbers may cause an error or overflow.
+
+**Solution:** Python’s `int` type can grow as large as needed, limited only by memory.
+
+**Python lets you store large values safely using int.**
+
+```python
+big = 999999999999999999999999
+print(big)
+# Output: 999999999999999999999999
+```
+
+Python handles this number without special syntax or setup.
+
+---
+
+### Problem: How do you get the right numeric type from math operations in Python?
+
+You divide two whole numbers and expect a whole number. But the result has a decimal. You need control.
+
+**Problem:** You write `10 / 2` and get `5.0`, not `5`.
+
+**Solution:** Python uses `/` to produce a float. To get an integer, use `//` instead.
+
+**Python lets you choose float or int with division operators.**
+
+```python
+print(10 / 2)   # Output: 5.0
+print(10 // 2)  # Output: 5
+```
+
+This helps you get the number type that fits your task.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

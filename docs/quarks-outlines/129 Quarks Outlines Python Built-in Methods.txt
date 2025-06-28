@@ -1,0 +1,184 @@
+# Quark’s Outlines: Python Built-in Methods  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Built-in Methods
+
+### What is a Python built-in method?
+
+You may already know Python has built-in functions like `len()` and `type()`. A **Python built-in method** is similar but attached to a built-in object. For example, you do not write `append(list, x)`—you call `list.append(x)`.
+
+Built-in methods are written in C. They live inside Python’s core types, like `list`, `dict`, and `str`. Each method is tied to the object it changes or reads from. That object is passed to the method automatically.
+
+**Python lets you use built-in methods to work with built-in types.**
+
+```python
+x = [1, 2]
+x.append(3)
+print(x)
+# prints:
+# [1, 2, 3]
+```
+
+The method `append()` is built into the list type. It changes the list by adding an item to the end.
+
+### How do Python built-in methods work?
+
+When you call a built-in method, Python calls a C function. That C function receives the object as its first input, but you do not need to pass it yourself. Python does it for you.
+
+This only works for built-in objects. For example, when you write `s.upper()` on a string, Python knows to pass `s` to the C code that changes it.
+
+**Python built-in methods act like special tools tied to each type.**
+
+```python
+word = "hello"
+print(word.upper())
+# prints:
+# HELLO
+```
+
+Here, `upper()` is not a free function—it is a method of the string object.
+
+---
+
+## A Historical Timeline of Python Built-in Methods  
+**Where do Python’s built-in methods come from?**
+
+Python built-in methods came from the need to make object types more useful. In the early years, Python had functions for most tasks. But as Python grew, types like `list`, `dict`, and `str` got their own tools. These tools became methods tied to the object’s shape and purpose.
+
+---
+
+### People built tools to change objects directly
+
+**1990 —** Python used plain functions for most tasks, like `len(x)` and `type(x)`.
+
+**1991 —** Python 0.9.1 added built-in types like `list`, `dict`, and `str`, each with methods for changing them.
+
+**1995 —** Python 1.3 expanded string methods like `find`, `replace`, and `split`.
+
+**2001 —** Python 2.2 made all built-in types into new-style classes, allowing full method support.
+
+**2008 —** Python 3.0 removed old functions and unified the method system under a consistent object model.
+
+**2025 —** Python built-in methods now include dozens of methods across types like set, bytes, and memoryview.
+
+---
+
+## Problems & Solutions with Python Built-in Methods  
+**How do you use Python built-in methods the right way?**
+
+Python built-in methods help you work with strings, lists, dictionaries, and other core types. You can call them on the object directly. These examples show how built-in methods solve real needs when working with Python data.
+
+---
+
+### Problem: How do you add an item to a list in Python?
+
+You have a list of items. You want to add one more. You could make a new list, but that takes time and memory. You want to change the list directly.
+
+**Problem:** You need to add a new item to a list in place.  
+**Solution:** Python gives you the built-in method `append()` for lists.
+
+**Python lets you grow a list with the append() built-in method.**
+
+```python
+fruits = ['apple', 'banana']
+fruits.append('cherry')
+print(fruits)
+# prints:
+# ['apple', 'banana', 'cherry']
+```
+
+The method changes the list directly. It adds the item to the end without making a new one.
+
+---
+
+### Problem: How do you update a value in a dictionary in Python?
+
+You are using a dictionary to track counts. You want to set or change a value for a key. You could use square brackets, but that can fail if the key is missing.
+
+**Problem:** You want to set a key’s value safely in a dictionary.  
+**Solution:** Python lets you use the `update()` built-in method.
+
+**Python lets you set or change many values with the update() method.**
+
+```python
+scores = {'Alice': 3}
+scores.update({'Bob': 5})
+print(scores)
+# prints:
+# {'Alice': 3, 'Bob': 5}
+```
+
+The method adds the key if it is missing or updates it if it is there.
+
+---
+
+### Problem: How do you remove whitespace from a string in Python?
+
+You have a string from user input. It has extra spaces before or after the text. You want to remove them before using the string.
+
+**Problem:** You need to trim spaces from the ends of a string.  
+**Solution:** Python has the `strip()` built-in method on strings.
+
+**Python lets you clean string edges with the strip() method.**
+
+```python
+name = "  Mike  "
+print(name.strip())
+# prints:
+# Mike
+```
+
+The method keeps the middle of the string and drops only the outside spaces.
+
+---
+
+### Problem: How do you make a list flat in Python?
+
+You have a list with many repeated items. You want to remove the duplicates while keeping one of each. You also want the result in place if possible.
+
+**Problem:** You want to remove repeated items from a list.  
+**Solution:** Python has the `set()` function, but to keep order, use `list(dict.fromkeys())`.
+
+**Python lets you flatten a list by combining built-in methods.**
+
+```python
+nums = [1, 2, 2, 3, 1]
+flat = list(dict.fromkeys(nums))
+print(flat)
+# prints:
+# [1, 2, 3]
+```
+
+The method `dict.fromkeys()` keeps the first seen of each item. You then convert it back to a list.
+
+---
+
+### Problem: How do you find a letter in a word in Python?
+
+You have a string and want to know if it includes a certain letter. You want the position where the letter first appears, or nothing if it is not there.
+
+**Problem:** You want to search inside a string for a letter.  
+**Solution:** Python gives you the `find()` method on strings.
+
+**Python lets you search strings with the find() built-in method.**
+
+```python
+text = "banana"
+print(text.find("n"))
+# prints:
+# 2
+```
+
+The method gives the index of the first match or `-1` if not found.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

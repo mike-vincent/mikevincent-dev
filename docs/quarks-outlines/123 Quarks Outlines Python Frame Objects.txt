@@ -1,0 +1,226 @@
+# Quark’s Outlines: Python Frame Objects  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Frame Objects
+
+### What is a Python frame object?
+
+When you run a Python function, Python creates a **frame object**. A frame object holds everything Python needs to track that function. It stores local variables, global names, and the exact point where Python is running in the code. If a function calls another function, Python adds a new frame on top of the last one.
+
+You can think of Python frame objects like stack cards. Each time you call a function, Python adds a new card to the stack. When the function ends, Python removes the card and goes back to the one before it.
+
+**Python lets you see the current frame using sys._getframe().**
+
+```python
+import sys
+
+def example():
+    frame = sys._getframe()
+    print("Now running:", frame.f_code.co_name)
+
+example()
+# prints:
+# Now running: example
+```
+
+The frame object stores the function’s name, code, and variables.
+
+### What does a Python frame object contain?
+
+A Python frame holds these things: the function’s code object (`f_code`), a link to the previous frame (`f_back`), local variables (`f_locals`), global variables (`f_globals`), built-in names (`f_builtins`), the line number (`f_lineno`), and the last instruction run (`f_lasti`). The `f_trace` value can be used by a debugger to run a function every time a line runs.
+
+Each frame is tied to one place in the program. You can follow `f_back` to move up the call stack and see where Python came from.
+
+**Python lets you follow the call stack using frame.f_back.**
+
+```python
+import sys
+
+def outer():
+    inner()
+
+def inner():
+    frame = sys._getframe()
+    print("Called from:", frame.f_back.f_code.co_name)
+
+outer()
+# prints:
+# Called from: outer
+```
+
+The inner frame links back to the outer frame.
+
+---
+
+## A Historical Timeline of Python Frame Objects  
+**Where do Python’s frame objects come from?**
+
+Python’s frame system follows the tradition of stack-based execution in early languages. These languages built a trace of function calls to keep track of state, then exposed the call stack to the user in rare cases like errors or debugging. Python makes this visible as part of normal execution.
+
+---
+
+### People invented ways to trace running code.
+
+**1960 — Call stack frames** ALGOL introduced function call stacks to track nested execution.  
+**1972 — Execution state saved per call** C stored state for each function using the system stack.  
+
+### People designed Python’s internal stack.
+
+**1991 — Python 0.9.0 introduced frame objects** Each function call was backed by a Python frame.  
+**1994 — Tracebacks linked to frames** Python exposed the call stack during exceptions.  
+
+### People made Python frame objects visible.
+
+**1995 — sys._getframe() added** Python gave users a way to see the current frame object.  
+**2000 — Debuggers used f_trace** Python 2.0 let debuggers follow execution line by line.  
+**2025 — Python frame object structure stable** Frame objects remain key to inspection, tracing, and errors.
+
+---
+
+## Problems & Solutions with Python Frame Objects  
+**How do you use Python frame objects the right way?**
+
+Python frame objects show where the code is running, what values are stored, and what called what. These problems show how you can use frame objects to understand and manage the flow of your program.
+
+---
+
+### Problem: How do you find what function is running in Python?
+
+You are writing a log system and want each function to print its name when it runs. You do not want to write the name by hand. You want Python to find it on its own.
+
+**Problem:** You need to find the current function name without writing it yourself.  
+**Solution:** Use a frame object and read `f_code.co_name`.
+
+**Python lets you inspect the function name using a frame.**
+
+```python
+import sys
+
+def log_me():
+    frame = sys._getframe()
+    print("This function is:", frame.f_code.co_name)
+
+log_me()
+# prints:
+# This function is: log_me
+```
+
+---
+
+### Problem: How do you trace who called your function in Python?
+
+You want to know what part of your code called this function. You are trying to debug a case where the same function is used in many places. You want to print the name of the caller.
+
+**Problem:** You do not know who called your function.  
+**Solution:** Use the frame’s `f_back` link to read the caller’s name.
+
+**Python lets you trace the caller using frame.f_back.**
+
+```python
+import sys
+
+def outer():
+    inner()
+
+def inner():
+    frame = sys._getframe()
+    print("Caller was:", frame.f_back.f_code.co_name)
+
+outer()
+# prints:
+# Caller was: outer
+```
+
+---
+
+### Problem: How do you inspect local variables inside a frame in Python?
+
+You are writing a tool that shows all local variables at a certain point in your code. You want to print what names exist and what values they hold.
+
+**Problem:** You want to get all current local variables from running code.  
+**Solution:** Use `f_locals` to read the local name-value pairs.
+
+**Python lets you list local variables using frame.f_locals.**
+
+```python
+import sys
+
+def check_vars():
+    x = 10
+    y = 20
+    frame = sys._getframe()
+    print("Local vars:", frame.f_locals)
+
+check_vars()
+# prints:
+# Local vars: {'x': 10, 'y': 20, 'frame': <frame object at ...>}
+```
+
+---
+
+### Problem: How do you get the exact line Python is on in Python?
+
+You are debugging and want to show the line number where Python is running. You want to print this each time a function runs.
+
+**Problem:** You want to show the current line number from code.  
+**Solution:** Use the `f_lineno` value in the frame.
+
+**Python lets you print the current line using frame.f_lineno.**
+
+```python
+import sys
+
+def show_line():
+    frame = sys._getframe()
+    print("Line number:", frame.f_lineno)
+
+show_line()
+# prints:
+# Line number: (this line’s number)
+```
+
+---
+
+### Problem: How do you run code on every line while debugging in Python?
+
+You are building a custom debugger. You want to run a function each time Python moves to a new line in the code. You need to hook into Python’s execution engine.
+
+**Problem:** You need to run a custom action on each source line.  
+**Solution:** Use the frame’s `f_trace` hook.
+
+**Python lets you trace line steps using frame.f_trace.**
+
+```python
+import sys
+
+def trace_func(frame, event, arg):
+    print("Trace event:", event, "Line:", frame.f_lineno)
+    return trace_func
+
+def run():
+    x = 1
+    y = 2
+    z = x + y
+
+sys.settrace(trace_func)
+run()
+sys.settrace(None)
+# prints:
+# Trace event: call Line: (start)
+# Trace event: line Line: (x = 1)
+# Trace event: line Line: (y = 2)
+# Trace event: line Line: (z = x + y)
+# ...
+```
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co) 

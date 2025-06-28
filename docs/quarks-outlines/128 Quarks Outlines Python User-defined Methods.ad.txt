@@ -1,0 +1,1 @@
+What are user-defined methods in Python? Add to your OOP skills. Read this week's Quark's Outlines: Python User-defined Methods to learn more.

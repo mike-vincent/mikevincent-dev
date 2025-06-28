@@ -1,0 +1,232 @@
+# Quark’s Outlines: Python None  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python None
+
+### What is Python None?
+
+When you write Python code, you sometimes want to show that something is empty or missing. You use the word `None` for that. `None` is a built-in constant that stands for "no value."
+
+In English, you might answer “none” when someone asks how many apples you have. Python uses the word the same way to show that a value is not there.
+
+**Python lets you store missing or empty values with `None`.**
+
+```python
+result = None
+print(result)
+# Output: None
+```
+
+The name `result` now refers to the object `None`, which means nothing has been stored yet.
+
+### How does Python use None?
+
+Python returns `None` when a function does not return anything else. You can also use `None` to show that a variable is not set yet. This helps keep your program clear and predictable.
+
+**Python returns `None` when a function has no return value.**
+
+```python
+def greet(name):
+    print("Hello", name)
+
+x = greet("Ada")
+print(x)
+# Output:
+# Hello Ada
+# None
+```
+
+The function prints a greeting but does not return a value. So Python returns `None`.
+
+### Is Python None a value or a type?
+
+In Python, `None` is both a value and an object. It has its own type called `NoneType`. This type only has one value: `None`.
+
+You can check if a value is `None` using the `is` keyword. This checks if something is the exact same object as `None`.
+
+**Python uses the `is` keyword to check for `None`.**
+
+```python
+if x is None:
+    print("x is not set")
+# Output: x is not set
+```
+
+Use `is None` to compare, not `== None`, to be more exact.
+
+### Is Python None true or false?
+
+The value `None` counts as false in a condition. That means if you write `if None`, Python will treat it like `False`.
+
+This makes it easy to check if something is missing or empty by testing it in a condition.
+
+**Python treats `None` as false in a condition.**
+
+```python
+if not None:
+    print("This is false")
+# Output: This is false
+```
+
+This behavior helps your program skip or exit when a needed value is not present.
+
+---
+
+## A Historical Timeline of Python None  
+**Where did Python’s `None` come from?**
+
+Python's `None` was designed to clearly show the absence of a value. This idea came from earlier languages and logic systems. Over time, `None` became a stable, simple way to say “nothing here.”
+
+---
+
+### People created special constants for "no value"
+
+**1960 — Logical null in Lisp**: Used `nil` to show the end of a list or no result.  
+**1970 — Null pointers in C**: Used `NULL` as a placeholder when no memory was assigned.
+
+### People designed Python's version of null
+
+**1991 — Python 0.9.0**: Introduced `None` as a built-in name for "no value."  
+**2000 — Python 2.0**: Began using `None` more clearly in function returns and empty defaults.
+
+### People made Python None more consistent
+
+**2008 — Python 3.0**: Locked `None` as a constant. You can no longer reassign it.  
+**2025 — Python core team**: Keeps `None` stable as the one true null value.
+
+---
+
+## Problems & Solutions with Python None  
+**How do you use Python None the right way?**
+
+You often need a way to say "nothing yet" in your code. Python gives you `None` to do that. These problems show when and how to use it.
+
+---
+
+### Problem: How do you show a value is not set yet in Python?
+
+You are writing a quiz game. The player has not chosen an answer yet. You want to save that in a way the program can check.
+
+**Problem:** You try using `""` or `0`, but those are real values. You need a way to say “nothing selected.”
+
+**Solution:** Use `None` as a placeholder until a real answer is chosen.
+
+**Python lets you mark unset values with `None`.**
+
+```python
+answer = None
+if answer is None:
+    print("No answer yet.")
+# Output: No answer yet.
+```
+
+This keeps your code clean and avoids confusion between “no answer” and “wrong answer.”
+
+---
+
+### Problem: How do you return nothing from a function in Python?
+
+You write a function that prints a message but should not return any value.
+
+**Problem:** You forget to add a return line. You wonder what the function gives back.
+
+**Solution:** Python automatically returns `None` if no return is written.
+
+**Python returns `None` from functions without a return line.**
+
+```python
+def say_hi():
+    print("Hi!")
+
+result = say_hi()
+print(result)
+# Output:
+# Hi!
+# None
+```
+
+This shows that Python gives back `None` unless told otherwise.
+
+---
+
+### Problem: How do you check if a result was found in Python?
+
+You write a function that looks for a user. If the user is not found, you want to say so.
+
+**Problem:** You use an empty string or zero, but these might be real usernames or values.
+
+**Solution:** Return `None` when no match is found. Then check using `is None`.
+
+**Python lets you check for missing results using `None`.**
+
+```python
+def find_user(name):
+    if name == "Ada":
+        return "User found"
+    return None
+
+result = find_user("Bob")
+if result is None:
+    print("No such user.")
+# Output: No such user.
+```
+
+Using `None` shows clearly that the user was not found.
+
+---
+
+### Problem: How do you skip a value in a list in Python?
+
+You are looping through items. Some items should be skipped or ignored.
+
+**Problem:** You try to use `0` or `""`, but those are valid values. You need a better way.
+
+**Solution:** Mark unwanted items as `None`, then skip them with `if not`.
+
+**Python lets you skip missing values marked as `None`.**
+
+```python
+items = [1, None, 3]
+for item in items:
+    if not item:
+        continue
+    print(item)
+# Output:
+# 1
+# 3
+```
+
+This helps you filter out missing items safely.
+
+---
+
+### Problem: How do you properly compare with None in Python?
+
+You want to test if a value is `None`, but you write `x == None`.
+
+**Problem:** This works but is not always safe. Python can compare values in a way that gives false matches.
+
+**Solution:** Use `is None` to compare objects directly.
+
+**Python uses `is` to compare a value with `None`.**
+
+```python
+x = None
+if x is None:
+    print("x is empty")
+# Output: x is empty
+```
+
+This keeps your comparisons clear and correct.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

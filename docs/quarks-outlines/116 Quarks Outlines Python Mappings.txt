@@ -1,0 +1,223 @@
+# Quark’s Outlines: Python Mappings  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Mappings
+
+### What is a Python mapping?
+
+You often need to look up one thing using another. You match names to phone numbers, or items to prices. In Python, this kind of relationship is called a **mapping**.
+
+A Python mapping connects a key to a value. You use the key to get the value. Python gives you a built-in mapping type called a **dictionary**.
+
+**Python lets you match values using mappings.**
+
+```python
+prices = {"apple": 1.5, "banana": 0.5}
+print(prices["banana"])  # 0.5
+```
+
+You write a mapping with braces `{}`, colons `:`, and commas `,`. Each key is linked to a value. You can read, add, change, or delete values using the key.
+
+### How do Python mappings work?
+
+A Python mapping holds a set of key–value pairs. Each key must be unique. You can use a string, number, or other immutable object as a key. You cannot use lists or other dictionaries as keys.
+
+Mappings do not have order based on when you added things. They are not like lists. Instead, Python finds the value for a key very fast. This makes mappings useful for fast lookups.
+
+**Python lets you check and change values in a mapping.**
+
+```python
+user = {"name": "Ada", "age": 36}
+user["age"] = 37
+print(user["age"])  # 37
+```
+
+You can update the value for a key. If you try to get a key that does not exist, Python raises a `KeyError`.
+
+### Are Python mappings mutable?
+
+Yes. You can change a mapping after you make it. You can add new keys, change values, or remove pairs. This makes Python mappings flexible.
+
+**Python lets you add or remove keys from mappings.**
+
+```python
+user = {"name": "Ada"}
+user["email"] = "ada@example.com"
+del user["name"]
+print(user)  # {'email': 'ada@example.com'}
+```
+
+This means you can grow or shrink a mapping as your program runs.
+
+### What do Python mappings return when you loop?
+
+You can use a `for` loop to go through a mapping. By default, Python gives you the keys. You can also loop through items or values using `.items()` or `.values()`.
+
+**Python lets you loop through a mapping’s keys and values.**
+
+```python
+book = {"title": "Code", "pages": 300}
+for key, value in book.items():
+    print(key, value)
+# title Code
+# pages 300
+```
+
+This helps you work with each key–value pair one at a time.
+
+---
+
+## A Historical Timeline of Python Mappings  
+**Where do Python’s mapping types come from?**
+
+Python’s mappings began as a way to connect values by key. The mapping type evolved from early table and associative array ideas in other languages. Python made them faster, clearer, and more useful for programs that work with labeled data.
+
+---
+
+### People invented ways to index data by key.
+
+**1956 — Associative arrays**, IPL-V, stored data using key–value links instead of just lists.
+
+**1970 — Hash tables**, Lisp and APL, made key lookup fast using hashing functions.
+
+### People designed Python’s mapping system.
+
+**1991 — Built-in dictionaries**, Python 0.9.0 used `{}` and `:` to make key–value pairs easy to write and read.
+
+**1995 — Hashable keys only**, Python required keys to be immutable so lookup stays fast.
+
+### People expanded how mappings work.
+
+**2001 — Custom dict behavior**, Python 2.2 let you override mapping logic in your own classes.
+
+**2017 — Insertion order preservation**, Python 3.6 began keeping insertion order, made official in 3.7.
+
+### People chose to keep mappings simple.
+
+**2023 — Stable mapping rules**, Python’s built-in dictionary remained unchanged to keep behavior reliable.
+
+**2025 — Only one built-in mapping**, Python team continued using `dict` as the single core mapping type.
+
+---
+
+## Problems & Solutions with Python Mappings  
+**How do you use Python mappings the right way?**
+
+You often need to match names to data. Python mappings help you find and update values quickly. These examples show real tasks you face and how Python mappings solve them using simple code.
+
+---
+
+### Problem: How do you store key–value pairs in a clean way in Python?
+
+You are tracking the price of items in a small store. You want to look up the price of each item using its name. You try using two lists: one for names and one for prices. But this makes it hard to find or change a value quickly.
+
+**Problem:** How do you link names to prices directly and read them easily?
+
+**Solution:** Use a Python dictionary to store item names as keys and prices as values.
+
+**Python lets you store labeled values in a mapping.**
+
+```python
+prices = {"apple": 1.5, "banana": 0.5}
+print(prices["apple"])  # 1.5
+```
+
+This lets you access the price with the item name. It is faster and clearer than using two separate lists.
+
+---
+
+### Problem: How do you update a value by name in a Python mapping?
+
+You have a user record with an age. The person gets older, and you want to change the age in your data. You do not want to rewrite the whole record.
+
+**Problem:** How do you update just one value in a stored set of data?
+
+**Solution:** Use the key in a mapping to set a new value.
+
+**Python lets you change a value using its key.**
+
+```python
+user = {"name": "Ada", "age": 36}
+user["age"] = 37
+print(user["age"])  # 37
+```
+
+You change only the age. The rest of the record stays the same.
+
+---
+
+### Problem: How do you add or remove information from a Python mapping?
+
+You begin with only a name in a record. Later you want to add an email. Then you realize you do not need the name anymore and want to remove it.
+
+**Problem:** How do you grow or shrink a data record during the program?
+
+**Solution:** Use a Python mapping to add or delete keys as needed.
+
+**Python lets you edit mappings by adding or deleting keys.**
+
+```python
+user = {"name": "Ada"}
+user["email"] = "ada@example.com"
+del user["name"]
+print(user)  # {'email': 'ada@example.com'}
+```
+
+You can grow and shrink the record based on your program's needs.
+
+---
+
+### Problem: How do you check if a key is present in a Python mapping?
+
+You want to print a user’s phone number, but only if it exists. If the user has no phone number, you want to skip that part of the message.
+
+**Problem:** How do you check if a value is in the mapping before using it?
+
+**Solution:** Use the `in` keyword to test if a key is present.
+
+**Python lets you check for a key before using it.**
+
+```python
+user = {"name": "Ada"}
+if "phone" in user:
+    print(user["phone"])
+else:
+    print("No phone number.")
+# No phone number.
+```
+
+This avoids errors and helps you print only what is there.
+
+---
+
+### Problem: How do you loop through a mapping in Python?
+
+You want to print all items in a mapping: the key and the value. You want to do this in a simple loop without hardcoding the keys.
+
+**Problem:** How do you loop through all pairs in a mapping?
+
+**Solution:** Use `.items()` to get both key and value in the loop.
+
+**Python lets you loop through key–value pairs with `.items()`.**
+
+```python
+colors = {"sky": "blue", "grass": "green"}
+for key, value in colors.items():
+    print(key, value)
+# sky blue
+# grass green
+```
+
+This prints both parts of each pair and works for any size mapping.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

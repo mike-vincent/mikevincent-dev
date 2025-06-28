@@ -1,0 +1,1 @@
+Have you encountered '...' in Python? This special value might surprise you. Read this week's Quark's Outlines: Python Ellipsis to uncover its secrets.

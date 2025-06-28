@@ -1,0 +1,191 @@
+# Quark’s Outlines: Python Floating Point Numbers  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Floating Point Numbers
+
+### What is a Python floating point number?
+
+You use Python to work with numbers that are not whole. These are called **floating point numbers**. A floating point number is a number that can have a decimal point. You use it when the value is not exact, like `3.14`, `0.5`, or `-2.75`.
+
+Python floating point numbers are based on the computer’s own number system. Python stores them using a format called double precision. This means the number can hold decimal parts and very large or very small values, but the result might not always be exact.
+
+**Python lets you write decimal numbers using floating point syntax.**
+
+```python
+a = 3.14
+b = -0.5
+c = 1.0
+print(a + b)  # prints 2.64
+```
+
+### How do Python floating point numbers behave?
+
+A floating point number always has a decimal point, even if the number is exact. You can also write a floating point number using **scientific notation**, which uses `e` or `E` to show powers of ten. For example, `1e3` means `1000.0`.
+
+Python does not support single-precision floats. All floating point numbers in Python use double precision. These numbers are not exact because computers use binary to store them. The number `0.1` might not store exactly as `0.1`.
+
+**Python lets you write floating point numbers using exponents.**
+
+```python
+x = 1e3
+y = 2.5e-2
+print(x)  # prints 1000.0
+print(y)  # prints 0.025
+```
+
+### Can you trust Python floating point results?
+
+Python floating point numbers can be used in math, but you should be careful when comparing them. Some values may not match exactly because of rounding errors. This is a common feature of how all computers store floating point numbers.
+
+To compare floating point numbers, you often check if they are close, not equal. Python gives you tools like `math.isclose()` for that. You should not use `==` to compare two floating point values directly unless they are simple and known.
+
+**Python helps you compare float values safely using math tools.**
+
+```python
+import math
+a = 0.1 + 0.2
+print(a == 0.3)  # prints False
+print(math.isclose(a, 0.3))  # prints True
+```
+
+---
+
+## A Historical Timeline of Python Floating Point Numbers  
+**Where do Python’s floating point rules come from?**
+
+Python uses floating point numbers that follow the rules of computers and the C language. These rules go back many years and were built for speed, size, and standard formats. This timeline shows how Python adopted and expanded these features.
+
+---
+
+### People invented floating point to handle decimals
+
+**1951 —** **Floating point in hardware**, Ferranti Mark 1, handled decimal math using early logic circuits  
+**1960 —** **Scientific notation in code**, ALGOL 60 let numbers use powers of ten like `1.0e6`  
+
+### People designed Python floating point behavior
+
+**1989 —** **Built-in float type**, Python’s early design used C double-precision floats for all decimal values  
+**1991 —** **Float objects in Python 0.9.0**, first release included decimal math and printing of float values  
+
+### People improved Python’s float handling
+
+**2000 —** **Accurate division**, Python 2.0 added future division with `/` returning float even for integers  
+**2006 —** **Decimal module**, Python 2.4+ gave better control of rounding using `decimal.Decimal`  
+**2008 —** **Standard float behavior**, Python 3.0 removed old integer division, made `/` always return float  
+**2016 —** **Underscores for float literals**, PEP 515 allowed grouping in large float values like `1_000.000_1`  
+**2023 —** **No change to float type**, Python kept float rules stable to avoid complexity
+
+---
+
+## Problems & Solutions with Python Floating Point Numbers  
+**How do you use Python floating point numbers the right way?**
+
+Python gives you floating point numbers to store and work with values that include decimal points. You use them in measurements, currency, and any case where a number is not whole. But Python floats are not always exact. These examples show how Python helps you solve problems with floating point values.
+
+---
+
+### Problem: How do you store a number with decimals in Python?
+
+You are writing a program that tracks height in meters. You want to store `1.75`, not `1` or `2`. If you use a whole number, your data will be wrong.
+
+**Problem:** How do you store a number like `1.75` in Python?  
+**Solution:** Use a floating point number with a decimal point.
+
+**Python lets you store decimal numbers as floating point values.**
+
+```python
+height = 1.75
+print(height)  # prints 1.75
+```
+
+This stores the number `1.75` exactly as written. You can now do math with it.
+
+---
+
+### Problem: How do you write large or small numbers clearly in Python?
+
+You are working with data from space. One number is `0.000000005`. Another is `3000000000`. They are hard to read and easy to mistype.
+
+**Problem:** How do you write large or small float numbers in Python?  
+**Solution:** Use scientific notation with `e` or `E`.
+
+**Python lets you use exponential notation for very large or small floats.**
+
+```python
+tiny = 5e-9
+large = 3e9
+print(tiny)  # prints 5e-09
+print(large)  # prints 3000000000.0
+```
+
+These forms are shorter, easier to type, and mean the same thing.
+
+---
+
+### Problem: How do you compare float values in Python?
+
+You calculate `0.1 + 0.2` and expect to get `0.3`. But your code says they are not equal.
+
+**Problem:** Why does `0.1 + 0.2 == 0.3` return `False`?  
+**Solution:** Floating point math has rounding errors. Use `math.isclose()` instead.
+
+**Python helps you compare float values with built-in tools.**
+
+```python
+import math
+a = 0.1 + 0.2
+print(a == 0.3)  # prints False
+print(math.isclose(a, 0.3))  # prints True
+```
+
+This shows how Python’s float math works and how to check values safely.
+
+---
+
+### Problem: How do you mix integers and floats in Python?
+
+You want to add `1` to `2.5`. You are not sure what type the result will be.
+
+**Problem:** What happens when you add an integer to a float?  
+**Solution:** Python converts the result to a float.
+
+**Python converts math results to float if any value is a float.**
+
+```python
+x = 1 + 2.5
+print(x)  # prints 3.5
+```
+
+This keeps the decimal part and avoids losing precision.
+
+---
+
+### Problem: How do you perform exact decimal math in Python?
+
+You are writing a money program. You add `0.1` ten times and expect `1.0`. But the result is not exact.
+
+**Problem:** How can you add small float values without error?  
+**Solution:** Use the `decimal.Decimal` type for exact control.
+
+**Python gives you a decimal module for exact math.**
+
+```python
+from decimal import Decimal
+a = Decimal("0.1")
+total = a * 10
+print(total)  # prints 1.0
+```
+
+This shows how to get full precision for currency or finance work.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

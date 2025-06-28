@@ -1,0 +1,1 @@
+What are traceback objects in Python? They help find bugs in your code. Read this week's Quark's Outlines: Python Traceback Objects to learn how.

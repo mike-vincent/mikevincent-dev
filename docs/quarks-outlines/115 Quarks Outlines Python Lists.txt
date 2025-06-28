@@ -1,0 +1,211 @@
+# Quark’s Outlines: Python Lists  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Lists
+
+### What is a Python list?
+
+You want to store many values together in order. You want to keep the order and change the values later. A Python list gives you that power. A Python list is a **mutable sequence**. This means you can add, remove, or change items in place.
+
+A Python list holds other objects. These objects can be numbers, strings, or other lists. The list keeps the order in which you added them.
+
+**Python lets you store many values in order using a list.**
+
+```python
+groceries = ["milk", "bread", "eggs"]
+print(groceries[1])
+# prints: bread
+```
+
+### Problem: write a Python list
+
+To write a list in Python, use square brackets `[]`. Inside the brackets, write each item. Use commas to separate them. A list can be empty or hold many items. A list with one item must still use commas.
+
+**Python lets you write lists using square brackets and commas.**
+
+```python
+empty = []
+one = [5]
+mixed = ["cat", 42, True]
+print(mixed)
+# prints: ['cat', 42, True]
+```
+
+You can also make a list from other values using the `list()` function.
+
+### Problem: change items in a Python list
+
+You can change any item in a list by using its index. Indexes start at `0`. You can also use `append()` to add to the end. You can use `del`, `pop()`, or `remove()` to take items out.
+
+**Python lets you update, add, or delete items in a list.**
+
+```python
+colors = ["red", "blue", "green"]
+colors[1] = "yellow"
+colors.append("purple")
+del colors[0]
+print(colors)
+# prints: ['yellow', 'green', 'purple']
+```
+
+You can use slice notation to change many items at once. You can use loops to go through each item.
+
+### What can a Python list hold?
+
+A Python list can hold any type of value. It can mix numbers, strings, or other lists. Lists can be nested. You can loop over a list. You can check its length with `len()`.
+
+**Python lets you store mixed or nested values in a list.**
+
+```python
+nested = [1, [2, 3], "a"]
+print(len(nested))
+# prints: 3
+```
+
+You can put a list inside a list. You can access inner items with more brackets.
+
+---
+
+## A Historical Timeline of Python Lists  
+**Where do Python’s list rules come from?**
+
+Python lists come from the need to hold items in order. Lists first appeared in other languages as arrays. Python made lists easier by removing the need for fixed size or single type.
+
+---
+
+### People built the idea of ordered data
+
+**1957 — Arrays in FORTRAN** used fixed-size collections for math problems  
+**1960s — Lists in LISP** allowed flexible, nested structures for symbols and data  
+**1970s — Arrays in C** added index-based access with strong typing
+
+### Python shaped its own list type
+
+**1991 — Lists as mutable sequences** Python 0.9.0 made lists growable and flexible  
+**2000 — List comprehensions** Python 2.0 added a clean way to build lists with loops  
+**2008 — `list()` built-in** Python 3.0 allowed easy conversion from strings, ranges, and other sequences  
+
+### Python lists became the standard sequence
+
+**2010s — Lists used in data tools** Pandas, NumPy, and others used lists for easy conversion  
+**2025 — Lists kept as core mutable type** Python chose not to split into array types or enforce strict typing
+
+---
+
+## Problems & Solutions with Python Lists  
+**How do you use Python lists the right way?**
+
+You use a Python list when you need to hold values in order and change them later. Each example below shows how Python lists help with real tasks in a simple way.
+
+---
+
+### Problem: How do you keep a to-do list in Python?
+
+You want to write down tasks in the order they come to mind. Later, you want to mark one as done or add more to the end. You do not want to rewrite the whole list each time.
+
+**Problem:** You need a way to store tasks and change them later.
+
+**Solution:** A Python list keeps your tasks in order. You can update items, add new ones, or remove old ones.
+
+**Python lets you update a task list using a mutable list.**
+
+```python
+tasks = ["feed cat", "buy milk", "call mom"]
+tasks[1] = "buy oat milk"
+tasks.append("read book")
+print(tasks)
+# prints: ['feed cat', 'buy oat milk', 'call mom', 'read book']
+```
+
+---
+
+### Problem: How do you store results that change size in Python?
+
+You are running a quiz and want to store each score. Some users answer one question. Others answer ten. You cannot guess how many scores you will have.
+
+**Problem:** You need to store a changing number of results.
+
+**Solution:** A Python list can grow. You can start with an empty list and add each result as it comes.
+
+**Python lets you grow a list one item at a time.**
+
+```python
+scores = []
+scores.append(10)
+scores.append(8)
+scores.append(7)
+print(scores)
+# prints: [10, 8, 7]
+```
+
+---
+
+### Problem: How do you repeat actions for each value in a list in Python?
+
+You want to print each item in a list. You do not want to write a print line for every item.
+
+**Problem:** You need a simple way to repeat an action across list items.
+
+**Solution:** A Python list works with a loop. You can use `for` to visit each item once.
+
+**Python lets you loop over each item in a list.**
+
+```python
+groceries = ["milk", "bread", "eggs"]
+for item in groceries:
+    print(item)
+# prints:
+# milk
+# bread
+# eggs
+```
+
+---
+
+### Problem: How do you get a part of a list in Python?
+
+You want to take the first few items from a list. You do not want to change the rest.
+
+**Problem:** You need only part of a list without changing the whole list.
+
+**Solution:** A Python list supports slicing. Use `[:]` to copy or select part of the list.
+
+**Python lets you slice a list to get part of it.**
+
+```python
+numbers = [10, 20, 30, 40, 50]
+first_three = numbers[:3]
+print(first_three)
+# prints: [10, 20, 30]
+```
+
+---
+
+### Problem: How do you make a list from another list in Python?
+
+You want to take a list of names and make a list of greetings. Each greeting should say “Hi” followed by the name.
+
+**Problem:** You need to create a new list based on an old list.
+
+**Solution:** A Python list can be built using a list comprehension.
+
+**Python lets you make new lists with list comprehensions.**
+
+```python
+names = ["Ada", "Bob", "Cy"]
+greetings = [f"Hi {name}" for name in names]
+print(greetings)
+# prints: ['Hi Ada', 'Hi Bob', 'Hi Cy']
+```
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

@@ -1,0 +1,195 @@
+# Quark’s Outlines: Python Execution Model  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of the Python Execution Model
+
+### What is the Python execution model?
+
+When you run a Python program, Python follows a process to decide what happens and in what order. This process is called the **Python execution model**. It controls how code is grouped, how values are stored, and what happens when things go wrong.
+
+Python organizes your code into **code blocks**. Each block runs in an **execution frame**, which stores the block’s state and connects to the next block. Each frame uses one or more **name spaces** to hold names and values. When something goes wrong, Python raises an **exception**. These four ideas — code blocks, execution frames, name spaces, and exceptions — make up the execution model.
+
+**Python lets you run code using a frame that manages blocks, names, and errors.**
+
+```python
+def greet():
+    name = "Ada"
+    print("Hello,", name)
+
+greet()
+# prints:
+# Hello, Ada
+```
+
+Here, `greet()` runs inside a new code block and a new execution frame. The name `name` is stored in the local name space for that frame.
+
+---
+
+## A Historical Timeline of the Python Execution Model  
+**Where did Python’s execution model come from?**
+
+Python’s execution model follows ideas from earlier languages like ALGOL and Lisp, but adds features for safe name handling and flexible error control. The timeline below shows how code blocks, execution frames, name spaces, and exceptions evolved in Python.
+
+---
+
+### People created ways to group and control program steps
+
+**1960 —** **Code blocks and scopes** in ALGOL introduced nested blocks and clear rules for local vs global names.  
+**1970s —** **Stack-based frames** in Lisp and C made call stacks and local scope rules common.  
+
+---
+
+### People shaped Python’s execution model
+
+**1991 —** **Code blocks and frames** added in Python 0.9.0 to support safe function calls and modular design.  
+**1995 —** **Exceptions and try blocks** supported with `try`, `except`, and `raise` keywords.  
+**2001 —** **Dynamic name space access** added using `globals()` and `locals()`.  
+**2006 —** **`exec` and `eval` enhancements** added optional name space arguments.  
+**2025 —** **Execution model stable** with strong support for interactive, script, and module-based code.
+
+---
+
+## Problems & Solutions with the Python Execution Model  
+**How do you use the Python execution model the right way?**
+
+Python runs code in steps. Each step follows the execution model. It creates code blocks, builds frames, uses name spaces, and raises exceptions. These problems show how that works and how you can use the model to read, write, and fix your code.
+
+---
+
+### Problem: How do you see where Python runs your code?
+
+You write a function and call it from another function. You want to understand where Python is running the code. You want to see what blocks are active and how they relate.
+
+**Problem:** You want to trace how Python enters and exits each code block.  
+**Solution:** Python uses execution frames to track what block is running now.
+
+**Python lets you inspect the call stack using code blocks and frames.**
+
+```python
+import sys
+
+def outer():
+    def inner():
+        frame = sys._getframe()
+        print("Now running:", frame.f_code.co_name)
+    inner()
+
+outer()
+# prints:
+# Now running: inner
+```
+
+Each time Python enters a new block, it creates a new frame that holds the code object and name spaces for that block.
+
+---
+
+### Problem: How do you separate local and global names in Python?
+
+You write a function with a variable called `value`. You also have another `value` in the module. You want to understand which one Python uses when the function runs.
+
+**Problem:** You need to know where Python looks for names inside a block.  
+**Solution:** Python uses two name spaces in each frame — local and global.
+
+**Python lets you use locals for function names and globals for module names.**
+
+```python
+value = "global"
+
+def show():
+    value = "local"
+    print("Value is:", value)
+
+show()
+# prints:
+# Value is: local
+```
+
+Inside a function, Python uses the local name space first. Outside, it uses the global one.
+
+---
+
+### Problem: How do you reuse a block of code with its own scope in Python?
+
+You want to run a set of lines many times. You do not want the names in that code to change values outside it. You want the names to stay inside.
+
+**Problem:** You need to run a block of code in its own local space.  
+**Solution:** Python uses a new name space for each function body.
+
+**Python lets you keep values private to a block using local name spaces.**
+
+```python
+x = 1
+
+def block():
+    x = 2
+    print("Inside block:", x)
+
+block()
+print("Outside block:", x)
+# prints:
+# Inside block: 2
+# Outside block: 1
+```
+
+The function creates a local name space. Its names do not affect names outside the block.
+
+---
+
+### Problem: How do you handle an error without stopping the program in Python?
+
+You are running code that might fail. You want to try it and move on if it breaks. You do not want the whole program to stop.
+
+**Problem:** You want to catch a problem and keep the program running.  
+**Solution:** Python uses exceptions to manage errors during execution.
+
+**Python lets you catch errors using try and except blocks.**
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+# prints:
+# Cannot divide by zero.
+```
+
+Python raised an exception. The code block caught it and handled the error without stopping the program.
+
+---
+
+### Problem: How do you inspect the current global and local names in Python?
+
+You want to see what values Python knows about in your code. You want to look inside the current name spaces and print the names and their values.
+
+**Problem:** You want to view the contents of the global and local name space.  
+**Solution:** Python gives you built-in functions `globals()` and `locals()`.
+
+**Python lets you read name spaces using built-in lookup tools.**
+
+```python
+x = 42
+
+def show():
+    y = "Ada"
+    print("Globals:", list(globals().keys()))
+    print("Locals:", list(locals().keys()))
+
+show()
+# prints:
+# Globals: ['__name__', '__doc__', ..., 'x']
+# Locals: ['y']
+```
+
+You can use these tools to see what names are defined in each scope.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

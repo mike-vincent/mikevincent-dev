@@ -1,0 +1,206 @@
+# Quark’s Outlines: Python Sequences  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Sequences
+
+### What is a Python sequence?
+
+When you write Python code, you often need to store values in order. A **Python sequence** is an object that holds items in a set order. Each item has a number called an index. The first index is always `0`.
+
+Python sequences are like boxes in a row. Each box holds one item. You can count the boxes and get the item at each place by number.
+
+**Python lets you store values in order with sequences.**
+
+```python
+colors = ["red", "blue", "green"]
+print(colors[0])  # prints "red"
+```
+
+The list `colors` is a Python sequence. You can get each item by its index.
+
+### Problem: How do you work with Python sequence indexes in Python?
+
+Python sequences use natural numbers as indexes. The first item has index `0`, the second has `1`, and so on. You can use the `len()` function to get the number of items in a sequence.
+
+You can also use **negative indexes** to count from the end. `-1` means the last item, `-2` the second to last, and so on.
+
+**Python lets you count items with `len()` and use negative indexes.**
+
+```python
+names = ["Ada", "Lin", "Grace"]
+print(len(names))     # prints 3
+print(names[-1])      # prints "Grace"
+```
+
+This lets you reach the end of a sequence even if you do not know the total length.
+
+### How does slicing work in Python sequences?
+
+Python sequences let you take a slice of items using square brackets. You write the slice as `[start:end]`. This gives all items from the start index up to, but not including, the end index. The result is a new sequence.
+
+**Python lets you take slices from sequences.**
+
+```python
+letters = ["a", "b", "c", "d"]
+print(letters[1:3])  # prints ['b', 'c']
+```
+
+You can leave out `start` or `end` to go from the beginning or to the end. You can also use a `step` as `[start:end:step]`.
+
+### Are all Python sequences the same?
+
+Python sequences are either **immutable** or **mutable**. If a sequence is immutable, it cannot be changed. If a sequence is mutable, you can change its items after it is created.
+
+Strings and tuples are immutable. Lists are mutable. All support indexing, slicing, and length checking. Some allow changes to the items; some do not.
+
+**Python gives you both mutable and immutable sequences.**
+
+```python
+x = "cat"
+# x[0] = "b"  # Error, strings are immutable
+
+y = ["c", "a", "t"]
+y[0] = "b"
+print(y)  # prints ['b', 'a', 't']
+```
+
+Choose the right kind based on whether you need to change it later.
+
+---
+
+## A Historical Timeline of Python Sequences  
+**Where do Python’s sequence rules come from?**
+
+Python sequences come from early programming ideas about ordered sets. These ideas were used in math, memory, and text processing. Python kept the clear parts and removed the clutter. This timeline shows how Python sequences came to be.
+
+---
+
+### People invented ways to store values in order.
+
+**1959 —** **Array indexing** in IBM FORTRAN used numeric indexes to reach items in memory.  
+**1970 —** **String slicing** in BCPL and B introduced substring syntax with start and end indexes.  
+
+### People designed Python’s first sequences.
+
+**1991 —** **Basic sequence types** Python 0.9.0 added lists, tuples, and strings with indexing and slicing.  
+**1994 —** **Negative indexes** Python 1.0 let you count from the end using `-1`.  
+
+### People expanded what sequences could do.
+
+**2000 —** **List comprehensions** Python 2.0 added short syntax to build new lists from sequences.  
+**2001 —** **Extended slices** Python 2.3 added `[start:end:step]` to skip items in a slice.  
+**2017 —** **Sequence unpacking with `*`** Python 3.5 added starred expressions in assignments and calls.  
+
+### People kept Python sequences stable.
+
+**2020 —** **PEP 622 proposed match patterns** using sequence unpacking.  
+**2025 —** **No changes to core sequence types** to keep code simple and safe.
+
+---
+
+## Problems & Solutions with Python Sequences  
+**How do you use Python sequences the right way?**
+
+Python sequences let you work with groups of items in order. You can use them to hold names, steps, or results. The problems below show how sequences help with real tasks.
+
+---
+
+### Problem: How do you get the last item in a list in Python?
+
+You are keeping a list of songs you play during the day. At the end, you want to see the last song you played. You do not want to count all items each time.
+
+**Problem:** How can you get the last item in a sequence without knowing the total number?
+
+**Solution:** Use the index `-1` to reach the last item in any Python sequence.
+
+**Python lets you use `-1` to get the last item in a sequence.**
+
+```python
+songs = ["Blue Moon", "Take Five", "So What"]
+print(songs[-1])  # prints "So What"
+```
+
+---
+
+### Problem: How do you get part of a sequence in Python?
+
+You have a list of scores and want to see only the middle three. You do not want to write a loop. You want to grab them at once.
+
+**Problem:** How can you take a slice from a sequence with just one line?
+
+**Solution:** Use `[start:end]` to take part of a sequence. The slice will include the start but not the end.
+
+**Python lets you slice part of a sequence by index range.**
+
+```python
+scores = [4, 5, 6, 7, 8, 9]
+print(scores[2:5])  # prints [6, 7, 8]
+```
+
+---
+
+### Problem: How do you change a value in a list in Python?
+
+You want to fix a mistake in your grocery list. You typed "chips" but meant "bread". You want to fix the list without rewriting it.
+
+**Problem:** How can you change one item in a sequence?
+
+**Solution:** Use a list. Lists are mutable and let you assign a new value at an index.
+
+**Python lets you change items in a mutable sequence like a list.**
+
+```python
+groceries = ["milk", "chips", "eggs"]
+groceries[1] = "bread"
+print(groceries)  # prints ['milk', 'bread', 'eggs']
+```
+
+---
+
+### Problem: How do you make a short list from a long one in Python?
+
+You are writing a program that prints the first five entries from a file. The file gives you many more lines, but you only want a preview.
+
+**Problem:** How can you take the first few items from a sequence?
+
+**Solution:** Use a slice with an end index. You can skip the start index to begin from the front.
+
+**Python lets you take the first items in a sequence using slices.**
+
+```python
+lines = ["one", "two", "three", "four", "five", "six"]
+print(lines[:5])  # prints ['one', 'two', 'three', 'four', 'five']
+```
+
+---
+
+### Problem: How do you write code that works with any sequence in Python?
+
+You are making a function that prints every item, no matter if it is a list or a string. You do not want to write separate code for each kind.
+
+**Problem:** How can you write code that works with any Python sequence?
+
+**Solution:** Use a `for` loop. All sequences can be used in a `for` loop, including strings, lists, and tuples.
+
+**Python lets you loop through all items in any sequence.**
+
+```python
+def show_items(seq):
+    for item in seq:
+        print(item)
+
+show_items("Hi!")         # prints H \n i \n !
+show_items(["H", "i", "!"])  # prints H \n i \n !
+```
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

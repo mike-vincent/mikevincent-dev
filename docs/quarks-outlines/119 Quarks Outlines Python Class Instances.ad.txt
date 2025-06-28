@@ -1,0 +1,1 @@
+What are class instances in Python? These objects are key to Python's OOP. Read this week's Quark's Outlines: Python Class Instances to learn more.

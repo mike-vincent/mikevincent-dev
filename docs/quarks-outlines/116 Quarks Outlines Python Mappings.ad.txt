@@ -1,0 +1,1 @@
+What are mappings in Python? Learn how to work with key-value pairs. Read this week's Quark's Outlines: Python Mappings to find out more.

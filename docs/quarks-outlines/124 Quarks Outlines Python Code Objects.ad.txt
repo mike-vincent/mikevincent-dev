@@ -1,0 +1,1 @@
+What are code objects in Python? Learn how Python sees your code. Read this week's Quark's Outlines: Python Code Objects to find out more.

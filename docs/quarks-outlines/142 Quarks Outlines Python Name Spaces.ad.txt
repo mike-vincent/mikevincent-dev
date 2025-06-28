@@ -1,0 +1,1 @@
+What are namespaces in Python? Learn how Python keeps names apart. Read this week's Quark's Outlines: Python Name Spaces to find out more.

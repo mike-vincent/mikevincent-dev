@@ -1,0 +1,238 @@
+# Quark’s Outlines: Python Basic Customization  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Basic Customization
+
+### What is Python basic customization?
+
+When you make a class in Python, you can change how your objects behave in certain common situations. This is called **Python basic customization**. Python gives you special method names that begin and end with double underscores. These methods let you control what happens when your object is created, shown, compared, deleted, or tested for truth.
+
+You do not call these methods yourself. Python calls them at the right time. You only define what they do.
+
+**Python lets you control object behavior with special method names.**
+
+```python
+class Greeter:
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return f"Hello, {self.name}!"
+
+g = Greeter("Ada")
+print(g)
+# prints:
+# Hello, Ada!
+```
+
+Here, Python calls `__init__` when the object is created, and `__str__` when it is printed.
+
+### What special methods can you define?
+
+Python supports many special methods. Each one runs at a specific time:
+
+- `__init__`: runs when an object is made  
+- `__del__`: runs when an object is deleted  
+- `__str__`: runs when the object is printed  
+- `__repr__`: runs when `repr()` is called  
+- `__cmp__`: runs during comparisons  
+- `__hash__`: runs when used as a key in a dictionary  
+- `__nonzero__`: runs when Python checks if the object is true or false  
+
+You can define these methods in your class to make your objects behave in helpful ways.
+
+**Python lets you hook into core actions with magic methods.**
+
+```python
+class Number:
+    def __init__(self, value):
+        self.value = value
+    def __bool__(self):
+        return self.value != 0
+
+print(bool(Number(0)))
+print(bool(Number(5)))
+# prints:
+# False
+# True
+```
+
+This object tells Python if it should be treated as true or false based on the value.
+
+---
+
+## A Historical Timeline of Python Basic Customization  
+**Where do Python’s customization methods come from?**
+
+Python built its special methods on ideas from object-oriented programming. Languages like Smalltalk and C++ allowed programmers to define how objects behave when printed or compared. Python kept this idea but used double underscores to signal internal methods that users can still customize.
+
+---
+
+### People built rules for object behavior
+
+**1980 —** **Special method names** in Smalltalk and C++ let classes define their own construction, destruction, and string views.
+
+**1989 —** **Python class model** used `__init__`, `__del__`, and `__str__` to give control over creation, cleanup, and display.
+
+---
+
+### People expanded what can be customized in Python
+
+**1991 —** **Python 0.9.0** added `__cmp__` and `__repr__` for comparisons and debugging views.
+
+**1995 —** **Truth testing** added `__nonzero__`, later replaced by `__bool__` in Python 3.
+
+**2001 —** **`__hash__` rules refined** in Python 2.2 to make dictionary use predictable.
+
+**2008 —** **Python 3.0** removed `__cmp__`, replacing it with rich comparison methods like `__eq__` and `__lt__`.
+
+**2025 —** **Core method names stable** with most changes focused on performance or internal use only.
+
+---
+
+## Problems & Solutions with Python Basic Customization  
+**How do you use Python basic customization the right way?**
+
+Python lets you define special method names to control how your objects behave. These methods help you create, show, compare, and test your objects. The problems below show when and why to use them.
+
+---
+
+### Problem: How do you set up your object when it is created in Python?
+
+You are making a class that holds a name. You want the name to be saved at the moment the object is made. You do not want to call a separate method later. You want Python to call your setup code right when the object is created.
+
+**Problem:** You want to define what happens when the object is made.  
+**Solution:** Python calls the `__init__` method right after the object is created.
+
+**Python lets you set up each new object using `__init__`.**
+
+```python
+class User:
+    def __init__(self, name):
+        self.name = name
+
+u = User("Ada")
+print(u.name)
+# prints:
+# Ada
+```
+
+The `__init__` method takes the name and stores it inside the object.
+
+---
+
+### Problem: How do you define what is shown when you print an object in Python?
+
+You make an object and print it. But Python prints something like `<__main__.MyClass object at 0x000001>`. You want to show a message or readable string instead. You want users to understand what the object means.
+
+**Problem:** You want to show a clean string when the object is printed.  
+**Solution:** Python uses the `__str__` method when the object is passed to `print()`.
+
+**Python lets you control what print() shows using `__str__`.**
+
+```python
+class Report:
+    def __init__(self, title):
+        self.title = title
+    def __str__(self):
+        return f"Report: {self.title}"
+
+r = Report("Q2 Sales")
+print(r)
+# prints:
+# Report: Q2 Sales
+```
+
+The `__str__` method returns the message Python should print.
+
+---
+
+### Problem: How do you clean up when the object is deleted in Python?
+
+You create an object that uses a file or a network resource. When the object is no longer needed, you want to make sure it gets cleaned up. You do not want to leave open files or memory behind.
+
+**Problem:** You want Python to run cleanup code when the object is destroyed.  
+**Solution:** Python runs the `__del__` method when the object’s reference count goes to zero.
+
+**Python lets you define cleanup steps using `__del__`.**
+
+```python
+class Connection:
+    def __del__(self):
+        print("Connection closed.")
+
+c = Connection()
+del c
+# prints:
+# Connection closed.
+```
+
+Python calls `__del__` to give the object one last chance to finish cleanup.
+
+---
+
+### Problem: How do you compare your object to another in Python?
+
+You make a class for items that have prices. You want to compare two items and decide which one is greater. But Python does not know how to compare them unless you teach it.
+
+**Problem:** You want to compare your objects with `<`, `==`, and `>`.  
+**Solution:** In Python 2, you use `__cmp__`. In Python 3, you define `__lt__`, `__eq__`, and others.
+
+**Python lets you define how comparisons work with special methods.**
+
+```python
+class Item:
+    def __init__(self, price):
+        self.price = price
+    def __lt__(self, other):
+        return self.price < other.price
+
+a = Item(10)
+b = Item(15)
+print(a < b)
+# prints:
+# True
+```
+
+Python uses the method `__lt__` when it sees `<` between two `Item` objects.
+
+---
+
+### Problem: How do you use your object as a dictionary key in Python?
+
+You make a class for points on a grid. You want to use these points as dictionary keys. But Python needs a way to turn your object into a hash value. You must make sure that objects that are equal give the same hash.
+
+**Problem:** You want your object to work as a key in a dictionary.  
+**Solution:** Python uses the `__hash__` method to create a number from the object.
+
+**Python lets you define how to hash objects using `__hash__`.**
+
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+    def __hash__(self):
+        return hash((self.x, self.y))
+
+p = Point(1, 2)
+d = {p: "here"}
+print(d[p])
+# prints:
+# here
+```
+
+Python calls `__hash__` to find where the object should live in the dictionary.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

@@ -1,0 +1,289 @@
+# Quark’s Outlines: Python Emulating Numeric Types  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Emulating Numeric Types
+
+### What does it mean to emulate numeric types in Python?
+
+When you build your own Python class, you can make it act like a number. This is called **emulating numeric types**. Python gives you a way to define how your object behaves with arithmetic symbols like `+`, `-`, and `*`.
+
+You can do this by writing special methods with names like `__add__`, `__sub__`, or `__mul__`. When Python sees these symbols in your code, it calls your special method to decide what happens.
+
+**Python lets you make your own objects act like numbers.**
+
+```python
+class Box:
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return Box(self.value + other.value)
+
+    def __repr__(self):
+        return f"Box({self.value})"
+
+print(Box(3) + Box(4))
+# prints:
+# Box(7)
+```
+
+The `__add__` method makes `+` work on Box objects. Python sees `Box(3) + Box(4)` and calls `Box(3).__add__(Box(4))`.
+
+### What other numeric behaviors can you define in Python?
+
+Python lets you go beyond addition. You can define methods for subtraction (`__sub__`), multiplication (`__mul__`), division (`__truediv__`), modulus (`__mod__`), power (`__pow__`), and more.
+
+You can also define **reverse operations** like `__radd__`, which are used when your object appears on the right side of an expression. These help Python work when mixed types are used together.
+
+**Python lets you control how your object behaves in math expressions.**
+
+```python
+class Box:
+    def __init__(self, value):
+        self.value = value
+
+    def __radd__(self, other):
+        return Box(self.value + other)
+
+    def __repr__(self):
+        return f"Box({self.value})"
+
+print(10 + Box(5))
+# prints:
+# Box(15)
+```
+
+Here, Python tries `10 + Box(5)`, and since `int` does not know how to add `Box`, it calls `Box(5).__radd__(10)`.
+
+### What about unary operators and type conversion?
+
+Python supports **unary** operations like `-x`, `+x`, and `abs(x)` using methods like `__neg__`, `__pos__`, and `__abs__`.
+
+You can also control how your object converts to `int`, `float`, `oct`, or `hex` using `__int__`, `__float__`, and others.
+
+**Python lets you define how your object behaves with `abs()` and `int()`.**
+
+```python
+class Box:
+    def __init__(self, value):
+        self.value = value
+
+    def __abs__(self):
+        return abs(self.value)
+
+    def __int__(self):
+        return int(self.value)
+
+print(abs(Box(-7)))
+print(int(Box(3.9)))
+# prints:
+# 7
+# 3
+```
+
+Your object can now respond to Python’s built-in numeric functions.
+
+---
+
+## A Historical Timeline of Python Emulating Numeric Types  
+**Where do Python’s numeric emulation rules come from?**
+
+Python borrowed the idea of numeric emulation from older object models that let programmers overload operators. These features made custom types easier to use in real math-like settings.
+
+---
+
+### People invented operator overloading
+
+**1972 —** **C introduced binary operators** as fixed for built-in types, but not user-defined types.
+
+**1983 —** **C++ added operator overloading** to let classes define how symbols like `+` and `-` behave.
+
+---
+
+### People built Python’s numeric emulation model
+
+**1991 —** **Python added `__add__` and friends** to allow objects to define their math behavior.
+
+**2001 —** **Python 2.2 added `__radd__` and `__coerce__`** for mixed-type operations and backward compatibility.
+
+**2008 —** **Python 3 removed classic division** and standardized behavior using `__truediv__` and `__floordiv__`.
+
+**2012 —** **Custom classes supported rich emulation** with clear rules for reverse and unary methods.
+
+**2025 —** **Python’s numeric methods remain stable** for all built-in types and most user-defined numeric objects.
+
+---
+
+## Problems & Solutions with Python Emulating Numeric Types  
+**How do you use Python numeric emulation the right way?**
+
+Python lets you build your own data types and control how they behave when used in math. These problems show how to use Python’s special methods to respond to arithmetic and conversion operations.
+
+---
+
+### Problem: How do you let objects use `+` in Python?
+
+You made a class that stores numbers, but when you try to add two of them, Python shows an error. You want to write `box1 + box2` and get a new box with the total value.
+
+**Problem:** You want to make `+` work between two objects of the same class.  
+**Solution:** Python calls the `__add__` method when using the `+` operator.
+
+**Python lets you define `__add__` to support addition.**
+
+```python
+class Box:
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return Box(self.value + other.value)
+
+    def __repr__(self):
+        return f"Box({self.value})"
+
+print(Box(2) + Box(5))
+# prints:
+# Box(7)
+```
+
+Python sees the `+` and runs your `__add__` method. The result is a new Box.
+
+---
+
+### Problem: How do you support `+` when the object is on the right in Python?
+
+You wrote a class that works with `Box(5) + 10`, but `10 + Box(5)` gives an error. You want your object to work when used on either side of the `+`.
+
+**Problem:** You want your object to handle reversed addition.  
+**Solution:** Python calls the `__radd__` method when your object is on the right side.
+
+**Python lets you define `__radd__` to support mixed-side addition.**
+
+```python
+class Box:
+    def __init__(self, value):
+        self.value = value
+
+    def __radd__(self, other):
+        return Box(self.value + other)
+
+    def __repr__(self):
+        return f"Box({self.value})"
+
+print(10 + Box(7))
+# prints:
+# Box(17)
+```
+
+Python tries the left-hand type first. If that fails, it tries `__radd__` on the right-hand object.
+
+---
+
+### Problem: How do you let your object return a real number in Python?
+
+You want your class to work with the built-in `int()` or `float()` functions. You need to make sure your object knows how to return the right value when these are called.
+
+**Problem:** You want to support conversion using Python’s built-in numeric types.  
+**Solution:** Python uses `__int__`, `__float__`, and related methods to perform conversion.
+
+**Python lets you define conversion behavior for `int()` and `float()`.**
+
+```python
+class Box:
+    def __init__(self, value):
+        self.value = value
+
+    def __int__(self):
+        return int(self.value)
+
+    def __float__(self):
+        return float(self.value)
+
+print(int(Box(3.9)))
+print(float(Box(7)))
+# prints:
+# 3
+# 7.0
+```
+
+These methods let your object behave more like a real number in Python code.
+
+---
+
+### Problem: How do you support `abs()` for custom types in Python?
+
+You want your object to respond to the `abs()` function just like a number. Right now, Python says it cannot do that. You need a way to give your class the same behavior.
+
+**Problem:** You want to make `abs(object)` return a numeric result.  
+**Solution:** Python uses the `__abs__` method for this.
+
+**Python lets you define `__abs__` to support the `abs()` function.**
+
+```python
+class Box:
+    def __init__(self, value):
+        self.value = value
+
+    def __abs__(self):
+        return abs(self.value)
+
+print(abs(Box(-8)))
+# prints:
+# 8
+```
+
+You control how the object responds to `abs()` by returning the correct value inside `__abs__`.
+
+---
+
+### Problem: How do you emulate both `+` and `-` with the same logic in Python?
+
+You want your object to handle both `+` and `-`, and maybe even `*`, `//`, and more. You do not want to write everything from scratch each time. You want a simple way to support math.
+
+**Problem:** You want to define multiple arithmetic behaviors on your object.  
+**Solution:** Python uses a set of method names for each symbol. You can define as many as you need.
+
+**Python lets you define multiple methods for full arithmetic support.**
+
+```python
+class Box:
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return Box(self.value + other.value)
+
+    def __sub__(self, other):
+        return Box(self.value - other.value)
+
+    def __mul__(self, other):
+        return Box(self.value * other.value)
+
+    def __repr__(self):
+        return f"Box({self.value})"
+
+x = Box(5)
+y = Box(3)
+
+print(x + y)
+print(x - y)
+print(x * y)
+# prints:
+# Box(8)
+# Box(2)
+# Box(15)
+```
+
+Now your object behaves like a full numeric type, supporting multiple operations as needed.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

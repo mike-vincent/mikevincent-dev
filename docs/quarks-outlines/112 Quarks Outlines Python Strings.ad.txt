@@ -1,0 +1,1 @@
+How do you work with text in Python? Find out about this key data type. Read this week's Quark's Outlines: Python Strings.

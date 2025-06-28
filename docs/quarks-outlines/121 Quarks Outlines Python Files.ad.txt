@@ -1,0 +1,1 @@
+How does Python work with files? Learn to read and write files. Read this week's Quark's Outlines: Python Files to find out how.

@@ -1,0 +1,199 @@
+# Quark’s Outlines: Python Coercion Rules  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Coercion Rules
+
+### What are Python coercion rules?
+
+When you use a binary operator like `+`, `-`, or `*` in Python, Python must decide how to combine two values. The values may come from different types. The process Python uses to find a common type or method is called **coercion**.
+
+You can think of Python coercion rules as a way to keep the program moving when two types meet. Python checks if one object knows how to handle the operation. If not, it checks if the other object knows. In special cases, Python lets objects transform themselves to work better with others.
+
+**Python lets objects work together using coercion rules.**
+
+```python
+print(3 + 5.0)
+# prints:
+# 8.0
+```
+
+Here Python turns the integer `3` into a float so it can add it to `5.0`. This is automatic coercion.
+
+### How do Python coercion rules handle special cases?
+
+When you mix user-defined objects, Python gives your class a chance to control how it combines with others. If your object defines a method like `__add__`, Python will call that method first. If that does not work, Python will try the other object’s `__radd__` method.
+
+In older versions of Python, you could define a method called `__coerce__` to suggest how two objects should be made compatible. This method is now gone in Python 3, but the pattern still teaches how Python thinks about mixing types.
+
+**Python checks method order to combine two objects.**
+
+```python
+class MyNumber:
+    def __radd__(self, other):
+        return f"Called with {other}"
+
+print(5 + MyNumber())
+# prints:
+# Called with 5
+```
+
+Python tried to call `5.__add__()` first, which failed. Then it called `MyNumber().__radd__(5)`.
+
+---
+
+## A Historical Timeline of Python Coercion Rules  
+**Where do Python’s coercion rules come from?**
+
+Python’s coercion model came from older languages that needed to combine types. Over time, Python moved from automatic type mixing to giving each object control over how it responds to operations. This helped avoid errors and made programs easier to read and test.
+
+---
+
+### People invented type conversion models
+
+**1960 —** **Type promotion in FORTRAN** allowed combining integers and floats by converting smaller types.
+
+**1972 —** **Operator overloading in C++** gave user-defined types control over how operators behaved.
+
+---
+
+### People added coercion to Python
+
+**1991 —** **Python 0.9.0** supported `__coerce__` as a way for objects to convert themselves before operations.
+
+**2000 —** **Rich comparison and binary methods** like `__add__` and `__radd__` replaced `__coerce__`.
+
+**2008 —** **Python 3.0** removed `__coerce__`, leaving only method-based coercion and implicit numeric promotion.
+
+**2025 —** **Operator behavior stable** with `__op__` and `__rop__` methods used for custom types and mixed operations.
+
+---
+
+## Problems & Solutions with Python Coercion Rules  
+**How do you use Python coercion rules the right way?**
+
+Python lets you combine different values using arithmetic and other operators. Sometimes these values are built-in types like `int` and `float`. Sometimes they are user-defined objects. Python’s coercion rules help these values work together without errors. These problems show how coercion works in practice.
+
+---
+
+### Problem: How do you add two numbers of different types in Python?
+
+You want to add an integer and a float. You do not want to convert them yourself. You want Python to handle the types and give a proper result.
+
+**Problem:** You are mixing numeric types and want the result to work.  
+**Solution:** Python promotes the smaller type (int) to match the larger type (float).
+
+**Python lets you add mixed numeric types using coercion.**
+
+```python
+x = 7
+y = 2.5
+print(x + y)
+# prints:
+# 9.5
+```
+
+Python turned `7` into `7.0` and then added `7.0 + 2.5`.
+
+---
+
+### Problem: How do you control how your object reacts to a number in Python?
+
+You write a class and want to support `number + object`. You want Python to call your method when the number does not know what to do.
+
+**Problem:** You need to define how your object responds when used on the right side.  
+**Solution:** Define the `__radd__` method to let your object respond to `+`.
+
+**Python lets objects define `__radd__` to handle left-side failure.**
+
+```python
+class Adder:
+    def __radd__(self, other):
+        return other + 10
+
+a = Adder()
+print(5 + a)
+# prints:
+# 15
+```
+
+Python tried `5.__add__(a)` but failed. Then it used `a.__radd__(5)` which worked.
+
+---
+
+### Problem: How do you combine two user-defined objects in Python?
+
+You have two custom classes. You want them to work together with `+`. You want the first object to try the operation. If that fails, the second object should try instead.
+
+**Problem:** You want two objects to cooperate in a binary operation.  
+**Solution:** Python tries `__add__` first, then `__radd__` if needed.
+
+**Python lets two objects try methods in order: left then right.**
+
+```python
+class A:
+    def __add__(self, other):
+        return "A handles it"
+
+class B:
+    def __radd__(self, other):
+        return "B handles it"
+
+print(A() + B())
+# prints:
+# A handles it
+```
+
+Here, `A.__add__` worked, so Python did not call `B.__radd__`.
+
+---
+
+### Problem: How do you support `%` with strings in Python?
+
+You want to use the `%` operator to format strings with values. You want to avoid custom formatting logic and use Python’s built-in behavior.
+
+**Problem:** You want to insert a value into a string using `%`.  
+**Solution:** Python uses special rules for string formatting with `%`.
+
+**Python lets strings format values using the `%` operator.**
+
+```python
+name = "Ada"
+print("Hello, %s!" % name)
+# prints:
+# Hello, Ada!
+```
+
+If the left side of `%` is a string, Python formats it and skips other coercion logic.
+
+---
+
+### Problem: How do you multiply a list by a number in Python?
+
+You want to repeat a list or string several times. You want Python to handle it without writing a loop.
+
+**Problem:** You want to use multiplication with a sequence and a number.  
+**Solution:** Python defines a special rule for `sequence * int`.
+
+**Python lets you repeat a sequence using `*`.**
+
+```python
+print([1, 2] * 3)
+print("ha" * 2)
+# prints:
+# [1, 2, 1, 2, 1, 2]
+# haha
+```
+
+Python knows that `*` means repeat if one side is a list or string and the other is a number.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

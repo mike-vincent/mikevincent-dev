@@ -1,0 +1,188 @@
+# Quark’s Outlines: Python Plain Integers  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Plain Integers
+
+### What is a Python plain integer?
+
+You often use whole numbers when you count, label, or measure. In Python, a plain integer is the built-in type for whole numbers. A plain integer holds a value like `0`, `1`, `-3`, or `42`. These values have no decimal point and no imaginary part.
+
+Python plain integers are fixed-width. They fit inside a fixed range. The range is based on your machine. On many systems, it goes from `-2,147,483,648` to `2,147,483,647`. If you go beyond that, Python raises an error.
+
+**Python lets you store whole numbers using plain integers.**
+
+```python
+x = 100
+print(x)
+# 100
+```
+
+### How do Python plain integers work in memory?
+
+A Python plain integer uses binary form. That means Python stores the number using bits: ones and zeros. Python uses 2's complement form to store negative numbers. That form makes it easy for the machine to do math with both positive and negative values.
+
+Each number has a bit pattern. With 32 bits, you get 2³² patterns. Every one maps to a single plain integer value. Python shows the number in base 10, but the machine uses base 2.
+
+If you use a number too big for this format, Python stops and tells you. The error is called `OverflowError`. In newer Python versions, large numbers switch to a long integer type automatically, but in this article, we focus on the plain integer part.
+
+**Python raises an error if a plain integer is too large.**
+
+```python
+x = 2_147_483_647
+print(x + 1)
+# OverflowError (in older versions)
+```
+
+### When should you use Python plain integers?
+
+Use a Python plain integer when you know the number is a whole number that fits in range. You use them for counts, indexes, IDs, or anything that cannot have decimals. They are fast and take less memory than floats or long integers.
+
+You can also use Python plain integers in math, logic, and indexing. They work with all math operators. They work with `for` loops, slices, and range generation. Most of your numeric code will start with plain integers.
+
+**Python lets you use plain integers in math and indexing.**
+
+```python
+values = [10, 20, 30, 40]
+print(values[2])
+# 30
+```
+
+---
+
+## A Historical Timeline of Python Plain Integers  
+**Where do Python’s plain integer rules come from?**
+
+Python plain integers follow from early systems that used 32-bit registers and 2’s complement math. They were first added to support fast whole-number operations. Later, Python added new types to handle bigger values, but kept the plain integer rules for backward support.
+
+---
+
+### People defined integer size in early machines.
+
+**1958 —** **Binary math rules** IBM 704 used fixed-length binary for signed integers in hardware.  
+**1972 —** **2's complement integers** C language defined int as a 32-bit signed value, with `INT_MAX` and `INT_MIN`.
+
+### People built plain integers into Python.
+
+**1991 —** **Plain integers and long integers** Python 0.9.0 introduced both types, with `int` as a fixed-size 32-bit whole number.  
+**2000 —** **Overflow raises error** Python 2 raised `OverflowError` when values exceeded the plain int range.  
+**2010 —** **Merge with long integers** Python 3 made all integers into one type under the hood, but kept plain int logic in documentation.
+
+---
+
+## Problems & Solutions with Python Plain Integers  
+**How do you use Python plain integers the right way?**
+
+Python plain integers work well when you want fast, simple whole-number math. But they have limits. The examples below show how to use them correctly and what happens when you go outside the normal range.
+
+---
+
+### Problem: How do you count something exactly in Python?
+
+You are tracking how many people walk into a shop. You start with zero and add one every time a person enters. You want the number to stay exact. You do not need decimals or fractions.
+
+**Problem:** You need a way to track a whole number that never has a decimal point.
+
+**Solution:** Use a Python plain integer. It gives exact values and works well with addition.
+
+**Python lets you track counts with plain integers.**
+
+```python
+count = 0
+count += 1
+count += 1
+print(count)
+# 2
+```
+
+---
+
+### Problem: How do you handle numbers that are too large in Python?
+
+You are calculating population growth using a loop. The number keeps growing. At some point, you hit a limit and the program fails. You do not know why it stopped.
+
+**Problem:** You went past the maximum value for a Python plain integer.
+
+**Solution:** Python plain integers have a fixed range. If the result goes past that, Python raises an error or switches to long integers, depending on version. You should watch for growth and use types that can expand.
+
+**Python warns you if a plain integer gets too big.**
+
+```python
+n = 2_147_483_647
+try:
+    print(n + 1)
+except OverflowError:
+    print("Too big!")
+# Too big! (older Python 2 behavior)
+```
+
+---
+
+### Problem: How do you use an integer in a loop in Python?
+
+You are writing a for-loop that should run five times. You need a number that increases from 0 to 4. You want the loop index to be exact.
+
+**Problem:** You need a safe and fast way to hold the index of a loop.
+
+**Solution:** Use a Python plain integer inside a `range()` call. The loop uses integers, and each value is safe.
+
+**Python lets you loop with plain integers using range.**
+
+```python
+for i in range(5):
+    print(i)
+# 0
+# 1
+# 2
+# 3
+# 4
+```
+
+---
+
+### Problem: How do you use plain integers for bitwise math in Python?
+
+You are writing code to check flags. You want to set and clear bits using binary values. You heard that Python can use bitwise operators, but you are not sure if plain integers work.
+
+**Problem:** You need a number type that supports bit shifts and masks.
+
+**Solution:** Python plain integers use 2’s complement form and support bitwise math. You can shift, mask, and flip bits easily.
+
+**Python lets you use plain integers in binary math.**
+
+```python
+x = 0b1010
+print(x << 1)
+# 20
+```
+
+---
+
+### Problem: How do you return an exact number from a function in Python?
+
+You are writing a function that counts steps in a maze. You do not want floats. You want the number to be whole, so the next part of the program uses it as a step count.
+
+**Problem:** You need a return value that is exact and whole.
+
+**Solution:** Return a Python plain integer. It will keep the value whole and readable.
+
+**Python lets you return plain integers from functions.**
+
+```python
+def steps(n):
+    return n * 2
+
+print(steps(3))
+# 6
+```
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

@@ -1,0 +1,267 @@
+# Quark’s Outlines: Python Class Instances  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Class Instances
+
+### What is a Python class instance?
+
+You use a class to describe how something should work. When you call that class, you create a class instance. A Python class instance is an object made from a class. It has its own space for values and actions.
+
+When you write `Dog()`, you call the `Dog` class. Python runs the `__init__` method to set up the object. The result is a new class instance. You can store it under a name like `my_dog`. You can give it values like `my_dog.name = "Spot"`.
+
+**Python lets you create new objects by calling a class.**
+
+```python
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+my_dog = Dog("Spot")
+print(my_dog.name)
+# prints: Spot
+```
+
+### How does Python store attributes in a class instance?
+
+Each Python class instance has a name space. This is a place where it keeps values. The name space is a dictionary. You can see it with `__dict__`. When you ask for `my_dog.name`, Python looks in the instance name space. If it does not find the name there, it checks the class.
+
+**Python uses the instance’s name space to hold its values.**
+
+```python
+class Dog:
+    kind = "canine"
+
+my_dog = Dog()
+my_dog.name = "Fido"
+
+print(my_dog.name)
+# prints: Fido
+print(my_dog.kind)
+# prints: canine
+print(my_dog.__dict__)
+# prints: {'name': 'Fido'}
+```
+
+### How does Python find methods for a class instance?
+
+When you use a method like `my_dog.bark()`, Python finds the method in the class. If it is a user-defined function, Python wraps it as a method. It adds the instance as the first argument.
+
+**Python wraps class functions as methods when called from an instance.**
+
+```python
+class Dog:
+    def bark(self):
+        return "Woof!"
+
+d = Dog()
+print(d.bark())
+# prints: Woof!
+```
+
+The `self` in `bark(self)` refers to `d`. Python adds `d` as the first value when you call `d.bark()`.
+
+### Can a class instance act like a function or a list?
+
+Yes. A Python class instance can pretend to be many things. If the class has a method called `__call__`, then you can call the instance like a function. If the class has methods like `__getitem__`, it can act like a list or mapping.
+
+**Python lets class instances act like functions if they define __call__.**
+
+```python
+class Greeter:
+    def __call__(self, name):
+        return f"Hello, {name}!"
+
+g = Greeter()
+print(g("Ada"))
+# prints: Hello, Ada!
+```
+
+## A Historical Timeline of Python Class Instances  
+**Where do Python’s class instance rules come from?**
+
+Python class instances come from object-oriented design. Early languages shaped how objects store data, run code, and act like built-in types. Python made this clear, flexible, and easy to use.
+
+---
+
+### People designed systems that use object types
+
+**1967 — Simula class instances** Simula introduced the class instance as a runtime object with its own data.  
+**1980 — Smalltalk instance messaging** Smalltalk let objects send messages (method calls) to each other.
+
+### People shaped Python’s model
+
+**1991 — Python 0.9.0 adds classes and instances** Python supports class-based design with method lookup and instance storage.  
+**2000 — Python 2.2 adds new-style classes** Python lets all classes inherit from `object`, unifying method handling and special methods.
+
+### People expanded what instances can do
+
+**2001 — Special methods improve instance behavior** Python 2.2 supports rich comparison, iteration, and numeric emulation.  
+**2010 — Class decorators and descriptors** Python 3 makes it easier to control instance setup and property access.
+
+### People kept Python instances simple and predictable
+
+**2020 — Stable instance design** Python maintains backward compatibility for instance handling, keeping it simple and open.  
+**2025 — Minimal changes** Python keeps the instance rules unchanged to protect reliability.
+
+---
+
+## Problems & Solutions with Python Class Instances  
+**How do you use Python class instances the right way?**
+
+Python class instances help you make objects that store data and perform actions. Each instance has its own values and can act in special ways. These problems show how Python class instances solve real needs in your code.
+
+---
+
+### Problem: How do you store different values for different objects in Python?
+
+You are making a game. Each player has a name and a score. You want each one to keep their own values.
+
+**Problem:** You need a way to create many objects that share the same structure but hold different data.  
+**Solution:** Use a class to define the structure, then make a new instance for each player.
+
+**Python lets you store values in each instance.**
+
+```python
+class Player:
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+p1 = Player("Ada", 10)
+p2 = Player("Bob", 20)
+
+print(p1.name, p1.score)
+# prints: Ada 10
+print(p2.name, p2.score)
+# prints: Bob 20
+```
+
+Each object has its own name and score. The class makes this possible.
+
+---
+
+### Problem: How do you run actions on stored data in Python?
+
+You have a counter that tracks how many times a user clicks. You want to make it easy to add one to the total.
+
+**Problem:** You need a way to store data and run actions on that data.  
+**Solution:** Put the data in an instance and write a method that changes it.
+
+**Python lets you add methods to change instance data.**
+
+```python
+class Counter:
+    def __init__(self):
+        self.count = 0
+    def click(self):
+        self.count += 1
+
+c = Counter()
+c.click()
+c.click()
+print(c.count)
+# prints: 2
+```
+
+The method uses `self` to change the object’s value. Each instance keeps its own count.
+
+---
+
+### Problem: How do you share behavior across many objects in Python?
+
+You have many shapes in a drawing tool. Each one has a color. You want all shapes to support a `paint()` action.
+
+**Problem:** You need to give many objects the same method without repeating code.  
+**Solution:** Use a class to define the method, then make instances that share it.
+
+**Python lets you define shared methods in the class.**
+
+```python
+class Shape:
+    def paint(self, color):
+        self.color = color
+
+s1 = Shape()
+s2 = Shape()
+
+s1.paint("blue")
+s2.paint("red")
+
+print(s1.color)
+# prints: blue
+print(s2.color)
+# prints: red
+```
+
+Each instance runs the same method but stores its own value.
+
+---
+
+### Problem: How do you make objects act like built-in types in Python?
+
+You want a custom object that behaves like a list but tracks every access.
+
+**Problem:** You want your class instance to respond to `[]` like a list.  
+**Solution:** Define `__getitem__` and `__setitem__` to handle index use.
+
+**Python lets class instances act like lists with special methods.**
+
+```python
+class SpyList:
+    def __init__(self):
+        self.data = []
+    def __getitem__(self, i):
+        print(f"Getting item {i}")
+        return self.data[i]
+    def __setitem__(self, i, value):
+        print(f"Setting item {i} to {value}")
+        self.data[i] = value
+
+s = SpyList()
+s.data.append("a")
+s[0] = "b"
+print(s[0])
+# prints:
+# Setting item 0 to b
+# Getting item 0
+# b
+```
+
+The instance looks and acts like a list but adds new behavior.
+
+---
+
+### Problem: How do you track object state over time in Python?
+
+You want to make an object that can run when called, like a small tool.
+
+**Problem:** You need an object that can accept arguments and return results like a function.  
+**Solution:** Add a `__call__` method to your class.
+
+**Python lets class instances act like functions.**
+
+```python
+class Adder:
+    def __init__(self, base):
+        self.base = base
+    def __call__(self, x):
+        return self.base + x
+
+add5 = Adder(5)
+print(add5(3))
+# prints: 8
+```
+
+The object runs like a function because it defines `__call__`.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

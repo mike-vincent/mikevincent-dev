@@ -1,0 +1,229 @@
+# Quark’s Outlines: Python Execution Frames  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Execution Frames
+
+### What is a Python execution frame?
+
+When you run a Python program, Python keeps track of each piece of code as it runs. Python does this using a structure called an **execution frame**. A Python execution frame is a record of one piece of code running at one moment.
+
+You can think of it like a single page in a notebook that shows what code is running, what names are known, and what will happen next. Each time Python starts running a new code block, it creates a new execution frame. When that code finishes, the frame is removed.
+
+**Python uses an execution frame to hold the state of each code block.**
+
+```python
+import sys
+
+def show():
+    frame = sys._getframe()
+    print("Running in frame for:", frame.f_code.co_name)
+
+show()
+# prints:
+# Running in frame for: show
+```
+
+The frame tracks which function is running, the variables in use, and where to go next.
+
+### What does a Python execution frame include?
+
+A Python execution frame includes the code block that is running, the local and global name spaces, and pointers to other frames before it. It also contains details for debugging, like the current line number and the file name.
+
+Each frame runs one code block. This can be a module, function, class, string passed to `eval()`, a file passed to `execfile()`, or input from the interpreter.
+
+**Python uses a new frame for each block of code.**
+
+```python
+import sys
+
+def outer():
+    def inner():
+        print(sys._getframe().f_back.f_code.co_name)
+    inner()
+
+outer()
+# prints:
+# outer
+```
+
+Each frame links to the one before it. This lets Python trace how your program got to the current point.
+
+---
+
+## A Historical Timeline of Python Execution Frames  
+**Where do Python’s execution frames come from?**
+
+Python frames are part of its stack-based execution model. Python follows the structure of older programming languages that used call stacks and execution records. Over time, frames in Python became a core part of debugging, tracing, and dynamic scope handling.
+
+---
+
+### People invented ways to trace function calls and scope
+
+**1960 —** **Stack records** used in ALGOL and early structured languages to store function data.
+
+**1972 —** **Frame-based execution** in C supported nested function calls and tracked control flow.
+
+---
+
+### People built Python’s execution model on frames
+
+**1991 —** **Python added frames** to manage execution and scope during function and module execution.
+
+**2000 —** **Dynamic evaluation support** using `exec`, `eval`, and `input()` created frames from strings and commands.
+
+**2001 —** **Frame introspection** via `sys._getframe()` and traceback support gave users access to internal state.
+
+**2025 —** **Stable frame design** remained in use for debuggers, profilers, and runtime tools.
+
+---
+
+## Problems & Solutions with Python Execution Frames  
+**How do you use Python execution frames the right way?**
+
+Each time a Python function runs, a new execution frame is created. The frame tracks what code is running, which names are defined, and how to continue once the code ends. These problems show how Python frames help you understand, debug, and trace code.
+
+---
+
+### Problem: How do you find out which function is running in Python?
+
+You are writing a logger. You want to show which function is currently running without writing the function name by hand in every place. You need to get this from the running code itself.
+
+**Problem:** You want to log the current function name.  
+**Solution:** Python execution frames store the code object being run.
+
+**Python lets you get the function name from the current frame.**
+
+```python
+import sys
+
+def whoami():
+    print("Function:", sys._getframe().f_code.co_name)
+
+whoami()
+# prints:
+# Function: whoami
+```
+
+The frame’s `f_code.co_name` gives the name of the code block currently running.
+
+---
+
+### Problem: How do you trace who called your function in Python?
+
+You want to see which function called your current function. You do not want to pass this as an argument. You want to get it from the call stack itself.
+
+**Problem:** You want to find the caller of the current function.  
+**Solution:** Python execution frames link to earlier frames using `f_back`.
+
+**Python lets you access the previous frame with `f_back`.**
+
+```python
+import sys
+
+def a():
+    b()
+
+def b():
+    caller = sys._getframe().f_back
+    print("Called by:", caller.f_code.co_name)
+
+a()
+# prints:
+# Called by: a
+```
+
+Each frame links to the one before it, so you can see how the code was reached.
+
+---
+
+### Problem: How do you read what variables are in use in Python?
+
+You are writing a tool to inspect your program. You want to read the names and values of local variables while the function is running.
+
+**Problem:** You want to inspect the local name space during execution.  
+**Solution:** Python execution frames include a dictionary of local names.
+
+**Python lets you read local variables from `f_locals`.**
+
+```python
+import sys
+
+def inspect():
+    x = 7
+    y = "ok"
+    print("Locals:", sys._getframe().f_locals)
+
+inspect()
+# prints:
+# Locals: {'x': 7, 'y': 'ok'}
+```
+
+The frame gives access to local names and their current values.
+
+---
+
+### Problem: How do you run code from a string and keep track of it in Python?
+
+You are building a sandbox or dynamic runner. You want to run code from a string and keep track of what it is doing. You need Python to treat the string as a full code block.
+
+**Problem:** You want to execute a string as Python code in a real frame.  
+**Solution:** Python makes a new frame when running `exec()` or `eval()`.
+
+**Python makes an execution frame for string-based code.**
+
+```python
+code = "x = 5; print('X is', x)"
+exec(code)
+# prints:
+# X is 5
+```
+
+Even string-based execution creates a frame with its own name spaces and control.
+
+---
+
+### Problem: How do you debug by stepping through lines in Python?
+
+You want to make a tool that watches a function line by line. You need a way to trace which line is running and keep track of changes.
+
+**Problem:** You want to watch Python code as it runs.  
+**Solution:** Python lets you set a trace function on the frame using `f_trace`.
+
+**Python lets you trace each line of code using a frame hook.**
+
+```python
+import sys
+
+def trace(frame, event, arg):
+    if event == "line":
+        print("Line", frame.f_lineno)
+    return trace
+
+def run():
+    x = 1
+    y = 2
+    z = x + y
+    return z
+
+sys.settrace(trace)
+run()
+# prints:
+# Line 6
+# Line 7
+# Line 8
+# Line 9
+```
+
+This shows each line as it runs using the frame’s line number.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

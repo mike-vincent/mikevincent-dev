@@ -1,0 +1,1 @@
+What are frame objects in Python? Learn how Python runs your code. Read this week's Quark's Outlines: Python Frame Objects to find out more.

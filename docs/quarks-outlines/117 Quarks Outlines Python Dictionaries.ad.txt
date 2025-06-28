@@ -1,0 +1,1 @@
+How do Python dictionaries work? These handy tools store key-value pairs. Read this week's Quark's Outlines: Python Dictionaries to learn more.

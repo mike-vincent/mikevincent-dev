@@ -1,0 +1,236 @@
+# Quark’s Outlines: Python Tuples  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python Tuples
+
+### What is a Python tuple?
+
+You may want to store more than one value in a single variable. You do not want the values to change. In Python, you can use a **tuple**.
+
+A Python tuple is a fixed group of values. It keeps values in order. Once made, it cannot be changed. This is called **immutable**. Each item in a tuple can be any Python object. A tuple may hold numbers, strings, lists, or other tuples.
+
+**Python lets you group fixed values using tuples.**
+
+```python
+point = (3, 4)
+print(point)
+print(point[0])
+```
+
+This prints:  
+`(3, 4)`  
+`3`
+
+### Problem: write a Python tuple
+
+To write a tuple in Python, place items inside round brackets. Separate items with commas. For example, `(1, 2, 3)` is a tuple of three items. A tuple with no items is written `()`. A tuple with one item must use a comma, like `(7,)`. Without the comma, Python will not treat it as a tuple.
+
+**Python uses commas and round brackets to define tuples.**
+
+```python
+empty = ()
+single = (7,)
+triple = ("A", "B", "C")
+print(type(empty))
+print(type(single))
+print(type(triple))
+```
+
+This prints:  
+`<class 'tuple'>`  
+`<class 'tuple'>`  
+`<class 'tuple'>`
+
+### What can a Python tuple hold?
+
+Each item in a tuple can be any Python object. A tuple may mix types. A tuple may hold other tuples. Tuples can also be used to return multiple values from a function.
+
+**Python lets you store mixed types in a tuple.**
+
+```python
+mixed = (1, "apple", [2, 3])
+nested = ((1, 2), (3, 4))
+print(mixed)
+print(nested[1][0])
+```
+
+This prints:  
+`(1, 'apple', [2, 3])`  
+`3`
+
+### Why use a Python tuple?
+
+Tuples help when you need to protect data from change. Tuples use less memory than lists. They can also be used as dictionary keys, which lists cannot do. A tuple is a good choice for grouped values that do not change.
+
+**Python uses tuples to protect data and improve performance.**
+
+```python
+pair = (10, 20)
+info = {pair: "location"}
+print(info[pair])
+```
+
+This prints:  
+`location`
+
+---
+
+## A Historical Timeline of Python Tuples  
+**Where do Python’s tuple rules come from?**
+
+Tuples in Python follow patterns from early structured programming. They help group data clearly and safely. This timeline shows how Python tuples came to be.
+
+---
+
+### People invented ways to group fixed data
+
+**1960 —** **Records and structures** ALGOL and COBOL grouped fixed values under one name.  
+**1972 —** **Immutable tuples in ML** Functional languages used fixed-length groupings for values.
+
+### People designed Python’s first tuples
+
+**1991 —** **Tuple syntax and immutability** Python 0.9.0 used parentheses and commas to group values. Tuples could hold any object.
+
+### People expanded how tuples work
+
+**2000 —** **Tuple unpacking in function returns** Python 2.0 let functions return multiple values using tuples.  
+**2001 —** **Tuple unpacking in assignments** Python 2.2 supported unpacking on the left side of assignments.  
+**2015 —** **Extended unpacking with starred names** Python 3.5 allowed one variable to catch extra items in a tuple.
+
+### People preserved tuple behavior
+
+**2018 —** **Pattern matching with tuples** Python 3.10 let tuples act as match patterns in structured code.  
+**2025 —** **No changes to tuple type** Python core team kept tuple rules unchanged for clarity and stability.
+
+---
+
+## Problems & Solutions with Python Tuples  
+**How do you use Python tuples the right way?**
+
+You often group values that must stay fixed. Python tuples help with this. The problems below show real situations where a tuple solves confusion or error.
+
+---
+
+### Problem: How do you keep values together and safe from change in Python?
+
+You are writing a program to track map points. Each point has two coordinates. You want to make sure no part of the point changes by mistake.
+
+**Problem:** You use a list for each point. A helper script changes one item in the list, which breaks the data.
+
+**Solution:** Use a tuple instead of a list. A tuple is immutable. No one can change it by mistake.
+
+**Python lets you lock values together using tuples.**
+
+```python
+point = (4, 5)
+# point[0] = 10  # This would cause an error
+print(point)
+```
+
+This prints:  
+`(4, 5)`
+
+---
+
+### Problem: How do you create a one-item tuple in Python?
+
+You want to store one item as a tuple. You use parentheses and expect it to work. But Python gives you a string or number instead.
+
+**Problem:** You write `single = ("apple")` but Python treats it as a string, not a tuple.
+
+**Solution:** To create a one-item tuple, you must include a comma, like `("apple",)`. The comma defines the tuple.
+
+**Python uses a comma to mark a single-item tuple.**
+
+```python
+not_a_tuple = ("apple")
+real_tuple = ("apple",)
+print(type(not_a_tuple))
+print(type(real_tuple))
+```
+
+This prints:  
+`<class 'str'>`  
+`<class 'tuple'>`
+
+---
+
+### Problem: How do you return multiple values from a function in Python?
+
+You write a function that calculates both price and tax. You want to return both. You do not want to return a list, because the order must stay fixed.
+
+**Problem:** You try to return two values, but your code becomes unclear or error-prone.
+
+**Solution:** Return a tuple with both values. You can unpack the result.
+
+**Python lets you return grouped values from a function with tuples.**
+
+```python
+def cost_and_tax(price):
+    return price, price * 0.1
+
+total, tax = cost_and_tax(50)
+print(total)
+print(tax)
+```
+
+This prints:  
+`50`  
+`5.0`
+
+---
+
+### Problem: How do you use a group of values as a dictionary key in Python?
+
+You are tracking visits to a location. The location is defined by two numbers. You want to use those numbers as a key.
+
+**Problem:** You try to use a list as a key. Python raises an error because lists cannot be used as dictionary keys.
+
+**Solution:** Use a tuple as the key. Tuples are hashable and can be used as dictionary keys.
+
+**Python lets you use fixed value groups as dictionary keys with tuples.**
+
+```python
+location = (34.0, -118.2)
+visits = {location: 3}
+print(visits[location])
+```
+
+This prints:  
+`3`
+
+---
+
+### Problem: you need to swap two variables quickly
+
+You have two values. You want to switch them. You do not want to use a temporary name.
+
+**Problem:** You try to swap values with a third variable, but the code feels slow and long.
+
+**Solution:** Use tuple unpacking to swap them in one line.
+
+**Python lets you swap values using tuple unpacking.**
+
+```python
+a = 1
+b = 2
+a, b = b, a
+print(a)
+print(b)
+```
+
+This prints:  
+`2`  
+`1`
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

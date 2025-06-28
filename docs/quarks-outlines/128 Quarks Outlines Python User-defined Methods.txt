@@ -1,0 +1,223 @@
+# Quark’s Outlines: Python User-Defined Methods  
+*Overview, Historical Timeline, Problems & Solutions*
+
+## An Overview of Python User-Defined Methods
+
+### What is a Python user-defined method?
+
+When you define a function inside a class, Python does not treat it as just a function. When you call it from an instance, Python changes it into a method. This method knows which object it was called from. It adds that object as the first argument when the function runs.
+
+A **Python user-defined method** joins a function, a class, and a class instance (or `None`). It is created when you get a function from a class or an instance. Python binds the instance to the function and forms a method.
+
+**Python lets you bind a class function to an instance as a method.**
+
+```python
+class Box:
+    def show(self, word):
+        print("Box says:", word)
+
+x = Box()
+x.show("hi")
+# prints:
+# Box says: hi
+```
+
+The method `x.show` is bound to the instance `x`. Python passes `x` as the first argument.
+
+### What does "bound method" mean in Python?
+
+When a method is bound, it remembers the instance that called it. A bound method is created when you get a method from an object. It holds a reference to both the function and the instance. Python will pass the instance automatically when you call the method.
+
+If you get the same method from the class, Python gives you an unbound method. That means the function is not tied to any one object.
+
+**Python uses bound methods to remember which object to call with.**
+
+```python
+class Lamp:
+    def turn_on(self):
+        print("The lamp is now on.")
+
+l = Lamp()
+m = Lamp()
+
+a = l.turn_on
+b = m.turn_on
+
+a()
+b()
+# prints:
+# The lamp is now on.
+# The lamp is now on.
+```
+
+Each bound method remembers which `Lamp` it came from.
+
+---
+
+## A Historical Timeline of Python User-Defined Methods  
+**Where do Python user-defined methods come from?**
+
+Python user-defined methods grew from early ideas in object-oriented design. In many languages, methods are just functions that get special treatment when called from an object. Python made this clear by letting you see and work with method objects directly.
+
+---
+
+### People made objects that could hold behavior
+
+**1967 —** **Simula 67** added classes and methods to programming. Methods were functions that acted on data from one object.
+
+**1983 —** **Smalltalk-80** refined this idea with message-passing and method binding at runtime.
+
+---
+
+### People designed Python's class method rules
+
+**1991 —** **Python 0.9.0** introduced classes, functions inside them, and method binding.
+
+**2000 —** **Unbound methods changed** in Python 2.2. You could now get function objects back from classes.
+
+**2010 —** **Bound and unbound methods unified** in Python 3. Now, calling `C.f` just gives the function. Only instance access makes it a method.
+
+**2025 —** **Method handling stable**. Python methods remain clear, open, and part of the object model.
+
+---
+
+## Problems & Solutions with Python User-Defined Methods  
+**How do you use Python user-defined methods the right way?**
+
+When you write a class in Python, you often define functions inside it. These become methods when accessed from an instance. These problems show how methods bind, behave, and help organize object behavior.
+
+---
+
+### Problem: How do you pass one method to another function in Python?
+
+You are writing a program where objects have named actions. You want to pass a method to another function to run it later. You are not sure how to keep the object tied to the method.
+
+**Problem:** You want to pass a method while keeping its object context.  
+**Solution:** Python binds the method to the instance, so you can pass it and call it later.
+
+**Python lets you pass bound methods as function objects.**
+
+```python
+class Bell:
+    def ring(self):
+        print("Ding!")
+
+b = Bell()
+
+def trigger(action):
+    action()
+
+trigger(b.ring)
+# prints:
+# Ding!
+```
+
+The method `b.ring` is passed like a function. It still knows `b` is the object.
+
+---
+
+### Problem: How do you call a method from the class in Python?
+
+You have a class with a function. You want to call that function, but not from an instance. You want to see what happens if you call it using the class itself.
+
+**Problem:** You want to call a method without using an instance.  
+**Solution:** Python gives you the function itself from the class. You must pass the instance by hand.
+
+**Python gives you the function when called from the class.**
+
+```python
+class Box:
+    def show(self, msg):
+        print("Box shows:", msg)
+
+b = Box()
+Box.show(b, "hello")
+# prints:
+# Box shows: hello
+```
+
+You must pass the instance yourself, or Python will not know what `self` is.
+
+---
+
+### Problem: How do you tell if a method is bound in Python?
+
+You want to inspect a method in your code. You are not sure if it is bound to an instance. You want a way to check if it already holds a reference to an object.
+
+**Problem:** You need to know if a method is bound or unbound.  
+**Solution:** Python bound methods have a `__self__` attribute. It holds the instance.
+
+**Python lets you inspect the method to see its binding.**
+
+```python
+class Light:
+    def flash(self): pass
+
+l = Light()
+print(Light.flash.__self__)  # error: unbound method has no __self__
+print(l.flash.__self__)
+# prints:
+# <__main__.Light object at 0x...>
+```
+
+Calling `__self__` shows what object the method is bound to. Class access returns the function, not a method.
+
+---
+
+### Problem: How do you store a method in a variable in Python?
+
+You want to call a method often. You do not want to type the full `obj.method()` each time. You want to assign the method to a short name and reuse it.
+
+**Problem:** You want to store a method to reuse it in many calls.  
+**Solution:** Python lets you assign a bound method to a variable.
+
+**Python lets you keep methods as first-class objects.**
+
+```python
+class Volume:
+    def up(self): print("Volume up")
+
+v = Volume()
+raise_volume = v.up
+raise_volume()
+# prints:
+# Volume up
+```
+
+You can treat the method as a value. It keeps its link to the object.
+
+---
+
+### Problem: How do you define a method inside a class in Python?
+
+You are new to classes. You want to define a function that works on objects of the class. You want Python to pass the object automatically.
+
+**Problem:** You want to define a method in your own class.  
+**Solution:** Python defines methods with `def` inside a `class` and uses `self` as the first name.
+
+**Python lets you define methods that act on one object.**
+
+```python
+class Dog:
+    def bark(self):
+        print("Woof!")
+
+fido = Dog()
+fido.bark()
+# prints:
+# Woof!
+```
+
+The `self` argument points to the object that called the method.
+
+---
+
+
+## Like, Comment, Share, and Subscribe
+
+Did you find this helpful? Let me know by clicking the like button below. I'd love to hear your thoughts in the comments, too! If you want to see more content like this, don't forget to subscribe. Thanks for reading!
+
+---
+
+[**Mike Vincent**](https://mikevincent.dev) is an American software engineer and app developer from Los Angeles, California. [More about Mike Vincent](https://mikevincent.dev)
+[**Mike Vincent**](https://mike-vincent.carrd.co) is an American software engineer and writer based in Los Angeles. Mike writes about technology leadership and holds degrees in Linguistics and Industrial Automation. [More about Mike Vincent](https://mike-vincent.carrd.co)

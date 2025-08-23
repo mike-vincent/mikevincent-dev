@@ -1,1 +1,1 @@
-Was sind Sequenzen in Python? Lernen Sie, wie Sie mit geordneten Sammlungen arbeiten. Lesen Sie diese Woche Quark's Outlines: Python Sequences.
+What are sequences in Python? Learn how to work with ordered collections. Read this week’s Quark’s Outlines: Python Sequences.

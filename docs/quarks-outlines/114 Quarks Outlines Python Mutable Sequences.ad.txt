@@ -1,1 +1,1 @@
-Warum sind veränderbare Sequenzen in Python so nützlich? Erfahren Sie mehr über Listen und mehr. Lesen Sie diese Woche Quark's Outlines: Python Mutable Sequences.
+Why are mutable sequences in Python so useful? Learn more about lists and beyond. Read this week’s Quark’s Outlines: Python Mutable Sequences.

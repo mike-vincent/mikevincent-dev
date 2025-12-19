@@ -1,1 +1,0 @@
-Why use things that don't change in Python? Learn about data that stays the same. Read this week's Quark's Outlines: Python Immutable Sequences to find out more.

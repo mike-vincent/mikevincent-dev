@@ -1,1 +1,0 @@
-Why are mutable sequences in Python so useful? Learn more about lists and beyond. Read this week’s Quark’s Outlines: Python Mutable Sequences.

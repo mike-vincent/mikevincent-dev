@@ -1,1 +1,0 @@
-What kinds of "numbers" can you use in Python? Learn how numbers work in this week’s Quark’s Outlines: Python Numbers.

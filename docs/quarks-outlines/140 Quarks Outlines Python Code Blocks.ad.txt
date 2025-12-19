@@ -1,1 +1,0 @@
-What are code blocks in Python? Learn how they shape your code's scope. Read this week's Quark's Outlines: Python Code Blocks to find out more.

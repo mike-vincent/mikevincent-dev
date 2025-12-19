@@ -1,1 +1,0 @@
-How do you make objects work with numbers in Python? Learn numeric type emulation. Read this week's Quark's Outlines: Python Emulating Numeric Types to find out how.

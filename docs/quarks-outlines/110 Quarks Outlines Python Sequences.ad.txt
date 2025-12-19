@@ -1,1 +1,0 @@
-What are sequences in Python? Learn how to work with ordered collections. Read this week’s Quark’s Outlines: Python Sequences.

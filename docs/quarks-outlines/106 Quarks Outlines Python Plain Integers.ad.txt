@@ -1,1 +1,0 @@
-What are plain integers in Python? Learn about this basic data type in this week’s Quark’s Outlines: Python Plain Integers.

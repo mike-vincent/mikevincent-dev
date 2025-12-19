@@ -1,1 +1,0 @@
-What extra methods help with emulation in Python? Learn these advanced skills. Read this week's Quark's Outlines: Additional Methods for Emulation of Python to find out more.

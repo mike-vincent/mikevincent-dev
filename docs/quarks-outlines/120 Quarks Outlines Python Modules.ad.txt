@@ -1,1 +1,0 @@
-How do you organize Python code with modules? Learn about this key feature. Read this week's Quark's Outlines: Python Modules to find out more.

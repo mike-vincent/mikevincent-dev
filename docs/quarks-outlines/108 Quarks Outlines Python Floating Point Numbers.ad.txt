@@ -1,1 +1,0 @@
-How do floating-point numbers work in Python? Discover the special features of this data type. Read this week’s Quark’s Outlines: Python Floating Point Numbers.

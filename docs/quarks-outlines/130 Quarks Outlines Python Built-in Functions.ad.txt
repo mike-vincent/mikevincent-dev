@@ -1,1 +1,0 @@
-What built-in functions does Python have? Learn about these handy tools. Read this week's Quark's Outlines: Python Built-in Functions to find out more.

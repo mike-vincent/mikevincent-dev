@@ -1,1 +1,0 @@
-How does Python change types? Learn the rules of type conversion. Read this week's Quark's Outlines: Python Coercion Rules to find out more.

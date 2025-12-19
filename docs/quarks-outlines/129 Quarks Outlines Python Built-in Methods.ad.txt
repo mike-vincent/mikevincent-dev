@@ -1,1 +1,0 @@
-What are Python's built-in methods? These handy tools come with Python. Read this week's Quark's Outlines: Python Built-in Methods to learn more.

@@ -1,1 +1,0 @@
-How do you work with Python lists? These handy tools help you keep many things in order. Read this week's Quark's Outlines: Python Lists to learn more.

@@ -1,1 +1,0 @@
-What are classes in Python? Learn the basics of object-oriented coding. Read this week's Quark's Outlines: Python Classes to find out more.

@@ -1,1 +1,0 @@
-How do you make objects callable in Python? Learn this advanced skill. Read this week's Quark's Outlines: Python Emulating Callable Objects to find out how.

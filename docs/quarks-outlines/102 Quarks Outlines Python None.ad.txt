@@ -1,1 +1,0 @@
-What does 'None' mean in Python? Discover how to master this special value in your code. Read this week's Quark's Outlines: Python None.

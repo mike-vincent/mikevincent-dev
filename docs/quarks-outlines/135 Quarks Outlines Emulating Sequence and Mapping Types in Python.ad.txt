@@ -1,1 +1,0 @@
-How do you make objects act like lists or dicts? Learn these useful patterns. Read this week's Quark's Outlines: Emulating Sequence and Mapping Types in Python to find out how.

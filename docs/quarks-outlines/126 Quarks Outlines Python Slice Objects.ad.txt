@@ -1,1 +1,0 @@
-How do slice objects work in Python? Learn to cut up sequences. Read this week's Quark's Outlines: Python Slice Objects to find out how.

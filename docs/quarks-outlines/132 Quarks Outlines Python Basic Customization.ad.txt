@@ -1,1 +1,0 @@
-How do you change how Python objects work? Learn basic customization. Read this week's Quark's Outlines: Python Basic Customization to find out how.

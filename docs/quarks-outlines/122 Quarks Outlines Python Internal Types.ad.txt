@@ -1,1 +1,0 @@
-What are internal types in Python? Learn about Python's inner workings. Read this week's Quark's Outlines: Python Internal Types to find out more.

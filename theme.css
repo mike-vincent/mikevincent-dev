@@ -50,6 +50,9 @@ h2 {
   .intro-section {
     flex-direction: column;
   }
+  .intro-text {
+    width: 100%;
+  }
 }
 
 .intro-text {

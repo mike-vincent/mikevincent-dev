@@ -54,6 +54,11 @@ h2 {
 
 .intro-text {
   flex: 1;
+  text-align: right;
+}
+
+.intro-text ul {
+  list-style-position: inside;
 }
 
 .intro-text h2 {

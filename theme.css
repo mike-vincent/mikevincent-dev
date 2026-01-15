@@ -76,3 +76,25 @@ a:hover {
 li {
   color: var(--foreground);
 }
+
+.resume-card {
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.resume-card h1,
+.resume-card h2,
+.resume-card h3 {
+  color: #000;
+}
+
+.resume-card a {
+  color: #0066cc;
+}
+
+.resume-card hr {
+  border-top: 1px solid #ddd;
+}

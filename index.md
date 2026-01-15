@@ -51,6 +51,8 @@ MS Industrial Engineering, UT Tyler. BS Linguistics + BA Journalism, Penn State.
 
 ## Resume
 
+<div class="resume-card" markdown="1">
+
 # Michael Vincent
 **Software Engineer, Full Stack, Payments & Infrastructure**
 
@@ -170,3 +172,5 @@ A learners guide to Python, published as a series of 100+ quick-read articles on
 **Observability:** Prometheus, Grafana, OpenTelemetry, Datadog, PagerDuty
 
 **Security:** Vault, OAuth2, JWT, PCI-DSS, SOC2, Zero Trust
+
+</div>

@@ -31,7 +31,7 @@ Go, Python, TypeScript. Kubernetes, Terraform, AWS, Azure. PostgreSQL, Redis, Ka
 
 ---
 
-## Indie Apps
+## Projects
 **The Archive of American Radio** — California nonprofit I founded. Building Anthology, an app for public-domain radio drama.
 
 - [anthologyradio.com](https://anthologyradio.com)

@@ -58,8 +58,9 @@ h2 {
 }
 
 .photo-container {
-  align-self: stretch;
-  aspect-ratio: 1;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
 }
 
 .header-photo {

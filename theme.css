@@ -1,6 +1,6 @@
 /* Dark theme - archive common */
 :root {
-  --background: oklch(0.145 0 0);
+  --background: #000;
   --foreground: oklch(0.985 0 0);
   --muted-foreground: oklch(0.708 0 0);
   --border: oklch(1 0 0 / 10%);

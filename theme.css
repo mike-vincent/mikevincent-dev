@@ -46,7 +46,7 @@ h2 {
   align-items: flex-start;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 440px) {
   .intro-section {
     flex-direction: column;
   }
@@ -71,10 +71,11 @@ h2 {
   filter: brightness(0.9);
 }
 
-@media (max-width: 430px) {
+@media (max-width: 440px) {
   .headshot-image {
     width: 100%;
     height: auto;
+    order: -1;
   }
 }
 

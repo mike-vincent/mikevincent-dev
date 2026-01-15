@@ -28,7 +28,7 @@ h1 {
   color: var(--foreground);
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   margin-top: 1rem;
 }
 

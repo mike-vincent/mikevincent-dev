@@ -50,15 +50,15 @@ Go, Python, TypeScript. Kubernetes, Terraform, AWS, Azure. PostgreSQL, Redis, Ka
 <hr>
 
 <h2>Education</h2>
-<p><strong>The University of Texas at Tyler</strong>, Master of Science, Industrial Engineering, December 2015</p>
-<p><strong>The Pennsylvania State University</strong>, Bachelor of Science, Linguistics, December 2011</p>
-<p><strong>The Pennsylvania State University</strong>, Bachelor of Arts, Journalism, December 2011</p>
+<p><strong>The University of Texas at Tyler</strong>, <span class="secondary">Master of Science, Industrial Engineering</span>, <span class="tertiary">December 2015</span></p>
+<p><strong>The Pennsylvania State University</strong>, <span class="secondary">Bachelor of Science, Linguistics</span>, <span class="tertiary">December 2011</span></p>
+<p><strong>The Pennsylvania State University</strong>, <span class="secondary">Bachelor of Arts, Journalism</span>, <span class="tertiary">December 2011</span></p>
 
 <h2>Experience</h2>
 
 <p><strong>Senior Software Engineer, Payments Infrastructure</strong><br>
-PricewaterhouseCoopers (PwC), Los Angeles, California<br>
-September 2024 to Present</p>
+<span class="secondary">PricewaterhouseCoopers (PwC), Los Angeles, California</span><br>
+<span class="tertiary">September 2024 to Present</span></p>
 <p>Founding engineer for "Capital One Databolt," a vaultless tokenization platform for payment and financial services providers.</p>
 <ul>
 <li>Wrote Go APIs for licensing, authentication, and partner onboarding.</li>
@@ -67,12 +67,12 @@ September 2024 to Present</p>
 </ul>
 
 <p><strong>Relocation</strong><br>
-May 2024 to August 2024</p>
+<span class="tertiary">May 2024 to August 2024</span></p>
 <p>Relocated to Los Angeles, California, United States.</p>
 
 <p><strong>Software Engineering Manager, Infrastructure</strong><br>
-Cubic Transportation Systems, San Diego, California<br>
-October 2021 to April 2024</p>
+<span class="secondary">Cubic Transportation Systems, San Diego, California</span><br>
+<span class="tertiary">October 2021 to April 2024</span></p>
 <p>Led a global team shipping fare systems for DC Metro, NYC MTA, BART, LA Metro, and Boston MBTA.</p>
 <ul>
 <li>Built cloud infrastructure with Terraform, AWS, and GitHub Actions.</li>
@@ -81,8 +81,8 @@ October 2021 to April 2024</p>
 </ul>
 
 <p><strong>Lead Senior Software Engineer</strong><br>
-Cubic Transportation Systems, San Diego, California<br>
-October 2019 to October 2021</p>
+<span class="secondary">Cubic Transportation Systems, San Diego, California</span><br>
+<span class="tertiary">October 2019 to October 2021</span></p>
 <p>Built the "Cubic AI Chatbot" letting riders check card balances by phone and text.</p>
 <ul>
 <li>Deployed chatbot on Azure with natural language processing.</li>
@@ -91,8 +91,8 @@ October 2019 to October 2021</p>
 </ul>
 
 <p><strong>Senior Software Engineer</strong><br>
-Cubic Transportation Systems, Washington, D.C.<br>
-May 2017 to October 2019</p>
+<span class="secondary">Cubic Transportation Systems, Washington, D.C.</span><br>
+<span class="tertiary">May 2017 to October 2019</span></p>
 <p>First DevOps hire. Moved legacy infrastructure to containers and cloud for fare systems serving 10M+ daily riders.</p>
 <ul>
 <li>Added Terraform, Kubernetes, and Docker to the organization.</li>
@@ -101,8 +101,8 @@ May 2017 to October 2019</p>
 </ul>
 
 <p><strong>Senior Software Engineer, Infrastructure</strong><br>
-EPAM Systems, Washington, D.C.<br>
-May 2016 to April 2017</p>
+<span class="secondary">EPAM Systems, Washington, D.C.</span><br>
+<span class="tertiary">May 2016 to April 2017</span></p>
 <p>Promoted to senior backend engineer at digital UX agency building apps for enterprise clients.</p>
 <ul>
 <li>Built Fannie Mae web app for mortgage lenders.</li>
@@ -111,8 +111,8 @@ May 2016 to April 2017</p>
 </ul>
 
 <p><strong>Software Engineer</strong><br>
-EPAM Systems, Washington, D.C.<br>
-May 2015 to April 2016</p>
+<span class="secondary">EPAM Systems, Washington, D.C.</span><br>
+<span class="tertiary">May 2015 to April 2016</span></p>
 <p>Backend engineer on full-stack team building mobile apps and e-commerce platforms.</p>
 <ul>
 <li>Built Poison Control mobile app and Canadian Tire e-commerce store.</li>
@@ -123,7 +123,7 @@ May 2015 to April 2016</p>
 <h2>Projects</h2>
 
 <p><strong>Io Pictures Corporation</strong><br>
-January 2022 to Present</p>
+<span class="tertiary">January 2022 to Present</span></p>
 <p>Founded California C Corporation engaged in buying, selling, and distributing licensed and acquired motion picture titles.</p>
 <ul>
 <li>Sold rights to Tubi, Amazon, Apple, and Google through professional contacts.</li>
@@ -132,7 +132,7 @@ January 2022 to Present</p>
 </ul>
 
 <p><strong>The Archive of American Radio, Inc.</strong><br>
-June 2025 to Present</p>
+<span class="tertiary">June 2025 to Present</span></p>
 <p>Founded California nonprofit for public-domain American radio drama, building the "Anthology" mobile app.</p>
 <ul>
 <li>Built data processing pipelines and Cloudflare Workers APIs.</li>
@@ -141,7 +141,7 @@ June 2025 to Present</p>
 </ul>
 
 <p><strong>Quark's Outlines</strong><br>
-September 2024 to Present</p>
+<span class="tertiary">September 2024 to Present</span></p>
 <p>A learners guide to Python, published as a series of 100+ quick-read articles on DEV.to.</p>
 
 <h2>Skills</h2>

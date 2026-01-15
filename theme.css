@@ -112,10 +112,6 @@ li {
   font-weight: 600;
 }
 
-.resume-card p:not(:has(strong)) {
-  color: #8c8c8c;
-}
-
 .resume-card ul {
   list-style-type: disc;
   margin-left: 1.5em;
@@ -125,7 +121,7 @@ li {
 }
 
 .resume-card li {
-  color: #8c8c8c;
+  color: #000;
   margin-bottom: 0;
 }
 

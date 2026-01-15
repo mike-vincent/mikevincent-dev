@@ -4,14 +4,14 @@ title: Home
 ---
 <img src="assets/images/headshot.png" alt="Mike Vincent headshot" class="headshot-image">
 
-# _Mike<br>Vincent_
+# Mike<br>Vincent
 
-## _Who are you?_
+## Who are you?
 Hi, I'm **Mike Vincent**, an American software engineer and writer in Los Angeles, California.
 
 ---
 
-## _Writing_
+## Writing
 Every week, I write about coding and programming. Read what's in my Python series.
 
 - [Quark's Outlines: Python](https://dev.to/mike-vincent/series/31181)
@@ -20,7 +20,7 @@ Every week, I write about coding and programming. Read what's in my Python serie
 
 ---
 
-## _Engineering Leadership Resume_
+## Engineering Leadership Resume
 I work at PwC, and I design, build and operate high-traffic software for major brands.
 
 - [linkedin.com/in/michael-thomas-vincent](https://linkedin.com/in/michael-thomas-vincent)
@@ -29,15 +29,15 @@ Fannie Mae • Capital One • Lockheed Martin • NY Fashion Week • U.S. Cour
 
 ---
 
-## _What's New?_
-## _Indie Apps_
-I’m building Anthology, a place to hear public-domain radio shows. Prototype web app started in June 2025. Supabase, Vercel, Next.js. Launching iOS app Christmas 2025.
+## What's New?
+## Indie Apps
+I'm building Anthology, a place to hear public-domain radio shows. Prototype web app started in June 2025. Supabase, Vercel, Next.js. Launching iOS app Christmas 2025.
 
 - [anthologyradio.com](https://anthologyradio.com)
 
 ---
 
-## _Portfolio_
+## Portfolio
 Here's my GitHub Pages site.
 
 - [mikevincent.dev](https://mikevincent.dev)

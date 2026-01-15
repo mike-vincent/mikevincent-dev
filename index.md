@@ -4,13 +4,7 @@ title: Home
 ---
 # Mike Vincent
 
-<div class="intro-section" style="display: flex; flex-direction: row; gap: 1.5rem; align-items: flex-start;">
-<div class="intro-text" style="flex: 1;">
-<h2>Who is Mike Vincent?</h2>
-<p>Full-stack engineer in LA. Go, Python, Kubernetes. Payments at <strong>PwC</strong>. Previously <strong>Cubic</strong> fare systems for 10M+ daily riders.</p>
-</div>
-<img src="assets/images/headshot.png" alt="Mike Vincent headshot" class="headshot-image" style="width: 180px; height: 180px; flex-shrink: 0;">
-</div>
+<div class="intro-section" style="display: flex; flex-direction: row; gap: 1.5rem; align-items: flex-start;"><img src="assets/images/headshot.png" alt="Mike Vincent headshot" class="headshot-image" style="width: 180px; height: 180px; flex-shrink: 0;"><div class="intro-text" style="flex: 1;"><h2 style="margin-top: 0;">Who is Mike Vincent?</h2><p>Full-stack engineer in LA. Go, Python, Kubernetes. Payments at <strong>PwC</strong>. Previously <strong>Cubic</strong> fare systems for 10M+ daily riders.</p></div></div>
 
 ---
 

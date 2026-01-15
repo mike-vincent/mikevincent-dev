@@ -51,126 +51,117 @@ MS Industrial Engineering, UT Tyler. BS Linguistics + BA Journalism, Penn State.
 
 ## Resume
 
-<div class="resume-card" markdown="1">
+<div class="resume-card">
+<h1>Michael Vincent</h1>
+<p><strong>Software Engineer, Full Stack, Payments &amp; Infrastructure</strong></p>
+<p>U.S. Citizen · Los Angeles, California · +1 (813) 482-7666 · michael.thomas.vincent@gmail.com · mikevincent.dev</p>
 
-# Michael Vincent
-**Software Engineer, Full Stack, Payments & Infrastructure**
+<hr>
 
-U.S. Citizen | Los Angeles, California, United States | +1 (813) 482-7666 | michael.thomas.vincent@gmail.com | https://www.mikevincent.dev
+<h2>Education</h2>
+<p><strong>The University of Texas at Tyler</strong>, Master of Science, Industrial Engineering, December 2015</p>
+<p><strong>The Pennsylvania State University</strong>, Bachelor of Science, Linguistics, December 2011</p>
+<p><strong>The Pennsylvania State University</strong>, Bachelor of Arts, Journalism, December 2011</p>
 
----
+<h2>Experience</h2>
 
-### Education
-**The University of Texas at Tyler**, Master of Science, Industrial Engineering, December 2015
+<p><strong>Senior Software Engineer, Payments Infrastructure</strong><br>
+PricewaterhouseCoopers (PwC), Los Angeles, California<br>
+September 2024 to Present</p>
+<p>Founding engineer for "Capital One Databolt," a vaultless tokenization platform for payment and financial services providers.</p>
+<ul>
+<li>Wrote Go APIs for licensing, authentication, and partner onboarding.</li>
+<li>Deployed with Docker and Helm to AWS EKS and Azure AKS.</li>
+<li>Added OpenTelemetry tracing; Zelle signed as first customer.</li>
+</ul>
 
-**The Pennsylvania State University**, Bachelor of Science, Linguistics, December 2011
+<p><strong>Relocation</strong><br>
+May 2024 to August 2024</p>
+<p>Relocated to Los Angeles, California, United States.</p>
 
-**The Pennsylvania State University**, Bachelor of Arts, Journalism, December 2011
+<p><strong>Software Engineering Manager, Infrastructure</strong><br>
+Cubic Transportation Systems, San Diego, California<br>
+October 2021 to April 2024</p>
+<p>Led a global team shipping fare systems for DC Metro, NYC MTA, BART, LA Metro, and Boston MBTA.</p>
+<ul>
+<li>Built cloud infrastructure with Terraform, AWS, and GitHub Actions.</li>
+<li>Won multiple company awards for engineering excellence.</li>
+<li>Deployed mTLS security with Istio on Kubernetes.</li>
+</ul>
 
-### Experience
+<p><strong>Lead Senior Software Engineer</strong><br>
+Cubic Transportation Systems, San Diego, California<br>
+October 2019 to October 2021</p>
+<p>Built the "Cubic AI Chatbot" letting riders check card balances by phone and text.</p>
+<ul>
+<li>Deployed chatbot on Azure with natural language processing.</li>
+<li>Built CI/CD for 20 Java apps with Jenkins, Docker, Helm, Vault, and Terraform.</li>
+<li>Built serverless pipelines with AWS Lambda and Azure Functions.</li>
+</ul>
 
-**Senior Software Engineer, Payments Infrastructure**
-PricewaterhouseCoopers (PwC), Los Angeles, California
-September 2024 to Present
+<p><strong>Senior Software Engineer</strong><br>
+Cubic Transportation Systems, Washington, D.C.<br>
+May 2017 to October 2019</p>
+<p>First DevOps hire. Moved legacy infrastructure to containers and cloud for fare systems serving 10M+ daily riders.</p>
+<ul>
+<li>Added Terraform, Kubernetes, and Docker to the organization.</li>
+<li>Passed PCI, SOC2, ISO, and SOX audits.</li>
+<li>Built Kubernetes monitoring with Prometheus and Grafana.</li>
+</ul>
 
-Founding engineer for "Capital One Databolt," a vaultless tokenization platform for payment and financial services providers.
-- Wrote Go APIs for licensing, authentication, and partner onboarding.
-- Deployed with Docker and Helm to AWS EKS and Azure AKS.
-- Added OpenTelemetry tracing; Zelle signed as first customer.
+<p><strong>Senior Software Engineer, Infrastructure</strong><br>
+EPAM Systems, Washington, D.C.<br>
+May 2016 to April 2017</p>
+<p>Promoted to senior backend engineer at digital UX agency building apps for enterprise clients.</p>
+<ul>
+<li>Built Fannie Mae web app for mortgage lenders.</li>
+<li>Built Lockheed Martin Intranet on headless Drupal.</li>
+<li>Deployed microservices with Docker and Kubernetes 1.2.</li>
+</ul>
 
-**Relocation**
-Relocation
-May 2024 to August 2024
+<p><strong>Software Engineer</strong><br>
+EPAM Systems, Washington, D.C.<br>
+May 2015 to April 2016</p>
+<p>Backend engineer on full-stack team building mobile apps and e-commerce platforms.</p>
+<ul>
+<li>Built Poison Control mobile app and Canadian Tire e-commerce store.</li>
+<li>Moved PostgreSQL database to multi-tenant setup with zero downtime.</li>
+<li>Worked with Docker, Ansible, Jenkins, VMware ESXi, and Cisco ASA firewalls.</li>
+</ul>
 
-Relocated to Los Angeles, California, United States.
+<h2>Projects</h2>
 
-**Software Engineering Manager, Infrastructure**
-Cubic Transportation Systems, San Diego, California
-October 2021 to April 2024
+<p><strong>Io Pictures Corporation</strong><br>
+January 2022 to Present</p>
+<p>Founded California C Corporation engaged in buying, selling, and distributing licensed and acquired motion picture titles.</p>
+<ul>
+<li>Sold rights to Tubi, Amazon, Apple, and Google through professional contacts.</li>
+<li>Negotiated domestic, international, publicity, and all-rights deals.</li>
+<li>Built digital distribution pipeline.</li>
+</ul>
 
-Led a global team shipping fare systems for DC Metro, NYC MTA, BART, LA Metro, and Boston MBTA.
-- Built cloud infrastructure with Terraform, AWS, and GitHub Actions.
-- Won multiple company awards for engineering excellence.
-- Deployed mTLS security with Istio on Kubernetes.
+<p><strong>The Archive of American Radio, Inc.</strong><br>
+June 2025 to Present</p>
+<p>Founded California nonprofit for public-domain American radio drama, building the "Anthology" mobile app.</p>
+<ul>
+<li>Built data processing pipelines and Cloudflare Workers APIs.</li>
+<li>Used Cloudflare D1, R2, Turso, Supabase, and Vercel.</li>
+<li>Developed custom OpenAI models for metadata extraction and search.</li>
+</ul>
 
-**Lead Senior Software Engineer**
-Cubic Transportation Systems, San Diego, California
-October 2019 to October 2021
+<p><strong>Quark's Outlines</strong><br>
+September 2024 to Present</p>
+<p>A learners guide to Python, published as a series of 100+ quick-read articles on DEV.to.</p>
 
-Built the "Cubic AI Chatbot" letting riders check card balances by phone and text.
-- Deployed chatbot on Azure with natural language processing.
-- Built CI/CD for 20 Java apps with Jenkins, Docker, Helm, Vault, and Terraform.
-- Built serverless pipelines with AWS Lambda and Azure Functions.
-
-**Senior Software Engineer**
-Cubic Transportation Systems, Washington, D.C.
-May 2017 to October 2019
-
-First DevOps hire. Moved legacy infrastructure to containers and cloud for fare systems serving 10M+ daily riders.
-- Added Terraform, Kubernetes, and Docker to the organization.
-- Passed PCI, SOC2, ISO, and SOX audits.
-- Built Kubernetes monitoring with Prometheus and Grafana.
-
-**Senior Software Engineer, Infrastructure**
-EPAM Systems, Washington, D.C.
-May 2016 to April 2017
-
-Promoted to senior backend engineer at digital UX agency building apps for enterprise clients.
-- Built Fannie Mae web app for mortgage lenders.
-- Built Lockheed Martin Intranet on headless Drupal.
-- Deployed microservices with Docker and Kubernetes 1.2.
-
-**Software Engineer**
-EPAM Systems, Washington, D.C.
-May 2015 to April 2016
-
-Backend engineer on full-stack team building mobile apps and e-commerce platforms.
-- Built Poison Control mobile app and Canadian Tire e-commerce store.
-- Moved PostgreSQL database to multi-tenant setup with zero downtime.
-- Worked with Docker, Ansible, Jenkins, VMware ESXi, and Cisco ASA firewalls.
-
-### Projects
-
-**Io Pictures Corporation**
-January 2022 to Present
-
-Founded California C Corporation engaged in buying, selling, and distributing licensed and acquired motion picture titles.
-- Sold rights to Tubi, Amazon, Apple, and Google through professional contacts.
-- Negotiated domestic, international, publicity, and all-rights deals.
-- Built digital distribution pipeline.
-
-**The Archive of American Radio, Inc.**
-June 2025 to Present
-
-Founded California nonprofit for public-domain American radio drama, building the "Anthology" mobile app.
-- Built data processing pipelines and Cloudflare Workers APIs.
-- Used Cloudflare D1, R2, Turso, Supabase, and Vercel.
-- Developed custom OpenAI models for metadata extraction and search.
-
-**Quark's Outlines**
-September 2024 to Present
-
-A learners guide to Python, published as a series of 100+ quick-read articles on DEV.to.
-
-### Skills
-**Languages:** Go, Python, JavaScript/TypeScript, Java, SQL, Bash, Rust
-
-**Cloud:** AWS, Azure, Google Cloud Platform
-
-**Compute:** Kubernetes, Docker, AWS EKS, Azure AKS, AWS Lambda, Azure Functions, GCP GKE
-
-**Storage:** AWS S3, Cloudflare R2, Azure Blob, Redis, Kafka
-
-**Network:** Istio, cert-manager, mTLS, Cloudflare Workers, API Gateway, Load Balancing
-
-**Databases:** PostgreSQL, MySQL, MongoDB, Turso, Cloudflare D1, Supabase, DynamoDB
-
-**Infrastructure:** Terraform, Helm, GitHub Actions, Jenkins, ArgoCD, Pulumi
-
-**AI/ML:** OpenAI API, LangChain, Vector Databases, RAG, Embeddings
-
-**Observability:** Prometheus, Grafana, OpenTelemetry, Datadog, PagerDuty
-
-**Security:** Vault, OAuth2, JWT, PCI-DSS, SOC2, Zero Trust
-
+<h2>Skills</h2>
+<p><strong>Languages:</strong> Go, Python, JavaScript/TypeScript, Java, SQL, Bash, Rust</p>
+<p><strong>Cloud:</strong> AWS, Azure, Google Cloud Platform</p>
+<p><strong>Compute:</strong> Kubernetes, Docker, AWS EKS, Azure AKS, AWS Lambda, Azure Functions, GCP GKE</p>
+<p><strong>Storage:</strong> AWS S3, Cloudflare R2, Azure Blob, Redis, Kafka</p>
+<p><strong>Network:</strong> Istio, cert-manager, mTLS, Cloudflare Workers, API Gateway, Load Balancing</p>
+<p><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, Turso, Cloudflare D1, Supabase, DynamoDB</p>
+<p><strong>Infrastructure:</strong> Terraform, Helm, GitHub Actions, Jenkins, ArgoCD, Pulumi</p>
+<p><strong>AI/ML:</strong> OpenAI API, LangChain, Vector Databases, RAG, Embeddings</p>
+<p><strong>Observability:</strong> Prometheus, Grafana, OpenTelemetry, Datadog, PagerDuty</p>
+<p><strong>Security:</strong> Vault, OAuth2, JWT, PCI-DSS, SOC2, Zero Trust</p>
 </div>

@@ -43,7 +43,25 @@ h2 {
 .subtitle {
   color: var(--muted-foreground);
   margin-top: 0;
+  margin-bottom: 0;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.header-section h1 {
+  margin: 0;
+}
+
+.header-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
 .intro-section {

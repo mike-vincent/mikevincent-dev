@@ -6,7 +6,7 @@ title: Home
 
 # Mike<br>Vincent
 
-## Who are you?
+## Who is Mike Vincent?
 Hi, I'm **Mike Vincent**, an American software engineer and writer in Los Angeles, California.
 
 ---

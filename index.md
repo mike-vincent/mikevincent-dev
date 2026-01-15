@@ -2,16 +2,17 @@
 layout: default
 title: Home
 ---
-<img src="assets/images/headshot.png" alt="Mike Vincent headshot" class="headshot-image">
-
 # Mike Vincent
 
-## Who is Mike Vincent?
-Software engineer in Los Angeles. I build payment systems, cloud infrastructure, and mobile apps.
-
-Currently at **PwC** as founding engineer on Capital One Databolt, a vaultless tokenization platform. Zelle is our first customer.
-
-Previously at **Cubic Transportation Systems**, where I led infrastructure for fare systems serving DC Metro, NYC MTA, LA Metro, BART, and Boston MBTA.
+<div class="intro-section">
+<div class="intro-text">
+<h2>Who is Mike Vincent?</h2>
+<p>Software engineer in Los Angeles. I build payment systems, cloud infrastructure, and mobile apps.</p>
+<p>Currently at <strong>PwC</strong> as founding engineer on Capital One Databolt, a vaultless tokenization platform. Zelle is our first customer.</p>
+<p>Previously at <strong>Cubic Transportation Systems</strong>, where I led infrastructure for fare systems serving DC Metro, NYC MTA, LA Metro, BART, and Boston MBTA.</p>
+</div>
+<img src="assets/images/headshot.png" alt="Mike Vincent headshot" class="headshot-image">
+</div>
 
 ---
 

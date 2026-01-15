@@ -40,14 +40,26 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
+.intro-section {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.intro-text {
+  flex: 1;
+}
+
+.intro-text h2 {
+  margin-top: 0;
+}
+
 .headshot-image {
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 50px;
-  display: block;
-  margin-bottom: 0.5rem;
-  overflow: hidden;
+  flex-shrink: 0;
   filter: brightness(0.9);
 }
 

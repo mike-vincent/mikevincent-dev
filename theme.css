@@ -87,8 +87,16 @@ li {
 
 .resume-card h1,
 .resume-card h2,
-.resume-card h3 {
+.resume-card h3,
+.resume-card p,
+.resume-card li {
   color: #000;
+}
+
+.resume-card ul {
+  list-style-type: disc;
+  margin-left: 1.5em;
+  padding-left: 0;
 }
 
 .resume-card a {

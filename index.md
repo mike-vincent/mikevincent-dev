@@ -4,7 +4,7 @@ title: Home
 ---
 <img src="assets/images/headshot.png" alt="Mike Vincent headshot" class="headshot-image">
 
-# Mike<br>Vincent
+# Mike Vincent
 
 ## Who is Mike Vincent?
 Software engineer in Los Angeles. I build payment systems, cloud infrastructure, and mobile apps.

@@ -54,11 +54,10 @@ h2 {
 }
 
 .name-photo {
-  width: auto;
-  height: 100%;
-  aspect-ratio: 1;
+  width: 10px;
+  height: 10px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 .name {

@@ -176,9 +176,26 @@ li {
   line-height: 1.15;
   width: calc(100vw - 2rem);
   max-width: 800px;
-  min-width: 400px;
   margin-left: 50%;
   transform: translateX(-50%);
+  position: relative;
+}
+
+.copy-markdown {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.copy-markdown:hover {
+  background: #e0e0e0;
 }
 
 .resume-card h1 {

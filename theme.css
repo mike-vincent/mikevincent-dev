@@ -70,6 +70,7 @@ h2 {
 
 .title {
   color: var(--muted-foreground);
+  line-height: 1.2;
 }
 
 .header-section {

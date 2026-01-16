@@ -53,13 +53,12 @@ h2 {
 }
 
 .photo-wrap {
-  align-self: stretch;
-  aspect-ratio: 1;
+  display: flex;
 }
 
 .name-photo {
   height: 100%;
-  width: auto;
+  aspect-ratio: 1;
   object-fit: cover;
   border-radius: 6px;
 }

@@ -1,0 +1,202 @@
+%-------------------------
+% Resume - December 2025
+%-------------------------
+
+\documentclass[16pt,letterpaper]{extarticle}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\setmainfont{SF Pro Text}[
+  BoldFont={SF Pro Text Bold},
+  ItalicFont={SF Pro Text Italic}
+]
+% Semibold command for medium emphasis
+\newfontfamily\sbfont{SF Pro Text Semibold}
+\newcommand{\textsb}[1]{{\sbfont #1}}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\usepackage{xcolor}
+
+% iOS-style text colors
+\definecolor{primary}{gray}{0.0}      % Black - name, employers, sections
+\definecolor{secondary}{gray}{0.25}   % Dark gray - roles, dates, locations
+\definecolor{tertiary}{gray}{0.55}    % Medium gray - descriptions, bullets
+
+% Light dotfill
+\newcommand{\ldotfill}{{\dotfill}}
+% Light horizontal rule
+\newcommand{\lhrule}{{\rule{\linewidth}{0.2pt}}}
+\usepackage{changepage}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\setstretch{1.15}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{nosep, leftmargin=1.5em}
+
+% Footer with page numbers and date
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{{\fontsize{10pt}{12pt}\selectfont Page \thepage\ of \pageref{LastPage}}}
+\fancyfoot[R]{{\fontsize{10pt}{12pt}\selectfont Fri Dec 27 2025}}
+
+% Section formatting with underline
+\titleformat{\section}{\LARGE\sbfont}{}{0em}{}[\vspace{-3pt}\titlerule]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% No paragraph indent
+\setlength{\parindent}{0pt}
+
+% Left-aligned text (no justification)
+\raggedright
+
+\begin{document}
+
+%----------HEADER----------
+\titleformat{name=\section,numberless}{\fontsize{28pt}{32pt}\selectfont\sbfont}{}{0em}{}[\vspace{-3pt}\titlerule]
+\section*{Michael Vincent}
+{\color{primary}\textsb{Software Engineer, Full Stack, Payments \& Infrastructure}} \\
+{\color{primary}U.S. Citizen | Los Angeles, California | \href{https://mikevincent.dev}{mikevincent.dev}}
+
+
+%----------EDUCATION----------
+\section{Education}
+{\textsb{The University of Texas at Tyler}}, {\color{secondary}Master of Science, Industrial Engineering}, {\color{tertiary}December 2015} \\
+{\textsb{The Pennsylvania State University}}, {\color{secondary}Bachelor of Science, Linguistics}, {\color{tertiary}December 2011} \\
+{\textsb{The Pennsylvania State University}}, {\color{secondary}Bachelor of Arts, Journalism}, {\color{tertiary}December 2011}
+
+%----------EXPERIENCE----------
+\section{Experience}
+\begin{samepage}
+{\large\textsb{Senior Software Engineer, Payments Infrastructure}} \\
+{\color{secondary}PricewaterhouseCoopers (PwC), Los Angeles, California, United States} \\
+{\color{tertiary}September 2024 to Present} \\[6pt]
+{Founding engineer for "Capital One Databolt," a vaultless tokenization platform for payment and financial services providers.}\\
+{\begin{itemize}
+  \item Wrote Go APIs for licensing, authentication, and partner onboarding.
+  \item Deployed with Docker and Helm to AWS EKS and Azure AKS.
+  \item Added OpenTelemetry tracing; Zelle signed as first customer.
+\end{itemize}}
+\end{samepage}
+
+\vspace{12pt}
+\begin{samepage}
+{\large\textsb{Relocation}} \\
+{\color{secondary}Relocation} \\
+{\color{tertiary}May 2024 to August 2024} \\[6pt]
+{Relocated to Los Angeles, California, United States.}
+\end{samepage}
+
+\vspace{12pt}
+\begin{samepage}
+{\large\textsb{Software Engineering Manager, Infrastructure}} \\
+{\color{secondary}Cubic Transportation Systems, San Diego, California, United States} \\
+{\color{tertiary}October 2021 to April 2024} \\[6pt]
+{Led a global team shipping fare systems for DC Metro, NYC MTA, BART, LA Metro, and Boston MBTA.}\\
+{\begin{itemize}
+  \item Built cloud infrastructure with Terraform, AWS, and GitHub Actions.
+  \item Won multiple company awards for engineering excellence.
+  \item Deployed mTLS security with Istio on Kubernetes.
+\end{itemize}}
+\end{samepage}
+
+\vspace{12pt}
+\begin{samepage}
+{\large\textsb{Lead Senior Software Engineer}} \\
+{\color{secondary}Cubic Transportation Systems, San Diego, California, United States} \\
+{\color{tertiary}October 2019 to October 2021} \\[6pt]
+{Built the "Cubic AI Chatbot" letting riders check card balances by phone and text.}\\
+{\begin{itemize}
+  \item Deployed chatbot on Azure with natural language processing.
+  \item Built CI/CD for 20 Java apps with Jenkins, Docker, Helm, Vault, and Terraform.
+  \item Built serverless pipelines with AWS Lambda and Azure Functions.
+\end{itemize}}
+\end{samepage}
+
+\vspace{12pt}
+\begin{samepage}
+{\large\textsb{Senior Software Engineer}} \\
+{\color{secondary}Cubic Transportation Systems, Washington, D.C., United States} \\
+{\color{tertiary}May 2017 to October 2019} \\[6pt]
+{First DevOps hire. Moved legacy infrastructure to containers and cloud for fare systems serving 10M+ daily riders.}\\
+{\begin{itemize}
+  \item Added Terraform, Kubernetes, and Docker to the organization.
+  \item Passed PCI, SOC2, ISO, and SOX audits.
+  \item Built Kubernetes monitoring with Prometheus and Grafana.
+\end{itemize}}
+\end{samepage}
+
+\vspace{12pt}
+\begin{samepage}
+{\large\textsb{Senior Software Engineer, Infrastructure}} \\
+{\color{secondary}EPAM Systems, Washington, D.C., United States} \\
+{\color{tertiary}May 2016 to April 2017} \\[6pt]
+{Promoted to senior backend engineer at digital UX agency building apps for enterprise clients.}\\
+{\begin{itemize}
+  \item Built Fannie Mae web app for mortgage lenders.
+  \item Built Lockheed Martin Intranet on headless Drupal.
+  \item Deployed microservices with Docker and Kubernetes 1.2.
+\end{itemize}}
+\end{samepage}
+
+\vspace{12pt}
+\begin{samepage}
+{\large\textsb{Software Engineer}} \\
+{\color{secondary}EPAM Systems, Washington, D.C., United States} \\
+{\color{tertiary}May 2015 to April 2016} \\[6pt]
+{Backend engineer on full-stack team building mobile apps and e-commerce platforms.}\\
+{\begin{itemize}
+  \item Built Poison Control mobile app and Canadian Tire e-commerce store.
+  \item Moved PostgreSQL database to multi-tenant setup with zero downtime.
+  \item Worked with Docker, Ansible, Jenkins, VMware ESXi, and Cisco ASA firewalls.
+\end{itemize}}
+\end{samepage}
+
+%----------PROJECTS----------
+\section{Projects}
+\begin{samepage}
+{\large\textsb{Io Pictures Corporation}} \\
+{\color{tertiary}January 2022 to Present} \\[6pt]
+{Founded California C Corporation engaged in buying, selling, and distributing licensed and acquired motion picture titles.}\\
+{\begin{itemize}
+  \item Sold rights to Tubi, Amazon, Apple, and Google through professional contacts.
+  \item Negotiated domestic, international, publicity, and all-rights deals.
+  \item Built digital distribution pipeline.
+\end{itemize}}
+\end{samepage}
+
+\vspace{12pt}
+\begin{samepage}
+{\large\textsb{The Archive of American Radio, Inc.}} \\
+{\color{tertiary}June 2025 to Present} \\[6pt]
+{Founded California nonprofit for public-domain American radio drama, building the "Anthology" mobile app.}\\
+{\begin{itemize}
+  \item Built data processing pipelines and Cloudflare Workers APIs.
+  \item Used Cloudflare D1, R2, Turso, Supabase, and Vercel.
+  \item Developed custom OpenAI models for metadata extraction and search.
+\end{itemize}}
+\end{samepage}
+
+\vspace{12pt}
+\begin{samepage}
+{\large\textsb{Quark's Outlines}} \\
+{\color{tertiary}September 2024 to Present} \\[6pt]
+{A learners guide to Python, published as a series of 100+ quick-read articles on DEV.to.}
+\end{samepage}
+
+%----------SKILLS----------
+\section{Skills}
+\textbf{Languages:} {\color{primary}Go, Python, JavaScript/TypeScript, Java, SQL, Bash, Rust} \\
+\textbf{Cloud:} {\color{primary}AWS, Azure, Google Cloud Platform} \\
+\textbf{Compute:} {\color{primary}Kubernetes, Docker, AWS EKS, Azure AKS, AWS Lambda, Azure Functions, GCP GKE} \\
+\textbf{Storage:} {\color{primary}AWS S3, Cloudflare R2, Azure Blob, Redis, Kafka} \\
+\textbf{Network:} {\color{primary}Istio, cert-manager, mTLS, Cloudflare Workers, API Gateway, Load Balancing} \\
+\textbf{Databases:} {\color{primary}PostgreSQL, MySQL, MongoDB, Turso, Cloudflare D1, Supabase, DynamoDB} \\
+\textbf{Infrastructure:} {\color{primary}Terraform, Helm, GitHub Actions, Jenkins, ArgoCD, Pulumi} \\
+\textbf{AI/ML:} {\color{primary}OpenAI API, LangChain, Vector Databases, RAG, Embeddings} \\
+\textbf{Observability:} {\color{primary}Prometheus, Grafana, OpenTelemetry, Datadog, PagerDuty} \\
+\textbf{Security:} {\color{primary}Vault, OAuth2, JWT, PCI-DSS, SOC2, Zero Trust}
+
+\end{document}

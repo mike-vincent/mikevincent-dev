@@ -192,6 +192,13 @@ li {
   margin: 0;
 }
 
+.resume-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.download-pdf,
 .copy-markdown {
   background: #f0f0f0;
   border: 1px solid #ddd;
@@ -200,9 +207,10 @@ li {
   font-size: 0.75rem;
   color: #666;
   cursor: pointer;
-  flex-shrink: 0;
+  text-decoration: none;
 }
 
+.download-pdf:hover,
 .copy-markdown:hover {
   background: #e0e0e0;
 }

@@ -175,6 +175,7 @@ li {
   margin-bottom: 1rem;
   line-height: 1.15;
   width: calc(100vw - 10px);
+  min-width: 400px;
   max-width: 800px;
   margin-left: 50%;
   transform: translateX(-50%);

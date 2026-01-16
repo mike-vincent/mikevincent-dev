@@ -172,10 +172,9 @@ li {
   border-radius: 12px;
   padding: 1.5rem;
   line-height: 1.15;
-  max-width: 800px;
-  width: calc(100% - 10px);
+  width: 100%;
   box-sizing: border-box;
-  margin: 1rem 5px;
+  margin: 1rem 0;
 }
 
 .resume-header {

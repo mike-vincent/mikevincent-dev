@@ -172,7 +172,7 @@ li {
   color: #000;
   border-radius: 12px;
   padding: 1.5rem;
-  margin: 1rem;
+  margin: 1rem 2px;
   line-height: 1.15;
   max-width: 800px;
 }

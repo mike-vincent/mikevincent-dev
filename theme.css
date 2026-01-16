@@ -26,7 +26,8 @@ body {
 
 .site-nav {
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 0.25rem;
   margin-bottom: 1rem;
 }
 

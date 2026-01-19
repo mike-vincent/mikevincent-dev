@@ -15,10 +15,17 @@
 
     <style>
         .icon-hero {
-            background-image: url("icon.png");
-            background-size: 150px 150px;
             width: 150px;
             height: 150px;
+            background: linear-gradient(135deg, #FF9500 0%, #FF6B00 100%);
+            border-radius: 33px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .icon-hero svg {
+            width: 90px;
+            height: 90px;
         }
     </style>
 </head>
@@ -31,7 +38,7 @@
                 <div class="section-content">
                     <div class="row">
                         <header class="column large-centered large-10 small-12 text-center">
-                            <figure class="icon-hero center"></figure>
+                            <figure class="icon-hero center"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 13H12V8" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 3.5L7 2" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19 3.5L17 2" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 22C16.9706 22 21 17.9706 21 13C21 8.02944 16.9706 4 12 4C7.02944 4 3 8.02944 3 13C3 17.9706 7.02944 22 12 22Z" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></figure>
 
                             <h1 class="typography-hero-headline">Timer Fantasy</h1>
                             <p class="typography-intro">Beautiful analog timers for your Mac. Set timers with a simple drag on an elegant clock face, and watch time count down in a way that's intuitive and satisfying.</p>

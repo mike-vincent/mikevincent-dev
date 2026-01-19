@@ -4,128 +4,80 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://testflight.apple.com/styles/interstitial-main.css" />
     <title>Timer Fantasy</title>
     <style>
-        * { box-sizing: border-box; }
-        html { font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 106.25%; }
-        body { margin: 0; padding: 0; background: #f5f5f7; }
-        body.theme-dark { background: #000; color: #f5f5f7; }
-
-        .section-content { max-width: 980px; margin: 0 auto; padding: 80px 22px; }
-
+        body { background: #000 !important; }
         .icon-hero {
             width: 150px;
             height: 150px;
-            margin: 0 auto 30px auto;
-            display: block;
+            margin: 0 auto;
             border-radius: 33px;
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: drop-shadow(rgba(0, 0, 0, 0.15) 0 0 10px);
+            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0 0 20px);
         }
         .icon-hero svg { width: 100px; height: 100px; }
-
-        .typography-hero-headline {
-            font-size: 48px;
-            line-height: 1.1;
-            font-weight: 700;
-            letter-spacing: -.003em;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .theme-dark .typography-hero-headline { color: #f5f5f7; }
-
-        .typography-intro {
-            font-size: 21px;
-            line-height: 1.381;
-            font-weight: 400;
-            letter-spacing: .011em;
-            text-align: center;
-            color: #86868b;
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-        }
-
-        .typography-subsection-headline {
-            font-size: 28px;
-            line-height: 1.14286;
-            font-weight: 600;
-            letter-spacing: .007em;
-            margin-bottom: 16px;
-        }
-        .theme-dark .typography-subsection-headline { color: #f5f5f7; }
-
-        p { font-size: 17px; line-height: 1.47059; font-weight: 400; letter-spacing: -.022em; margin-bottom: 16px; }
-        .theme-dark p { color: #f5f5f7; }
-
-        ul { list-style: none; margin: 0 0 24px 0; padding: 0; }
-        li { font-size: 17px; line-height: 1.47059; padding: 4px 0 4px 20px; position: relative; }
-        li::before { content: "•"; position: absolute; left: 0; color: #86868b; }
-        .theme-dark li { color: #f5f5f7; }
-
-        .footer-mini { border-top: 1px solid #d2d2d7; padding-top: 20px; margin-top: 60px; }
-        .theme-dark .footer-mini { border-color: #424245; }
-        .footer-mini-legal { font-size: 12px; color: #86868b; }
-        .footer-mini-legal a { color: #424245; text-decoration: none; margin-left: 20px; }
-        .footer-mini-legal a:hover { text-decoration: underline; }
-        .theme-dark .footer-mini-legal a { color: #86868b; }
-
-        @media (max-width: 735px) {
-            .typography-hero-headline { font-size: 32px; }
-            .typography-intro { font-size: 17px; }
-            .section-content { padding: 40px 20px; }
-        }
     </style>
-    <script>
-        window.onload = function() {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.body.classList.add('theme-dark');
-            }
-        }
-    </script>
 </head>
-<body>
-    <main>
+<body id="overview" class="theme-dark">
+    <main id="main" class="main" role="main">
         <section class="section section-hero">
             <div class="section-content">
-                <figure class="icon-hero">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="40" stroke="#fff" stroke-width="3"/>
-                        <circle cx="50" cy="50" r="4" fill="#fff"/>
-                        <line x1="50" y1="50" x2="50" y2="22" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-                        <line x1="50" y1="50" x2="68" y2="58" stroke="#ff6b6b" stroke-width="3" stroke-linecap="round"/>
-                    </svg>
-                </figure>
-                <h1 class="typography-hero-headline">Timer Fantasy</h1>
-                <p class="typography-intro">Analog timers for your Mac. Set timers with a simple drag on a beautiful clock face.</p>
+                <div class="row">
+                    <header class="column large-centered large-10 small-12 text-center">
+                        <figure class="icon-hero center">
+                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="40" stroke="#fff" stroke-width="3"/>
+                                <circle cx="50" cy="50" r="4" fill="#fff"/>
+                                <line x1="50" y1="50" x2="50" y2="22" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+                                <line x1="50" y1="50" x2="68" y2="58" stroke="#ff6b6b" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </figure>
+                        <h1 class="typography-hero-headline">Timer Fantasy</h1>
+                        <p class="typography-intro">Analog timers for your Mac. Set timers with a simple drag on a beautiful clock face.</p>
+                    </header>
+                </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="section-content">
-                <h2 class="typography-subsection-headline">Features</h2>
-                <ul>
-                    <li>16 clock face scales from 5 minutes to 96 hours</li>
-                    <li>Auto-zoom adapts the display as time counts down</li>
-                    <li>Run multiple independent timers</li>
-                    <li>15 built-in alarm sounds</li>
-                    <li>Custom colors and looping timers</li>
-                    <li>iCloud sync across all your Macs</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="section-content">
-            <section class="footer-mini">
-                <div class="footer-mini-legal">
-                    Copyright &copy; 2026 Mike Vincent.
-                    <a href="/privacy">Privacy Policy</a>
+        <article>
+            <section class="section">
+                <div class="section-content">
+                    <div class="row">
+                        <div class="column large-centered large-10 small-12">
+                            <h2 class="typography-subsection-headline">Features</h2>
+                            <ul>
+                                <li>16 clock face scales from 5 minutes to 96 hours</li>
+                                <li>Auto-zoom adapts the display as time counts down</li>
+                                <li>Run multiple independent timers</li>
+                                <li>15 built-in alarm sounds</li>
+                                <li>Custom colors and looping timers</li>
+                                <li>iCloud sync across all your Macs</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
+        </article>
+    </main>
+
+    <footer id="footer" class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="row">
+                <div class="column large-centered large-10 small-12">
+                    <section class="footer-mini">
+                        <div class="footer-mini-legal">
+                            <div class="footer-mini-legal-copyright">Copyright &copy; 2026 Mike Vincent.</div>
+                            <div class="footer-mini-legal-links">
+                                <a class="footer-mini-legal-link" href="/privacy">Privacy Policy</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
     </footer>
 </body>

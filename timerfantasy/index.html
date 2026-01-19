@@ -1,93 +1,116 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="icon.png" />
+    <link rel="icon" href="icon.png" />
+
     <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" type="text/css" media="all">
     <link rel="stylesheet" type="text/css" href="https://testflight.apple.com/styles/interstitial-main.css" />
+
     <title>Timer Fantasy</title>
+    <meta name="description" content="Beautiful analog timers for your Mac. Set timers with a simple drag on an elegant clock face." />
+
     <style>
-        body { background: #000 !important; }
         .icon-hero {
+            background-image: url("icon.png");
+            background-size: 150px 150px;
             width: 150px;
             height: 150px;
-            margin: 0 auto;
-            border-radius: 33px;
-            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0 0 20px);
         }
     </style>
+    <script type="text/javascript">
+      window.onload = function() {
+        var darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (darkMode) {
+          window.document.body.classList.add('theme-dark');
+        } else {
+          window.document.body.classList.remove('theme-dark');
+        }
+      }
+    </script>
 </head>
-<body id="overview" class="theme-dark">
+
+<body id="overview">
+
     <main id="main" class="main" role="main">
-        <section class="section section-hero">
-            <div class="section-content">
-                <div class="row">
-                    <header class="column large-centered large-10 small-12 text-center">
-                        <img src="icon.png" alt="Timer Fantasy" class="icon-hero">
-                        <h1 class="typography-hero-headline">Timer Fantasy</h1>
-                        <p class="typography-intro">Beautiful analog timers for your Mac. Set timers with a simple drag on an elegant clock face, and watch time count down in a way that's intuitive and satisfying.</p>
-                    </header>
-                </div>
-            </div>
-        </section>
-
         <article>
-            <a href="#getting-started">&nbsp;</a>
-            <section class="section section-getting-started" id="getting-started">
+            <section class="section section-hero">
                 <div class="section-content">
                     <div class="row">
-                        <div class="column large-centered large-10 small-12">
-                            <h2 class="typography-subsection-headline">Getting started</h2>
-                            <p>Timer Fantasy is available on the Mac App Store. Download it to start using beautiful analog timers on your Mac.</p>
-                            <p>Once installed, click the + button to create your first timer. Drag on the clock face to set the duration, or use the preset buttons for quick access to common times like 5 minutes, 15 minutes, or 1 hour.</p>
-                            <h3 class="typography-tout">Requirements</h3>
-                            <ul>
-                                <li>Mac running macOS 14 Sonoma or later</li>
-                                <li>iCloud account for syncing across devices (optional)</li>
-                            </ul>
-                        </div>
+                        <header class="column large-centered large-10 small-12 text-center">
+                            <figure class="icon-hero center"></figure>
+
+                            <h1 class="typography-hero-headline">Timer Fantasy</h1>
+                            <p class="typography-intro">Beautiful analog timers for your Mac. Set timers with a simple drag on an elegant clock face, and watch time count down in a way that's intuitive and satisfying.</p>
+                        </header>
                     </div>
                 </div>
             </section>
 
-            <a href="#features">&nbsp;</a>
-            <section class="section section-features" id="features">
-                <div class="section-content">
-                    <div class="row">
-                        <div class="column large-centered large-10 small-12">
-                            <h2 class="typography-subsection-headline">Features</h2>
-                            <h3 class="typography-tout">Multiple Clock Face Scales</h3>
-                            <p>Choose from 16 different clock faces ranging from 5 minutes to 96 hours. The clock face automatically adapts to show time in a way that makes sense—a 5-minute timer shows a 5-minute scale, while an 8-hour timer shows hours.</p>
-                            <h3 class="typography-tout">Auto Zoom</h3>
-                            <p>Let the app automatically choose the best clock face for your timer. As time counts down, it can zoom in to show more detail when you need it most.</p>
-                            <h3 class="typography-tout">Multiple Timers</h3>
-                            <p>Create as many timers as you need. Each timer runs independently with its own settings, colors, and alarm sounds. Perfect for cooking, workouts, or managing multiple tasks.</p>
-                            <h3 class="typography-tout">Customization</h3>
-                            <ul>
-                                <li>15 built-in macOS alarm sounds</li>
-                                <li>Adjustable alarm duration from 1 to 60 seconds</li>
-                                <li>Custom timer colors or automatic color assignment</li>
-                                <li>Looping timers that repeat automatically</li>
-                                <li>Editable timer labels for easy identification</li>
-                            </ul>
-                            <h3 class="typography-tout">iCloud Sync</h3>
-                            <p>Your timers sync automatically across all your Macs using iCloud. Start a timer on one Mac and see it on another.</p>
+                <a href="#getting-started">&nbsp;</a>
+                <section class="section section-getting-started" id="getting-started">
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="column large-centered large-10 small-12">
+<h2 class="typography-subsection-headline">Getting started</h2><p>Timer Fantasy is available on the Mac App Store. Download it to start using beautiful analog timers on your Mac.</p><p>Once installed, click the + button to create your first timer. Drag on the clock face to set the duration, or use the preset buttons for quick access to common times like 5 minutes, 15 minutes, or 1 hour.</p><h3 class="typography-tout">Requirements</h3><ul><li>Mac running macOS 14 Sonoma or later</li><li>iCloud account for syncing across devices (optional)</li></ul></div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+                <a href="#clock-faces">&nbsp;</a>
+                <section class="section section-clock-faces" id="clock-faces">
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="column large-centered large-10 small-12">
+<h2 class="typography-subsection-headline">Clock face scales</h2><p>Choose from 16 different clock faces ranging from 5 minutes to 96 hours. The clock face automatically adapts to show time in a way that makes sense—a 5-minute timer shows a 5-minute scale, while an 8-hour timer shows hours.</p><h3 class="typography-tout">Available scales</h3><ul><li>Short timers: 5m, 9m, 15m, 30m</li><li>Hour timers: 60m, 90m, 120m</li><li>Long timers: 4h, 8h, 12h, 16h, 24h</li><li>Multi-day timers: 48h, 72h, 96h</li></ul>
+<h3 class="typography-tout">Auto Zoom</h3><p>Let the app automatically choose the best clock face for your timer. As time counts down, it can zoom in to show more detail when you need it most. You can also manually cycle through clock faces by tapping the scale button.</p></div>
+                        </div>
+                    </div>
+                </section>
+                <a href="#multiple-timers">&nbsp;</a>
+                <section class="section section-multiple-timers" id="multiple-timers">
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="column large-centered large-10 small-12">
+<h2 class="typography-subsection-headline">Multiple timers</h2><p>Create as many timers as you need. Each timer runs independently with its own settings, colors, and alarm sounds. Perfect for cooking, workouts, or managing multiple tasks at once.</p><p>Click the + button to add a new timer. Each timer can have its own label, making it easy to identify what each timer is tracking. Timers are displayed in a grid that automatically adjusts to fit your window size.</p>
+<h3 class="typography-label">Managing timers</h3><p>To start a timer, drag on the clock face to set the time, then tap the play button. While running, you can pause, resume, or cancel the timer at any time. When a timer completes, it will play your chosen alarm sound.</p><p>To delete a timer, tap the trash icon when the timer is idle. A confirmation dialog will appear to prevent accidental deletion.</p></div>
+                        </div>
+                    </div>
+                </section>
+                <a href="#customization">&nbsp;</a>
+                <section class="section section-customization" id="customization">
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="column large-centered large-10 small-12">
+<h2 class="typography-subsection-headline">Customization</h2><p>Timer Fantasy offers extensive customization options to make your timers work exactly how you want them.</p>
+<h3 class="typography-tout">Alarm sounds</h3><p>Choose from 15 built-in macOS alarm sounds including Basso, Blow, Bottle, Frog, Funk, Glass, Hero, Morse, Ping, Pop, Purr, Sosumi, Submarine, Tink, and the default system sound. You can also adjust the alarm duration from 1 to 60 seconds.</p>
+<h3 class="typography-tout">Colors</h3><p>Each timer can have its own color, making it easy to distinguish between multiple timers at a glance. You can choose a specific color or enable auto-color to have the app automatically assign colors to new timers.</p>
+<h3 class="typography-tout">Looping</h3><p>Enable looping to have a timer automatically restart when it completes. This is perfect for interval training, pomodoro technique, or any situation where you need repeating timers.</p>
+<h3 class="typography-tout">Labels</h3><p>Give each timer a custom label to identify what it's tracking. Tap the timer name to edit it. Labels sync across all your devices via iCloud.</p></div>
+                        </div>
+                    </div>
+                </section>
+                <a href="#icloud-sync">&nbsp;</a>
+                <section class="section section-icloud-sync" id="icloud-sync">
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="column large-centered large-10 small-12">
+<h2 class="typography-subsection-headline">iCloud sync</h2><p>Your timers sync automatically across all your Macs using iCloud. Create a timer on one Mac and see it appear on another. Timer settings, labels, colors, and preferences all stay in sync.</p><p>iCloud sync is optional and requires an iCloud account. If you don't use iCloud, your timers will be stored locally on each device.</p></div>
+                        </div>
+                    </div>
+                </section>
+                <a href="#privacy-data">&nbsp;</a>
+                <section class="section section-privacy-data" id="privacy-data">
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="column large-centered large-10 small-12">
+<h2 class="typography-subsection-headline">Your Privacy and Data</h2><p>Timer Fantasy does not collect any personal information. The app runs entirely on your device with no analytics, tracking, or advertising. If you use iCloud sync, your timer data is stored in your personal iCloud account—we never have access to it. For more information, visit our <a href="/privacy">Privacy Policy</a>.</p></div>
+                        </div>
+                    </div>
+                </section>
 
-            <a href="#privacy">&nbsp;</a>
-            <section class="section section-privacy" id="privacy">
-                <div class="section-content">
-                    <div class="row">
-                        <div class="column large-centered large-10 small-12">
-                            <h2 class="typography-subsection-headline">Your Privacy</h2>
-                            <p>Timer Fantasy does not collect any personal information. The app runs entirely on your device. If you use iCloud sync, your timer data is stored in your personal iCloud account—we never have access to it. There are no analytics, tracking, or advertising. For more information, see our <a href="/privacy">Privacy Policy</a>.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </article>
     </main>
 
@@ -107,5 +130,7 @@
             </div>
         </div>
     </footer>
+
 </body>
+
 </html>

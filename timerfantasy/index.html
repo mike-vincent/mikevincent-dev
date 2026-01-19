@@ -1,113 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Timer Fantasy - Analog Timers for Your Mac</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
-      background: #f5f5f7;
-      color: #1d1d1f;
-      font-size: 17px;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-    .app-icon {
-      width: 128px;
-      height: 128px;
-      border-radius: 28px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    h1 {
-      font-size: 40px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .subtitle {
-      font-size: 21px;
-      color: #86868b;
-      margin-bottom: 24px;
-    }
-    .description {
-      font-size: 17px;
-      margin-bottom: 32px;
-    }
-    .app-store-badge {
-      height: 48px;
-      margin-bottom: 48px;
-    }
-    h2 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-top: 40px;
-      margin-bottom: 16px;
-    }
-    ul {
-      list-style: none;
-      margin-bottom: 24px;
-    }
-    li {
-      padding: 8px 0;
-      padding-left: 24px;
-      position: relative;
-    }
-    li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #86868b;
-    }
-    .links {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid #d2d2d7;
-      font-size: 14px;
-    }
-    .links a {
-      color: #06c;
-      text-decoration: none;
-      margin-right: 24px;
-    }
-    .links a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" type="text/css" media="all">
+    <title>Timer Fantasy</title>
+    <style>
+        * { box-sizing: border-box; }
+        html { font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 106.25%; }
+        body { margin: 0; padding: 0; background: #f5f5f7; }
+        body.theme-dark { background: #000; color: #f5f5f7; }
+
+        .section-content { max-width: 980px; margin: 0 auto; padding: 80px 22px; }
+
+        .icon-hero {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px auto;
+            display: block;
+            border-radius: 33px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(rgba(0, 0, 0, 0.15) 0 0 10px);
+        }
+        .icon-hero svg { width: 100px; height: 100px; }
+
+        .typography-hero-headline {
+            font-size: 48px;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -.003em;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .theme-dark .typography-hero-headline { color: #f5f5f7; }
+
+        .typography-intro {
+            font-size: 21px;
+            line-height: 1.381;
+            font-weight: 400;
+            letter-spacing: .011em;
+            text-align: center;
+            color: #86868b;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .typography-subsection-headline {
+            font-size: 28px;
+            line-height: 1.14286;
+            font-weight: 600;
+            letter-spacing: .007em;
+            margin-bottom: 16px;
+        }
+        .theme-dark .typography-subsection-headline { color: #f5f5f7; }
+
+        p { font-size: 17px; line-height: 1.47059; font-weight: 400; letter-spacing: -.022em; margin-bottom: 16px; }
+        .theme-dark p { color: #f5f5f7; }
+
+        ul { list-style: none; margin: 0 0 24px 0; padding: 0; }
+        li { font-size: 17px; line-height: 1.47059; padding: 4px 0 4px 20px; position: relative; }
+        li::before { content: "•"; position: absolute; left: 0; color: #86868b; }
+        .theme-dark li { color: #f5f5f7; }
+
+        .footer-mini { border-top: 1px solid #d2d2d7; padding-top: 20px; margin-top: 60px; }
+        .theme-dark .footer-mini { border-color: #424245; }
+        .footer-mini-legal { font-size: 12px; color: #86868b; }
+        .footer-mini-legal a { color: #424245; text-decoration: none; margin-left: 20px; }
+        .footer-mini-legal a:hover { text-decoration: underline; }
+        .theme-dark .footer-mini-legal a { color: #86868b; }
+
+        @media (max-width: 735px) {
+            .typography-hero-headline { font-size: 32px; }
+            .typography-intro { font-size: 17px; }
+            .section-content { padding: 40px 20px; }
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('theme-dark');
+            }
+        }
+    </script>
 </head>
 <body>
-  <div class="container">
-    <h1>Timer Fantasy</h1>
-    <p class="subtitle">Analog Timers for Your Mac</p>
+    <main>
+        <section class="section section-hero">
+            <div class="section-content">
+                <figure class="icon-hero">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="40" stroke="#fff" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="4" fill="#fff"/>
+                        <line x1="50" y1="50" x2="50" y2="22" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="50" y1="50" x2="68" y2="58" stroke="#ff6b6b" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </figure>
+                <h1 class="typography-hero-headline">Timer Fantasy</h1>
+                <p class="typography-intro">Analog timers for your Mac. Set timers with a simple drag on a beautiful clock face.</p>
+            </div>
+        </section>
 
-    <p class="description">Set timers with a simple drag on a beautiful clock face. Watch time count down in a way that's intuitive and satisfying.</p>
+        <section class="section">
+            <div class="section-content">
+                <h2 class="typography-subsection-headline">Features</h2>
+                <ul>
+                    <li>16 clock face scales from 5 minutes to 96 hours</li>
+                    <li>Auto-zoom adapts the display as time counts down</li>
+                    <li>Run multiple independent timers</li>
+                    <li>15 built-in alarm sounds</li>
+                    <li>Custom colors and looping timers</li>
+                    <li>iCloud sync across all your Macs</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
-    <!-- Uncomment when app is live on App Store
-    <a href="https://apps.apple.com/app/timer-fantasy/id...">
-      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="app-store-badge">
-    </a>
-    -->
-
-    <h2>Features</h2>
-    <ul>
-      <li>16 clock face scales from 5 minutes to 96 hours</li>
-      <li>Auto-zoom adapts the display as time counts down</li>
-      <li>Run multiple independent timers</li>
-      <li>15 built-in alarm sounds</li>
-      <li>Custom colors and looping timers</li>
-      <li>iCloud sync across all your Macs</li>
-    </ul>
-
-    <div class="links">
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/">Mike Vincent</a>
-    </div>
-  </div>
+    <footer class="footer">
+        <div class="section-content">
+            <section class="footer-mini">
+                <div class="footer-mini-legal">
+                    Copyright &copy; 2026 Mike Vincent.
+                    <a href="/privacy">Privacy Policy</a>
+                </div>
+            </section>
+        </div>
+    </footer>
 </body>
 </html>

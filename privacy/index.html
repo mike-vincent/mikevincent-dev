@@ -1,71 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - Timer Fantasy</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
-      background: #f5f5f7;
-      color: #1d1d1f;
-      font-size: 17px;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-    h1 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .updated {
-      color: #86868b;
-      font-size: 14px;
-      margin-bottom: 40px;
-    }
-    h2 {
-      font-size: 21px;
-      font-weight: 600;
-      margin-top: 32px;
-      margin-bottom: 12px;
-    }
-    p {
-      color: #1d1d1f;
-      margin-bottom: 16px;
-    }
-    a {
-      color: #06c;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .back {
-      display: inline-block;
-      margin-bottom: 24px;
-      font-size: 14px;
-    }
-  </style>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" type="text/css" media="all">
+    <title>Privacy Policy - Timer Fantasy</title>
+    <style>
+        * { box-sizing: border-box; }
+        html { font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 106.25%; }
+        body { margin: 0; padding: 0; background: #f5f5f7; }
+        body.theme-dark { background: #000; color: #f5f5f7; }
+
+        .section-content { max-width: 980px; margin: 0 auto; padding: 80px 22px; }
+
+        .typography-hero-headline {
+            font-size: 48px;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -.003em;
+            margin-bottom: 10px;
+        }
+        .theme-dark .typography-hero-headline { color: #f5f5f7; }
+
+        .typography-intro {
+            font-size: 14px;
+            color: #86868b;
+            margin-bottom: 40px;
+        }
+
+        .typography-subsection-headline {
+            font-size: 28px;
+            line-height: 1.14286;
+            font-weight: 600;
+            letter-spacing: .007em;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+        .theme-dark .typography-subsection-headline { color: #f5f5f7; }
+
+        p { font-size: 17px; line-height: 1.47059; font-weight: 400; letter-spacing: -.022em; margin-bottom: 16px; }
+        .theme-dark p { color: #f5f5f7; }
+
+        a { color: #06c; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .footer-mini { border-top: 1px solid #d2d2d7; padding-top: 20px; margin-top: 60px; }
+        .theme-dark .footer-mini { border-color: #424245; }
+        .footer-mini-legal { font-size: 12px; color: #86868b; }
+        .footer-mini-legal a { color: #424245; margin-left: 20px; }
+        .theme-dark .footer-mini-legal a { color: #86868b; }
+
+        @media (max-width: 735px) {
+            .typography-hero-headline { font-size: 32px; }
+            .section-content { padding: 40px 20px; }
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('theme-dark');
+            }
+        }
+    </script>
 </head>
 <body>
-  <div class="container">
-    <a href="/timerfantasy" class="back">&larr; Timer Fantasy</a>
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated January 19, 2026</p>
+    <main>
+        <section class="section">
+            <div class="section-content">
+                <h1 class="typography-hero-headline">Privacy Policy</h1>
+                <p class="typography-intro">Last updated January 19, 2026</p>
 
-    <p>Timer Fantasy does not collect, store, or transmit any personal information. The app runs entirely on your device.</p>
+                <p>Timer Fantasy does not collect, store, or transmit any personal information. The app runs entirely on your device.</p>
 
-    <h2>iCloud</h2>
-    <p>If you have iCloud enabled, your timer settings sync across your devices using Apple's iCloud service. This data is stored in your personal iCloud account. We do not have access to it.</p>
+                <h2 class="typography-subsection-headline">iCloud</h2>
+                <p>If you have iCloud enabled, your timer settings sync across your devices using Apple's iCloud service. This data is stored in your personal iCloud account. We do not have access to it.</p>
 
-    <h2>Analytics</h2>
-    <p>Timer Fantasy does not include any analytics, tracking, or advertising software.</p>
-  </div>
+                <h2 class="typography-subsection-headline">Analytics</h2>
+                <p>Timer Fantasy does not include any analytics, tracking, or advertising software.</p>
+
+                <section class="footer-mini">
+                    <div class="footer-mini-legal">
+                        Copyright &copy; 2026 Mike Vincent.
+                        <a href="/timerfantasy">Timer Fantasy</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

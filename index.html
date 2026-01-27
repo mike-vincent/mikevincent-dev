@@ -133,10 +133,66 @@
         .theme-dark .search-field input::placeholder { color: rgba(255, 255, 255, 0.5); }
         .theme-light .search-field input::placeholder { color: rgba(0, 0, 0, 0.5); }
         .search-btn.hidden { display: none; }
-        .footer .footer-content {
+        .site-footer-wrapper {
+            border-top: 1px solid rgba(128, 128, 128, 0.2);
+        }
+        .site-footer {
             max-width: 1440px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 24px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .theme-dark .site-footer { color: rgba(255, 255, 255, 0.5); }
+        .theme-light .site-footer { color: rgba(0, 0, 0, 0.5); }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+        .post-card {
+            display: flex;
+            flex-direction: column;
+        }
+        .post-card img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .post-card h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 16px 0 4px;
+        }
+        .theme-dark .post-card h2 { color: #fff; }
+        .theme-light .post-card h2 { color: #000; }
+        .post-card .subtitle {
+            font-size: 14px;
+            margin: 0 0 8px;
+        }
+        .theme-dark .post-card .subtitle { color: rgba(255, 255, 255, 0.6); }
+        .theme-light .post-card .subtitle { color: rgba(0, 0, 0, 0.6); }
+        .post-card .body {
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0 0 12px;
+        }
+        .theme-dark .post-card .body { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .post-card .body { color: rgba(0, 0, 0, 0.8); }
+        .post-card .datetime {
+            font-size: 12px;
+        }
+        .theme-dark .post-card .datetime { color: rgba(255, 255, 255, 0.4); }
+        .theme-light .post-card .datetime { color: rgba(0, 0, 0, 0.4); }
+        @media (max-width: 1000px) {
+            .posts-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .posts-grid { grid-template-columns: 1fr; padding: 24px 16px; }
         }
         @media (max-width: 500px) {
             .site-header { padding: 0 16px; }
@@ -205,21 +261,36 @@
     </div>
 
     <main id="main" class="main" role="main">
+        <div class="posts-grid">
+            <article class="post-card">
+                <img src="https://i.imgur.com/ZVnaSxU.jpeg" alt="Post image">
+                <h2>Lorem Ipsum Dolor Sit</h2>
+                <p class="subtitle">A brief exploration of placeholder text</p>
+                <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <time class="datetime">January 25, 2026</time>
+            </article>
+            <article class="post-card">
+                <img src="https://i.imgur.com/QXuZ1ab.jpeg" alt="Post image">
+                <h2>Consectetur Adipiscing</h2>
+                <p class="subtitle">Understanding the origins of dummy text</p>
+                <p class="body">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <time class="datetime">January 20, 2026</time>
+            </article>
+            <article class="post-card">
+                <img src="https://i.imgur.com/8RKXAIV.jpeg" alt="Post image">
+                <h2>Sed Do Eiusmod Tempor</h2>
+                <p class="subtitle">The art of filling space meaningfully</p>
+                <p class="body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <time class="datetime">January 15, 2026</time>
+            </article>
+        </div>
     </main>
 
-    <footer id="footer" class="footer" role="contentinfo">
-        <div class="footer-content">
-            <div class="row">
-                <div class="column large-centered large-10 small-12">
-                    <section class="footer-mini">
-                        <div class="footer-mini-legal">
-                            <div class="footer-mini-legal-copyright">Copyright &copy; 2026 Mike Vincent. All rights reserved.</div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div class="site-footer-wrapper">
+        <footer class="site-footer">
+            Copyright &copy; 2026 Mike Vincent. All rights reserved.
+        </footer>
+    </div>
 
 </body>
 

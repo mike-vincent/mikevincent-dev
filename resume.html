@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/icon.png" />
+    <link rel="icon" href="/icon.png" />
+    <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://testflight.apple.com/styles/interstitial-main.css" />
+    <title>Resume - Mike Vincent</title>
+    <meta name="description" content="Resume of Mike Vincent - Software Engineer" />
+    <style>
+        .site-header {
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-header-left a {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .theme-dark .site-header-left a { color: #fff; }
+        .theme-light .site-header-left a { color: #000; }
+        .site-header-left {
+            display: flex;
+            align-items: center;
+        }
+        .site-header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .site-header-right a {
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .theme-dark .site-header-right a { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .site-header-right a { color: rgba(0, 0, 0, 0.8); }
+        .site-header-right a:hover { text-decoration: underline; }
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0;
+        }
+        .theme-dark .theme-toggle { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .theme-toggle { color: rgba(0, 0, 0, 0.8); }
+        .theme-toggle:hover { text-decoration: underline; }
+        .site-footer {
+            padding: 24px 0;
+            font-size: 12px;
+            border-top: 1px solid rgba(128, 128, 128, 0.2);
+        }
+        .theme-dark .site-footer { color: rgba(255, 255, 255, 0.5); }
+        .theme-light .site-footer { color: rgba(0, 0, 0, 0.5); }
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            margin-bottom: 24px;
+        }
+        .resume-header h1 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+        }
+        .theme-dark .resume-header h1 { color: #fff; }
+        .theme-light .resume-header h1 { color: #000; }
+        .resume-actions {
+            display: flex;
+            gap: 12px;
+        }
+        .resume-actions button, .resume-actions a {
+            background: rgba(128, 128, 128, 0.2);
+            border: none;
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .theme-dark .resume-actions button, .theme-dark .resume-actions a { color: #fff; }
+        .theme-light .resume-actions button, .theme-light .resume-actions a { color: #000; }
+        .resume-actions button:hover, .resume-actions a:hover { background: rgba(128, 128, 128, 0.3); }
+        .resume-content {
+            padding: 0 0 48px;
+            max-width: 600px;
+            margin-left: 0;
+            margin-right: auto;
+        }
+        .resume-content h2 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 32px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+        }
+        .theme-dark .resume-content h2 { color: #fff; }
+        .theme-light .resume-content h2 { color: #000; }
+        .resume-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 20px 0 4px;
+        }
+        .theme-dark .resume-content h3 { color: #fff; }
+        .theme-light .resume-content h3 { color: #000; }
+        .resume-content p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0 0 8px;
+        }
+        .theme-dark .resume-content p { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .resume-content p { color: rgba(0, 0, 0, 0.8); }
+        .resume-content ul {
+            margin: 8px 0 16px;
+            padding-left: 20px;
+        }
+        .resume-content li {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 4px;
+        }
+        .theme-dark .resume-content li { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .resume-content li { color: rgba(0, 0, 0, 0.8); }
+        .resume-content .meta {
+            font-size: 13px;
+        }
+        .theme-dark .resume-content .meta { color: rgba(255, 255, 255, 0.5); }
+        .theme-light .resume-content .meta { color: rgba(0, 0, 0, 0.5); }
+        .resume-content .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+        .resume-content .skills-list li {
+            margin-bottom: 6px;
+        }
+        .resume-content .skills-list strong {
+            font-weight: 600;
+        }
+        @media (max-width: 500px) {
+            .resume-content { padding: 0 0 24px; }
+            .site-header { padding: 0 16px; }
+            .site-header-right { gap: 16px; }
+            .resume-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+        }
+    </style>
+</head>
+<body id="overview">
+    <script>
+        let manualTheme = localStorage.getItem('theme');
+        function setTheme() {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = manualTheme ? manualTheme === 'dark' : prefersDark;
+            document.body.classList.toggle('theme-dark', isDark);
+            document.body.classList.toggle('theme-light', !isDark);
+            const btn = document.querySelector('.theme-toggle');
+            if (btn) btn.textContent = isDark ? 'Light' : 'Dark';
+        }
+        function toggleTheme() {
+            const isDark = document.body.classList.contains('theme-dark');
+            manualTheme = isDark ? 'light' : 'dark';
+            localStorage.setItem('theme', manualTheme);
+            setTheme();
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            if (!manualTheme) setTheme();
+        });
+        document.addEventListener('DOMContentLoaded', setTheme);
+        setTheme();
+
+        const resumeMarkdown = `# Michael Vincent
+
+*Software Engineer, Full Stack, Payments & Infrastructure*
+
+Los Angeles, CA | +1 (813) 482-7666 | michael.thomas.vincent@gmail.com
+https://mikevincent.dev
+
+---
+
+## Education
+
+**University of Texas at Tyler**
+Master of Science, Industrial Engineering, 2015
+
+**The Pennsylvania State University**
+Bachelor of Science, Linguistics, 2011
+
+**The Pennsylvania State University**
+Bachelor of Arts, Journalism, 2011
+
+---
+
+## Experience
+
+### Senior Software Engineer, Payments Infrastructure | PricewaterhouseCoopers (PwC)
+*September 2024 to Present | Los Angeles, CA*
+
+Founding engineer for "Capital One Databolt," a vaultless tokenization platform for payment and financial services providers.
+
+- Wrote Go APIs for licensing, authentication, and partner onboarding.
+- Deployed with Docker and Helm to AWS EKS and Azure AKS.
+- Built field-level masking, tokenization, and encryption.
+- Automated Kubernetes with Terraform, Istio, and cert-manager.
+- Added OpenTelemetry tracing; Zelle signed as first customer.
+
+### Relocation
+*May 2024 to August 2024 | Los Angeles, CA*
+
+Relocated from San Diego to Los Angeles.
+
+### Software Engineering Manager, Infrastructure | Cubic Transportation Systems
+*October 2021 to April 2024 | San Diego, CA*
+
+Led a global team shipping fare systems for DC Metro, NYC MTA, BART, LA Metro, and Boston MBTA.
+
+- Built cloud infrastructure with Terraform, AWS, and GitHub Actions.
+- Won multiple company awards for engineering excellence.
+- Deployed mTLS security with Istio on Kubernetes.
+
+### Lead Senior Software Engineer, Infrastructure | Cubic Transportation Systems
+*October 2019 to October 2021 | San Diego, CA*
+
+Built the "Cubic AI Chatbot" letting riders check card balances by phone and text, plus ML pipelines for fare optimization.
+
+- Deployed chatbot on Azure with natural language processing.
+- Built CI/CD for 20 Java apps with Jenkins, Docker, Helm, Vault, and Terraform.
+- Built serverless pipelines with AWS Lambda and Azure Functions.
+
+### Senior Software Engineer, Infrastructure | Cubic Transportation Systems
+*May 2017 to October 2019 | Washington, DC*
+
+First DevOps hire. Transformed legacy infrastructure to containers and cloud for fare systems serving 10M+ daily riders.
+
+- Introduced Terraform, Kubernetes, and Docker to the organization.
+- Built CI/CD for embedded fare devices with Jenkins and Wind River Linux.
+- Passed PCI, SOC2, ISO, and SOX audits.
+- Built Kubernetes monitoring with Prometheus and Grafana.
+
+### Senior Software Engineer, Infrastructure | EPAM Systems
+*May 2016 to April 2017 | Washington, DC*
+
+Promoted to senior backend engineer at digital UX agency building apps for enterprise clients.
+
+- Built Fannie Mae web app for mortgage lenders.
+- Built Lockheed Martin Intranet on headless Drupal.
+- Built NY Fashion Week 2015 mobile app.
+- Wrote PostgreSQL migrations with Liquibase.
+- Deployed microservices with Docker and Kubernetes 1.2.
+
+### Software Engineer, Infrastructure | EPAM Systems
+*May 2015 to April 2016 | Washington, DC*
+
+Backend engineer on full-stack team at digital UX agency building mobile apps and e-commerce platforms.
+
+- Built Poison Control mobile app.
+- Built Canadian Tire e-commerce store.
+- Built U.S. Conference of Catholic Bishops mobile app.
+- Moved PostgreSQL database to multi-tenant setup with zero downtime.
+- Worked with Docker, Ansible, Jenkins, VMware ESXi, Ubuntu, CentOS, and Cisco ASA firewalls.
+
+---
+
+## Projects
+
+### Io Pictures Corporation
+*January 2022 to Present | Los Angeles, CA*
+
+Founded California C Corporation engaged in buying, selling, and distributing licensed and acquired motion picture titles.
+
+- Sold rights to Tubi, Amazon, Apple, and Google through professional contacts.
+- Negotiated domestic, international, publicity, and all-rights deals.
+- Built digital distribution pipeline.
+
+### Archive of American Radio, Inc.
+*June 2025 to Present | Los Angeles, CA*
+
+Founded California nonprofit public benefit corporation "The Archive of American Radio, Inc.," a public collection of American radio drama, developers of the "Anthology" mobile app for listening to public-domain audio.
+
+- Built data processing pipelines and Cloudflare Workers APIs.
+- Used Cloudflare D1, R2, Turso, Supabase, and Vercel.
+- Developed custom OpenAI models for metadata extraction and search.
+
+---
+
+## Skills
+
+- **Languages:** Go, Python, JavaScript/TypeScript, Java, SQL, Bash, Rust
+- **Cloud:** AWS, Azure, Google Cloud Platform
+- **Compute:** Kubernetes, Docker, AWS EKS, Azure AKS, AWS Lambda, Azure Functions, GCP GKE
+- **Storage:** AWS S3, Cloudflare R2, Azure Blob, Redis, Kafka
+- **Network:** Istio, cert-manager, mTLS, Cloudflare Workers, API Gateway, Load Balancing
+- **Databases:** PostgreSQL, MySQL, MongoDB, Turso, Cloudflare D1, Supabase, DynamoDB
+- **Infrastructure:** Terraform, Helm, GitHub Actions, Jenkins, ArgoCD, Pulumi
+- **AI/ML:** OpenAI API, LangChain, Vector Databases, RAG, Embeddings
+- **Observability:** Prometheus, Grafana, OpenTelemetry, Datadog, PagerDuty
+- **Security:** Vault, OAuth2, JWT, PCI-DSS, SOC2, Zero Trust
+`;
+
+        function copyMarkdown() {
+            navigator.clipboard.writeText(resumeMarkdown);
+            const btn = document.getElementById('copy-btn');
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy Markdown', 1500);
+        }
+    </script>
+
+    <div class="site-header-wrapper">
+        <div class="section-content">
+            <div class="row">
+                <div class="column large-centered large-10 small-12">
+                    <header class="site-header">
+                        <div class="site-header-left">
+                            <a href="/">Mike Vincent</a>
+                        </div>
+                        <nav class="site-header-right">
+                            <a href="/">Posts</a>
+                            <a href="/about">Bio</a>
+                            <a href="/resume">Resume</a>
+                            <button class="theme-toggle" onclick="toggleTheme()">Light</button>
+                        </nav>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main" class="main" role="main">
+        <section class="section">
+            <div class="section-content">
+                <div class="row">
+                    <div class="column large-centered large-10 small-12">
+                        <div class="resume-header">
+                            <h1>Resume</h1>
+                            <div class="resume-actions">
+                                <button id="copy-btn" onclick="copyMarkdown()">Copy Markdown</button>
+                                <a href="/assets/resume.pdf" download>Download PDF</a>
+                            </div>
+                        </div>
+                        <div class="resume-content">
+                            <h2>Education</h2>
+
+                            <h3>University of Texas at Tyler</h3>
+                            <p class="meta">Master of Science, Industrial Engineering, 2015</p>
+
+                            <h3>The Pennsylvania State University</h3>
+                            <p class="meta">Bachelor of Science, Linguistics, 2011</p>
+
+                            <h3>The Pennsylvania State University</h3>
+                            <p class="meta">Bachelor of Arts, Journalism, 2011</p>
+
+                            <h2>Experience</h2>
+
+                            <h3>Senior Software Engineer, Payments Infrastructure | PricewaterhouseCoopers (PwC)</h3>
+                            <p class="meta">September 2024 to Present | Los Angeles, CA</p>
+                            <p>Founding engineer for "Capital One Databolt," a vaultless tokenization platform for payment and financial services providers.</p>
+                            <ul>
+                                <li>Wrote Go APIs for licensing, authentication, and partner onboarding.</li>
+                                <li>Deployed with Docker and Helm to AWS EKS and Azure AKS.</li>
+                                <li>Built field-level masking, tokenization, and encryption.</li>
+                                <li>Automated Kubernetes with Terraform, Istio, and cert-manager.</li>
+                                <li>Added OpenTelemetry tracing; Zelle signed as first customer.</li>
+                            </ul>
+
+                            <h3>Relocation</h3>
+                            <p class="meta">May 2024 to August 2024 | Los Angeles, CA</p>
+                            <p>Relocated from San Diego to Los Angeles.</p>
+
+                            <h3>Software Engineering Manager, Infrastructure | Cubic Transportation Systems</h3>
+                            <p class="meta">October 2021 to April 2024 | San Diego, CA</p>
+                            <p>Led a global team shipping fare systems for DC Metro, NYC MTA, BART, LA Metro, and Boston MBTA.</p>
+                            <ul>
+                                <li>Built cloud infrastructure with Terraform, AWS, and GitHub Actions.</li>
+                                <li>Won multiple company awards for engineering excellence.</li>
+                                <li>Deployed mTLS security with Istio on Kubernetes.</li>
+                            </ul>
+
+                            <h3>Lead Senior Software Engineer, Infrastructure | Cubic Transportation Systems</h3>
+                            <p class="meta">October 2019 to October 2021 | San Diego, CA</p>
+                            <p>Built the "Cubic AI Chatbot" letting riders check card balances by phone and text, plus ML pipelines for fare optimization.</p>
+                            <ul>
+                                <li>Deployed chatbot on Azure with natural language processing.</li>
+                                <li>Built CI/CD for 20 Java apps with Jenkins, Docker, Helm, Vault, and Terraform.</li>
+                                <li>Built serverless pipelines with AWS Lambda and Azure Functions.</li>
+                            </ul>
+
+                            <h3>Senior Software Engineer, Infrastructure | Cubic Transportation Systems</h3>
+                            <p class="meta">May 2017 to October 2019 | Washington, DC</p>
+                            <p>First DevOps hire. Transformed legacy infrastructure to containers and cloud for fare systems serving 10M+ daily riders.</p>
+                            <ul>
+                                <li>Introduced Terraform, Kubernetes, and Docker to the organization.</li>
+                                <li>Built CI/CD for embedded fare devices with Jenkins and Wind River Linux.</li>
+                                <li>Passed PCI, SOC2, ISO, and SOX audits.</li>
+                                <li>Built Kubernetes monitoring with Prometheus and Grafana.</li>
+                            </ul>
+
+                            <h3>Senior Software Engineer, Infrastructure | EPAM Systems</h3>
+                            <p class="meta">May 2016 to April 2017 | Washington, DC</p>
+                            <p>Promoted to senior backend engineer at digital UX agency building apps for enterprise clients.</p>
+                            <ul>
+                                <li>Built Fannie Mae web app for mortgage lenders.</li>
+                                <li>Built Lockheed Martin Intranet on headless Drupal.</li>
+                                <li>Built NY Fashion Week 2015 mobile app.</li>
+                                <li>Wrote PostgreSQL migrations with Liquibase.</li>
+                                <li>Deployed microservices with Docker and Kubernetes 1.2.</li>
+                            </ul>
+
+                            <h3>Software Engineer, Infrastructure | EPAM Systems</h3>
+                            <p class="meta">May 2015 to April 2016 | Washington, DC</p>
+                            <p>Backend engineer on full-stack team at digital UX agency building mobile apps and e-commerce platforms.</p>
+                            <ul>
+                                <li>Built Poison Control mobile app.</li>
+                                <li>Built Canadian Tire e-commerce store.</li>
+                                <li>Built U.S. Conference of Catholic Bishops mobile app.</li>
+                                <li>Moved PostgreSQL database to multi-tenant setup with zero downtime.</li>
+                                <li>Worked with Docker, Ansible, Jenkins, VMware ESXi, Ubuntu, CentOS, and Cisco ASA firewalls.</li>
+                            </ul>
+
+                            <h2>Projects</h2>
+
+                            <h3>Io Pictures Corporation</h3>
+                            <p class="meta">January 2022 to Present | Los Angeles, CA</p>
+                            <p>Founded California C Corporation engaged in buying, selling, and distributing licensed and acquired motion picture titles.</p>
+                            <ul>
+                                <li>Sold rights to Tubi, Amazon, Apple, and Google through professional contacts.</li>
+                                <li>Negotiated domestic, international, publicity, and all-rights deals.</li>
+                                <li>Built digital distribution pipeline.</li>
+                            </ul>
+
+                            <h3>Archive of American Radio, Inc.</h3>
+                            <p class="meta">June 2025 to Present | Los Angeles, CA</p>
+                            <p>Founded California nonprofit public benefit corporation "The Archive of American Radio, Inc.," a public collection of American radio drama, developers of the "Anthology" mobile app for listening to public-domain audio.</p>
+                            <ul>
+                                <li>Built data processing pipelines and Cloudflare Workers APIs.</li>
+                                <li>Used Cloudflare D1, R2, Turso, Supabase, and Vercel.</li>
+                                <li>Developed custom OpenAI models for metadata extraction and search.</li>
+                            </ul>
+
+                            <h2>Skills</h2>
+                            <ul class="skills-list">
+                                <li><strong>Languages:</strong> Go, Python, JavaScript/TypeScript, Java, SQL, Bash, Rust</li>
+                                <li><strong>Cloud:</strong> AWS, Azure, Google Cloud Platform</li>
+                                <li><strong>Compute:</strong> Kubernetes, Docker, AWS EKS, Azure AKS, AWS Lambda, Azure Functions, GCP GKE</li>
+                                <li><strong>Storage:</strong> AWS S3, Cloudflare R2, Azure Blob, Redis, Kafka</li>
+                                <li><strong>Network:</strong> Istio, cert-manager, mTLS, Cloudflare Workers, API Gateway, Load Balancing</li>
+                                <li><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, Turso, Cloudflare D1, Supabase, DynamoDB</li>
+                                <li><strong>Infrastructure:</strong> Terraform, Helm, GitHub Actions, Jenkins, ArgoCD, Pulumi</li>
+                                <li><strong>AI/ML:</strong> OpenAI API, LangChain, Vector Databases, RAG, Embeddings</li>
+                                <li><strong>Observability:</strong> Prometheus, Grafana, OpenTelemetry, Datadog, PagerDuty</li>
+                                <li><strong>Security:</strong> Vault, OAuth2, JWT, PCI-DSS, SOC2, Zero Trust</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="site-footer-wrapper">
+        <div class="section-content">
+            <div class="row">
+                <div class="column large-centered large-10 small-12">
+                    <footer class="site-footer">
+                        Copyright &copy; 2026 Mike Vincent. All rights reserved.
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

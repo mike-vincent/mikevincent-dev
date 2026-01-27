@@ -27,18 +27,101 @@
             width: 90px;
             height: 90px;
         }
+        .site-header {
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .theme-dark .site-header {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .theme-light .site-header {
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .site-header-left a {
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .theme-dark .site-header-left a { color: #fff; }
+        .theme-light .site-header-left a { color: #000; }
+        .site-header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .site-header-right a {
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .theme-dark .site-header-right a { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .site-header-right a { color: rgba(0, 0, 0, 0.8); }
+        .site-header-right a:hover {
+            text-decoration: underline;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 0;
+        }
+        .theme-dark .theme-toggle { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .theme-toggle { color: rgba(0, 0, 0, 0.8); }
+        .theme-toggle:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 500px) {
+            .site-header { padding: 0 16px; }
+            .site-header-right { gap: 16px; }
+        }
     </style>
 </head>
 
 <body id="overview">
     <script>
+        let manualTheme = localStorage.getItem('theme');
         function setTheme() {
-            document.body.classList.toggle('theme-dark', window.matchMedia('(prefers-color-scheme: dark)').matches);
-            document.body.classList.toggle('theme-light', !window.matchMedia('(prefers-color-scheme: dark)').matches);
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = manualTheme ? manualTheme === 'dark' : prefersDark;
+            document.body.classList.toggle('theme-dark', isDark);
+            document.body.classList.toggle('theme-light', !isDark);
+            const btn = document.querySelector('.theme-toggle');
+            if (btn) btn.textContent = isDark ? 'Light' : 'Dark';
         }
+        function toggleTheme() {
+            const isDark = document.body.classList.contains('theme-dark');
+            manualTheme = isDark ? 'light' : 'dark';
+            localStorage.setItem('theme', manualTheme);
+            setTheme();
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            if (!manualTheme) setTheme();
+        });
+        document.addEventListener('DOMContentLoaded', setTheme);
         setTheme();
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
     </script>
+
+    <header class="site-header">
+        <div class="site-header-left">
+            <a href="/">Mike Vincent</a>
+        </div>
+        <nav class="site-header-right">
+            <a href="/posts">Posts</a>
+            <a href="/about">About</a>
+            <a href="/search">Search</a>
+            <button class="theme-toggle" onclick="toggleTheme()">Light</button>
+        </nav>
+    </header>
 
     <main id="main" class="main" role="main">
         <article>

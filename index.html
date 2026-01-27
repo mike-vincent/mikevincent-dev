@@ -142,11 +142,26 @@
         }
         .post-card {
             display: flex;
-            flex-direction: column;
+            gap: 16px;
         }
-        .post-card img {
-            width: 100%;
-            aspect-ratio: 16/9;
+        .post-card-content {
+            flex: 1;
+        }
+        .post-card-thumb {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .theme-dark .post-card-thumb { background: rgba(255, 255, 255, 0.1); }
+        .theme-light .post-card-thumb { background: rgba(0, 0, 0, 0.05); }
+        .post-card-thumb img {
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -167,12 +182,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-        .post-image {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 8px;
-            margin: 12px 0;
         }
         .post-author img {
             width: 28px;
@@ -399,85 +408,100 @@
                     <div class="column large-centered large-10 small-12">
                         <div class="posts-grid">
             <article class="post-card" data-slug="Xk9mNp2qR7w">
-                <div class="post-meta">
-                    <div class="post-author">
-                        <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
-                        <div class="post-author-info">
-                            <span class="post-author-name">Mike Vincent</span>
-                            <span class="post-author-url-row">
-                                <span class="post-author-url"></span>
-                                <div class="post-menu-container">
-                                    <button class="post-menu-btn" onclick="togglePostMenu(this)">
-                                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
-                                    </button>
-                                    <div class="post-menu">
-                                        <button onclick="copyMarkdown(this)">Copy Markdown</button>
-                                        <button onclick="sharePost(this)">Share</button>
-                                        <button onclick="copyURL(this)">Copy URL</button>
+                <div class="post-card-content">
+                    <div class="post-meta">
+                        <div class="post-author">
+                            <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
+                            <div class="post-author-info">
+                                <span class="post-author-name">Mike Vincent</span>
+                                <span class="post-author-url-row">
+                                    <span class="post-author-url"></span>
+                                    <div class="post-menu-container">
+                                        <button class="post-menu-btn" onclick="togglePostMenu(this)">
+                                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
+                                        </button>
+                                        <div class="post-menu">
+                                            <button onclick="copyMarkdown(this)">Copy Markdown</button>
+                                            <button onclick="sharePost(this)">Share</button>
+                                            <button onclick="copyURL(this)">Copy URL</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </span>
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    <h2>Lorem Ipsum Dolor Sit</h2>
+                    <p class="subtitle">A brief exploration of placeholder text</p>
+                    <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <time class="datetime" datetime="2026-01-27">January 27, 2026</time>
                 </div>
-                <h2>Lorem Ipsum Dolor Sit</h2>
-                <p class="subtitle">A brief exploration of placeholder text</p>
-                <img src="https://i.imgur.com/ZVnaSxU.jpeg" alt="Post image" class="post-image">
-                <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="post-card-thumb">
+                    <img src="https://i.imgur.com/ZVnaSxU.jpeg" alt="">
+                </div>
             </article>
             <article class="post-card" data-slug="Lp3vTn8sY4a">
-                <div class="post-meta">
-                    <div class="post-author">
-                        <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
-                        <div class="post-author-info">
-                            <span class="post-author-name">Mike Vincent</span>
-                            <span class="post-author-url-row">
-                                <span class="post-author-url"></span>
-                                <div class="post-menu-container">
-                                    <button class="post-menu-btn" onclick="togglePostMenu(this)">
-                                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
-                                    </button>
-                                    <div class="post-menu">
-                                        <button onclick="copyMarkdown(this)">Copy Markdown</button>
-                                        <button onclick="sharePost(this)">Share</button>
-                                        <button onclick="copyURL(this)">Copy URL</button>
+                <div class="post-card-content">
+                    <div class="post-meta">
+                        <div class="post-author">
+                            <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
+                            <div class="post-author-info">
+                                <span class="post-author-name">Mike Vincent</span>
+                                <span class="post-author-url-row">
+                                    <span class="post-author-url"></span>
+                                    <div class="post-menu-container">
+                                        <button class="post-menu-btn" onclick="togglePostMenu(this)">
+                                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
+                                        </button>
+                                        <div class="post-menu">
+                                            <button onclick="copyMarkdown(this)">Copy Markdown</button>
+                                            <button onclick="sharePost(this)">Share</button>
+                                            <button onclick="copyURL(this)">Copy URL</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </span>
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    <h2>Consectetur Adipiscing</h2>
+                    <p class="subtitle">Understanding the origins of dummy text</p>
+                    <p class="body">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <time class="datetime" datetime="2026-01-20">January 20, 2026</time>
                 </div>
-                <h2>Consectetur Adipiscing</h2>
-                <p class="subtitle">Understanding the origins of dummy text</p>
-                <img src="https://i.imgur.com/QXuZ1ab.jpeg" alt="Post image" class="post-image">
-                <p class="body">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="post-card-thumb">
+                    <img src="https://i.imgur.com/QXuZ1ab.jpeg" alt="">
+                </div>
             </article>
             <article class="post-card" data-slug="Bsd7maXz2xY">
-                <div class="post-meta">
-                    <div class="post-author">
-                        <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
-                        <div class="post-author-info">
-                            <span class="post-author-name">Mike Vincent</span>
-                            <span class="post-author-url-row">
-                                <span class="post-author-url"></span>
-                                <div class="post-menu-container">
-                                    <button class="post-menu-btn" onclick="togglePostMenu(this)">
-                                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
-                                    </button>
-                                    <div class="post-menu">
-                                        <button onclick="copyMarkdown(this)">Copy Markdown</button>
-                                        <button onclick="sharePost(this)">Share</button>
-                                        <button onclick="copyURL(this)">Copy URL</button>
+                <div class="post-card-content">
+                    <div class="post-meta">
+                        <div class="post-author">
+                            <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
+                            <div class="post-author-info">
+                                <span class="post-author-name">Mike Vincent</span>
+                                <span class="post-author-url-row">
+                                    <span class="post-author-url"></span>
+                                    <div class="post-menu-container">
+                                        <button class="post-menu-btn" onclick="togglePostMenu(this)">
+                                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
+                                        </button>
+                                        <div class="post-menu">
+                                            <button onclick="copyMarkdown(this)">Copy Markdown</button>
+                                            <button onclick="sharePost(this)">Share</button>
+                                            <button onclick="copyURL(this)">Copy URL</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </span>
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    <h2>Sed Do Eiusmod Tempor</h2>
+                    <p class="subtitle">The art of filling space meaningfully</p>
+                    <p class="body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <time class="datetime" datetime="2026-01-15">January 15, 2026</time>
                 </div>
-                <h2>Sed Do Eiusmod Tempor</h2>
-                <p class="subtitle">The art of filling space meaningfully</p>
-                <img src="https://i.imgur.com/8RKXAIV.jpeg" alt="Post image" class="post-image">
-                <p class="body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <div class="post-card-thumb">
+                    <img src="https://i.imgur.com/8RKXAIV.jpeg" alt="">
+                </div>
             </article>
                         </div>
                     </div>

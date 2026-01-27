@@ -32,9 +32,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 24px;
-            max-width: 1440px;
-            margin: 0 auto;
         }
         .site-header-wrapper {
             position: sticky;
@@ -58,8 +55,8 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         }
         .site-header-left a {
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 700;
             text-decoration: none;
         }
         .theme-dark .site-header-left a { color: #fff; }
@@ -82,6 +79,7 @@
         }
         .site-header-right a {
             font-size: 14px;
+            font-weight: 500;
             text-decoration: none;
         }
         .theme-dark .site-header-right a { color: rgba(255, 255, 255, 0.8); }
@@ -94,6 +92,7 @@
             border: none;
             cursor: pointer;
             font-size: 14px;
+            font-weight: 500;
             padding: 0;
         }
         .theme-dark .theme-toggle { color: rgba(255, 255, 255, 0.8); }
@@ -149,9 +148,7 @@
         .theme-light .search-field input::placeholder { color: rgba(0, 0, 0, 0.5); }
         .search-btn.hidden { display: none; }
         .site-footer {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 24px;
+            padding: 24px 0;
             text-align: center;
             font-size: 12px;
             border-top: 1px solid rgba(128, 128, 128, 0.2);
@@ -250,26 +247,32 @@
     </script>
 
     <div class="site-header-wrapper">
-        <header class="site-header">
-            <div class="site-header-left">
-                <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
-                <a href="/">Mike Vincent</a>
-            </div>
-            <nav class="site-header-right">
-                <a href="/posts">Posts</a>
-                <a href="/about">About</a>
-                <div class="search-container">
-                    <button class="search-btn" onclick="openSearch()">
-                        <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 17L21 21" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 11C3 15.4183 6.58172 19 11 19C13.213 19 15.2161 18.1015 16.6644 16.6493C18.1077 15.2022 19 13.2053 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                    </button>
-                    <div class="search-field">
-                        <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 17L21 21" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 11C3 15.4183 6.58172 19 11 19C13.213 19 15.2161 18.1015 16.6644 16.6493C18.1077 15.2022 19 13.2053 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                        <input type="text" placeholder="Search for something" onblur="closeSearch()">
-                    </div>
+        <div class="section-content">
+            <div class="row">
+                <div class="column large-centered large-10 small-12">
+                    <header class="site-header">
+                        <div class="site-header-left">
+                            <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
+                            <a href="/">Mike Vincent</a>
+                        </div>
+                        <nav class="site-header-right">
+                            <a href="/posts">Posts</a>
+                            <a href="/about">About</a>
+                            <div class="search-container">
+                                <button class="search-btn" onclick="openSearch()">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 17L21 21" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 11C3 15.4183 6.58172 19 11 19C13.213 19 15.2161 18.1015 16.6644 16.6493C18.1077 15.2022 19 13.2053 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                </button>
+                                <div class="search-field">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 17L21 21" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 11C3 15.4183 6.58172 19 11 19C13.213 19 15.2161 18.1015 16.6644 16.6493C18.1077 15.2022 19 13.2053 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    <input type="text" placeholder="Search for something" onblur="closeSearch()">
+                                </div>
+                            </div>
+                            <button class="theme-toggle" onclick="toggleTheme()">Light</button>
+                        </nav>
+                    </header>
                 </div>
-                <button class="theme-toggle" onclick="toggleTheme()">Light</button>
-            </nav>
-        </header>
+            </div>
+        </div>
     </div>
 
     <main id="main" class="main" role="main">
@@ -307,9 +310,15 @@
     </main>
 
     <div class="site-footer-wrapper">
-        <footer class="site-footer">
-            Copyright &copy; 2026 Mike Vincent. All rights reserved.
-        </footer>
+        <div class="section-content">
+            <div class="row">
+                <div class="column large-centered large-10 small-12">
+                    <footer class="site-footer">
+                        Copyright &copy; 2026 Mike Vincent. All rights reserved.
+                    </footer>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

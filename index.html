@@ -64,6 +64,17 @@
         }
         .theme-dark .site-header-left a { color: #fff; }
         .theme-light .site-header-left a { color: #000; }
+        .site-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .site-header-left img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
         .site-header-right {
             display: flex;
             align-items: center;
@@ -241,6 +252,7 @@
     <div class="site-header-wrapper">
         <header class="site-header">
             <div class="site-header-left">
+                <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
                 <a href="/">Mike Vincent</a>
             </div>
             <nav class="site-header-right">

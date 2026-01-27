@@ -160,13 +160,19 @@
         .post-meta {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin: 12px 0 8px;
+            gap: 8px;
+            margin: 0 0 8px;
         }
         .post-author {
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+        .post-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin: 12px 0;
         }
         .post-author img {
             width: 28px;
@@ -183,6 +189,11 @@
         .post-author-name { font-weight: 600; }
         .theme-dark .post-author-name { color: #fff; }
         .theme-light .post-author-name { color: #000; }
+        .post-author-url-row {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
         .post-author-url { font-weight: 400; }
         .theme-dark .post-author-url { color: rgba(255, 255, 255, 0.5); }
         .theme-light .post-author-url { color: rgba(0, 0, 0, 0.5); }
@@ -386,22 +397,25 @@
                         <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
                         <div class="post-author-info">
                             <span class="post-author-name">Mike Vincent</span>
-                            <span class="post-author-url">mikevincent.dev</span>
-                        </div>
-                    </div>
-                    <div class="post-menu-container">
-                        <button class="post-menu-btn" onclick="togglePostMenu(this)">
-                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
-                        </button>
-                        <div class="post-menu">
-                            <button onclick="copyMarkdown(this)">Copy Markdown</button>
-                            <button onclick="sharePost(this)">Share</button>
-                            <button onclick="copyURL(this)">Copy URL</button>
+                            <span class="post-author-url-row">
+                                <span class="post-author-url">mikevincent.dev</span>
+                                <div class="post-menu-container">
+                                    <button class="post-menu-btn" onclick="togglePostMenu(this)">
+                                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
+                                    </button>
+                                    <div class="post-menu">
+                                        <button onclick="copyMarkdown(this)">Copy Markdown</button>
+                                        <button onclick="sharePost(this)">Share</button>
+                                        <button onclick="copyURL(this)">Copy URL</button>
+                                    </div>
+                                </div>
+                            </span>
                         </div>
                     </div>
                 </div>
                 <h2>Lorem Ipsum Dolor Sit</h2>
                 <p class="subtitle">A brief exploration of placeholder text</p>
+                <img src="https://i.imgur.com/ZVnaSxU.jpeg" alt="Post image" class="post-image">
                 <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </article>
             <article class="post-card" data-slug="Lp3vTn8sY4a">
@@ -410,22 +424,25 @@
                         <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
                         <div class="post-author-info">
                             <span class="post-author-name">Mike Vincent</span>
-                            <span class="post-author-url">mikevincent.dev</span>
-                        </div>
-                    </div>
-                    <div class="post-menu-container">
-                        <button class="post-menu-btn" onclick="togglePostMenu(this)">
-                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
-                        </button>
-                        <div class="post-menu">
-                            <button onclick="copyMarkdown(this)">Copy Markdown</button>
-                            <button onclick="sharePost(this)">Share</button>
-                            <button onclick="copyURL(this)">Copy URL</button>
+                            <span class="post-author-url-row">
+                                <span class="post-author-url">mikevincent.dev</span>
+                                <div class="post-menu-container">
+                                    <button class="post-menu-btn" onclick="togglePostMenu(this)">
+                                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
+                                    </button>
+                                    <div class="post-menu">
+                                        <button onclick="copyMarkdown(this)">Copy Markdown</button>
+                                        <button onclick="sharePost(this)">Share</button>
+                                        <button onclick="copyURL(this)">Copy URL</button>
+                                    </div>
+                                </div>
+                            </span>
                         </div>
                     </div>
                 </div>
                 <h2>Consectetur Adipiscing</h2>
                 <p class="subtitle">Understanding the origins of dummy text</p>
+                <img src="https://i.imgur.com/QXuZ1ab.jpeg" alt="Post image" class="post-image">
                 <p class="body">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </article>
             <article class="post-card" data-slug="Bsd7maXz2xY">
@@ -434,22 +451,25 @@
                         <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
                         <div class="post-author-info">
                             <span class="post-author-name">Mike Vincent</span>
-                            <span class="post-author-url">mikevincent.dev</span>
-                        </div>
-                    </div>
-                    <div class="post-menu-container">
-                        <button class="post-menu-btn" onclick="togglePostMenu(this)">
-                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
-                        </button>
-                        <div class="post-menu">
-                            <button onclick="copyMarkdown(this)">Copy Markdown</button>
-                            <button onclick="sharePost(this)">Share</button>
-                            <button onclick="copyURL(this)">Copy URL</button>
+                            <span class="post-author-url-row">
+                                <span class="post-author-url">mikevincent.dev</span>
+                                <div class="post-menu-container">
+                                    <button class="post-menu-btn" onclick="togglePostMenu(this)">
+                                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
+                                    </button>
+                                    <div class="post-menu">
+                                        <button onclick="copyMarkdown(this)">Copy Markdown</button>
+                                        <button onclick="sharePost(this)">Share</button>
+                                        <button onclick="copyURL(this)">Copy URL</button>
+                                    </div>
+                                </div>
+                            </span>
                         </div>
                     </div>
                 </div>
                 <h2>Sed Do Eiusmod Tempor</h2>
                 <p class="subtitle">The art of filling space meaningfully</p>
+                <img src="https://i.imgur.com/8RKXAIV.jpeg" alt="Post image" class="post-image">
                 <p class="body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </article>
                         </div>

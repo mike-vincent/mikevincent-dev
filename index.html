@@ -135,9 +135,9 @@
         .theme-dark .site-footer { color: rgba(255, 255, 255, 0.5); }
         .theme-light .site-footer { color: rgba(0, 0, 0, 0.5); }
         .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
             padding: 48px 0;
         }
         .post-card {
@@ -244,11 +244,8 @@
         }
         .theme-dark .post-card .datetime { color: rgba(255, 255, 255, 0.4); }
         .theme-light .post-card .datetime { color: rgba(0, 0, 0, 0.4); }
-        @media (max-width: 1000px) {
-            .posts-grid { grid-template-columns: repeat(2, 1fr); }
-        }
         @media (max-width: 500px) {
-            .posts-grid { grid-template-columns: 1fr; padding: 24px 16px; }
+            .posts-grid { padding: 24px 0; }
         }
         @media (max-width: 500px) {
             .site-header { padding: 0 16px; }
@@ -284,13 +281,26 @@
         function openSearch() {
             document.querySelector('.search-btn').classList.add('hidden');
             document.querySelector('.search-field').classList.add('active');
-            document.querySelector('.search-field input').focus();
+            const input = document.querySelector('.search-field input');
+            input.focus();
+            input.addEventListener('input', filterPosts);
+            input.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch(); });
         }
         function closeSearch() {
+            const input = document.querySelector('.search-field input');
             setTimeout(() => {
                 document.querySelector('.search-field').classList.remove('active');
                 document.querySelector('.search-btn').classList.remove('hidden');
+                input.value = '';
+                filterPosts();
             }, 100);
+        }
+        function filterPosts() {
+            const query = document.querySelector('.search-field input').value.toLowerCase();
+            document.querySelectorAll('.post-card').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(query) ? '' : 'none';
+            });
         }
 
         function togglePostMenu(btn) {
@@ -301,18 +311,31 @@
         function copyMarkdown(btn) {
             const card = btn.closest('.post-card');
             const title = card.querySelector('h2').textContent;
+            const subtitle = card.querySelector('.subtitle').textContent;
             const body = card.querySelector('.body').textContent;
-            navigator.clipboard.writeText(`# ${title}\n\n${body}`);
+            const date = card.querySelector('.datetime').textContent;
+            const slug = card.dataset.slug;
+            const md = `# ${title}\n\n*${subtitle}*\n\n${body}\n\n---\n${date} · https://mikevincent.dev/read?p=${slug}`;
+            navigator.clipboard.writeText(md);
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy Markdown', 1500);
             btn.closest('.post-menu').classList.remove('active');
         }
         function sharePost(btn) {
             const card = btn.closest('.post-card');
             const title = card.querySelector('h2').textContent;
-            if (navigator.share) navigator.share({ title, url: window.location.href });
+            const slug = card.dataset.slug;
+            const url = `https://mikevincent.dev/read?p=${slug}`;
+            if (navigator.share) navigator.share({ title, url });
             btn.closest('.post-menu').classList.remove('active');
         }
         function copyURL(btn) {
-            navigator.clipboard.writeText(window.location.href);
+            const card = btn.closest('.post-card');
+            const slug = card.dataset.slug;
+            const url = `https://mikevincent.dev/read?p=${slug}`;
+            navigator.clipboard.writeText(url);
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy URL', 1500);
             btn.closest('.post-menu').classList.remove('active');
         }
         document.addEventListener('click', e => {
@@ -357,9 +380,7 @@
                 <div class="row">
                     <div class="column large-centered large-10 small-12">
                         <div class="posts-grid">
-            <article class="post-card">
-                <img src="https://i.imgur.com/ZVnaSxU.jpeg" alt="Post image">
-                <h2>Lorem Ipsum Dolor Sit</h2>
+            <article class="post-card" data-slug="Xk9mNp2qR7w">
                 <div class="post-meta">
                     <div class="post-author">
                         <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
@@ -379,13 +400,11 @@
                         </div>
                     </div>
                 </div>
+                <h2>Lorem Ipsum Dolor Sit</h2>
                 <p class="subtitle">A brief exploration of placeholder text</p>
                 <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <time class="datetime">January 25, 2026</time>
             </article>
-            <article class="post-card">
-                <img src="https://i.imgur.com/QXuZ1ab.jpeg" alt="Post image">
-                <h2>Consectetur Adipiscing</h2>
+            <article class="post-card" data-slug="Lp3vTn8sY4a">
                 <div class="post-meta">
                     <div class="post-author">
                         <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
@@ -405,13 +424,11 @@
                         </div>
                     </div>
                 </div>
+                <h2>Consectetur Adipiscing</h2>
                 <p class="subtitle">Understanding the origins of dummy text</p>
                 <p class="body">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <time class="datetime">January 20, 2026</time>
             </article>
-            <article class="post-card">
-                <img src="https://i.imgur.com/8RKXAIV.jpeg" alt="Post image">
-                <h2>Sed Do Eiusmod Tempor</h2>
+            <article class="post-card" data-slug="Bsd7maXz2xY">
                 <div class="post-meta">
                     <div class="post-author">
                         <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
@@ -431,9 +448,9 @@
                         </div>
                     </div>
                 </div>
+                <h2>Sed Do Eiusmod Tempor</h2>
                 <p class="subtitle">The art of filling space meaningfully</p>
                 <p class="body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <time class="datetime">January 15, 2026</time>
             </article>
                         </div>
                     </div>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="icon.png" />
+    <link rel="icon" href="icon.png" />
+
+    <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://testflight.apple.com/styles/interstitial-main.css" />
+
+    <title>About - Mike Vincent</title>
+    <meta name="description" content="About Mike Vincent - Software Engineer" />
+
+    <style>
+        .site-header {
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-header-left a {
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .theme-dark .site-header-left a { color: #fff; }
+        .theme-light .site-header-left a { color: #000; }
+        .site-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .site-header-left img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .site-header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .site-header-right a {
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .theme-dark .site-header-right a { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .site-header-right a { color: rgba(0, 0, 0, 0.8); }
+        .site-header-right a:hover {
+            text-decoration: underline;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0;
+        }
+        .theme-dark .theme-toggle { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .theme-toggle { color: rgba(0, 0, 0, 0.8); }
+        .theme-toggle:hover {
+            text-decoration: underline;
+        }
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        .search-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+        .theme-dark .search-btn svg path { stroke: rgba(255, 255, 255, 0.8); }
+        .theme-light .search-btn svg path { stroke: rgba(0, 0, 0, 0.8); }
+        .search-container {
+            position: relative;
+        }
+        .search-field {
+            display: none;
+            align-items: center;
+            background: rgba(128, 128, 128, 0.2);
+            border-radius: 8px;
+            padding: 6px 12px;
+            gap: 8px;
+        }
+        .search-field.active {
+            display: flex;
+        }
+        .search-field svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+        .theme-dark .search-field svg path { stroke: rgba(255, 255, 255, 0.5); }
+        .theme-light .search-field svg path { stroke: rgba(0, 0, 0, 0.5); }
+        .search-field input {
+            background: none;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            width: 180px;
+        }
+        .theme-dark .search-field input { color: #fff; }
+        .theme-light .search-field input { color: #000; }
+        .theme-dark .search-field input::placeholder { color: rgba(255, 255, 255, 0.5); }
+        .theme-light .search-field input::placeholder { color: rgba(0, 0, 0, 0.5); }
+        .search-btn.hidden { display: none; }
+        .site-footer {
+            padding: 24px 0;
+            font-size: 12px;
+            border-top: 1px solid rgba(128, 128, 128, 0.2);
+        }
+        .theme-dark .site-footer { color: rgba(255, 255, 255, 0.5); }
+        .theme-light .site-footer { color: rgba(0, 0, 0, 0.5); }
+        .bio-content {
+            padding: 48px 0;
+            max-width: 100%;
+        }
+        .bio-content h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 24px;
+        }
+        .theme-dark .bio-content h1 { color: #fff; }
+        .theme-light .bio-content h1 { color: #000; }
+        .bio-content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 32px 0 12px;
+        }
+        .theme-dark .bio-content h2 { color: #fff; }
+        .theme-light .bio-content h2 { color: #000; }
+        .bio-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0 0 16px;
+        }
+        .theme-dark .bio-content p { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .bio-content p { color: rgba(0, 0, 0, 0.8); }
+        .bio-content ul {
+            margin: 0 0 16px;
+            padding-left: 24px;
+        }
+        .bio-content li {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .theme-dark .bio-content li { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .bio-content li { color: rgba(0, 0, 0, 0.8); }
+        @media (max-width: 500px) {
+            .bio-content { padding: 24px 0; }
+            .site-header { padding: 0 16px; }
+            .site-header-right { gap: 16px; }
+            .search-field input { width: 120px; }
+        }
+    </style>
+</head>
+
+<body id="overview">
+    <script>
+        let manualTheme = localStorage.getItem('theme');
+        function setTheme() {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = manualTheme ? manualTheme === 'dark' : prefersDark;
+            document.body.classList.toggle('theme-dark', isDark);
+            document.body.classList.toggle('theme-light', !isDark);
+            const btn = document.querySelector('.theme-toggle');
+            if (btn) btn.textContent = isDark ? 'Light' : 'Dark';
+        }
+        function toggleTheme() {
+            const isDark = document.body.classList.contains('theme-dark');
+            manualTheme = isDark ? 'light' : 'dark';
+            localStorage.setItem('theme', manualTheme);
+            setTheme();
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            if (!manualTheme) setTheme();
+        });
+        document.addEventListener('DOMContentLoaded', setTheme);
+        setTheme();
+    </script>
+
+    <div class="site-header-wrapper">
+        <div class="section-content">
+            <div class="row">
+                <div class="column small-12">
+                    <header class="site-header">
+                        <div class="site-header-left">
+                            <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
+                            <a href="/">Mike Vincent</a>
+                        </div>
+                        <nav class="site-header-right">
+                            <a href="/">Posts</a>
+                            <a href="/about">Bio</a>
+                            <div class="search-container">
+                                <button class="search-btn" onclick="window.location='/'">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 17L21 21" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 11C3 15.4183 6.58172 19 11 19C13.213 19 15.2161 18.1015 16.6644 16.6493C18.1077 15.2022 19 13.2053 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                </button>
+                            </div>
+                            <button class="theme-toggle" onclick="toggleTheme()">Light</button>
+                        </nav>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main" class="main" role="main">
+        <section class="section">
+            <div class="section-content">
+                <div class="row">
+                    <div class="column small-12">
+                        <div class="bio-content">
+                            <h1>About Me</h1>
+                            <p>I'm Mike Vincent, a software engineer based in Los Angeles. I currently work at PwC, where I focus on infrastructure and platform engineering.</p>
+
+                            <h2>Work</h2>
+                            <p>I build and maintain infrastructure that powers critical systems. My experience spans cloud platforms, container orchestration, CI/CD pipelines, and distributed systems. I've worked on products used by millions of people.</p>
+
+                            <h2>Projects</h2>
+                            <p>Outside of work, I build things I find interesting:</p>
+                            <ul>
+                                <li><strong>The Archive of American Radio</strong> - A nonprofit preserving classic radio broadcasts</li>
+                                <li><strong>Timer Fantasy</strong> - Beautiful analog timers for Mac</li>
+                            </ul>
+
+                            <h2>Contact</h2>
+                            <p>Email: michael.thomas.vincent@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="site-footer-wrapper">
+        <div class="section-content">
+            <div class="row">
+                <div class="column small-12">
+                    <footer class="site-footer">
+                        Copyright &copy; 2026 Mike Vincent. All rights reserved.
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

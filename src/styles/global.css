@@ -419,6 +419,7 @@ a:hover { text-decoration: underline; }
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  line-height: 1.4;
 }
 
 .post-image {

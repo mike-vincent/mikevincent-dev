@@ -38,8 +38,8 @@ const mappedDevtoPosts = devtoPosts.map(article => ({
   tags: article.tag_list || [],
   image: article.cover_image,
   body: article.description,
-  isExternal: true,
-  url: article.url,
+  isExternal: false,
+  url: `/devto/${article.slug}/`,
 }));
 
 // Combine and sort by date (newest first)
@@ -52,8 +52,6 @@ const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.
       <div class="column large-centered large-10 small-12">
         <div class="posts-grid">
           {sortedPosts.map(post => {
-            const dateStr = post.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-            const isoDate = post.date.toISOString().split('T')[0];
             const minsAgo = Math.floor((Date.now() - post.date.getTime()) / (1000 * 60));
             const hoursAgo = Math.floor(minsAgo / 60);
             const daysAgo = Math.floor(hoursAgo / 24);
@@ -85,7 +83,7 @@ const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.
                     </div>
                   </div>
                   <div class="body">
-                    <p><time class="dateline" datetime={isoDate}>{dateStr}</time>&nbsp;—&nbsp;{post.body?.slice(0, 250)}<span class="show-more">...&nbsp;Show&nbsp;more</span></p>
+                    <p>{post.body?.slice(0, 250)}<span class="show-more">...&nbsp;Show&nbsp;more</span></p>
                   </div>
                   {post.image && (
                     <div class="post-card-thumb">

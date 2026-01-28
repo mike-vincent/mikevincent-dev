@@ -416,12 +416,6 @@ a:hover { text-decoration: underline; }
 .theme-dark .subtitle { color: rgba(255, 255, 255, 0.6); }
 .theme-light .subtitle { color: rgba(0, 0, 0, 0.6); }
 
-.dateline {
-  font-size: 16px;
-}
-.theme-dark .dateline { color: rgba(255, 255, 255, 0.8); }
-.theme-light .dateline { color: rgba(0, 0, 0, 0.8); }
-
 .show-more {
   color: #007AFF;
   vertical-align: middle;

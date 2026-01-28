@@ -20,8 +20,6 @@ const currentIndex = sortedPosts.findIndex(post => post.id === slug);
 const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
 const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
 
-const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-const isoDate = date.toISOString().split('T')[0];
 const url = `https://mikevincent.dev/blog/${slug}/`;
 ---
 
@@ -43,7 +41,7 @@ const url = `https://mikevincent.dev/blog/${slug}/`;
             {image && <img src={image} alt="" class="post-image" transition:name={`image-${slug}`} />}
 
             <div class="body">
-              <span class="dateline">{dateStr} — </span><slot />
+              <slot />
             </div>
 
             <ul class="post-tags">
@@ -93,10 +91,6 @@ const url = `https://mikevincent.dev/blog/${slug}/`;
   }
   :global(.theme-dark) .post-content h1 { color: #fff; }
   :global(.theme-light) .post-content h1 { color: #000; }
-
-  .post-content .body .dateline {
-    font-size: 16px;
-  }
   .post-content .body > :first-child {
     display: inline;
   }

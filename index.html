@@ -91,6 +91,12 @@
         .theme-light .theme-toggle { color: rgba(0, 0, 0, 0.8); }
         .theme-toggle:hover { text-decoration: underline; }
         .theme-toggle .material-symbols-outlined { font-size: 18px; }
+        .theme-toggle .chevrons {
+            display: flex;
+            flex-direction: column;
+            line-height: 0;
+        }
+        .theme-toggle .chevrons .material-symbols-outlined { font-size: 12px; }
         .search-btn {
             background: none;
             border: none;
@@ -217,6 +223,24 @@
         .post-author-url { font-weight: 400; }
         .theme-dark .post-author-url { color: rgba(255, 255, 255, 0.5); }
         .theme-light .post-author-url { color: rgba(0, 0, 0, 0.5); }
+        .post-author-date { font-weight: 400; }
+        .theme-dark .post-author-date { color: rgba(255, 255, 255, 0.5); }
+        .theme-light .post-author-date { color: rgba(0, 0, 0, 0.5); }
+        .post-card .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 8px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        .post-card .post-tags a {
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .theme-dark .post-card .post-tags a { color: rgba(255, 255, 255, 0.5); }
+        .theme-light .post-card .post-tags a { color: rgba(0, 0, 0, 0.5); }
+        .post-card .post-tags a:hover { text-decoration: underline; }
         .post-menu-btn {
             background: none;
             border: none;
@@ -303,8 +327,8 @@
             document.body.classList.toggle('theme-light', !isDark);
             const btn = document.querySelector('.theme-toggle');
             if (btn) btn.innerHTML = isDark
-                ? '<span class="material-symbols-outlined">light_mode</span>Light<span class="material-symbols-outlined">expand_more</span>'
-                : '<span class="material-symbols-outlined">dark_mode</span>Dark<span class="material-symbols-outlined">expand_more</span>';
+                ? '<span class="material-symbols-outlined">light_mode</span>Light<span class="chevrons"><span class="material-symbols-outlined">expand_less</span><span class="material-symbols-outlined">expand_more</span></span>'
+                : '<span class="material-symbols-outlined">dark_mode</span>Dark<span class="chevrons"><span class="material-symbols-outlined">expand_less</span><span class="material-symbols-outlined">expand_more</span></span>';
         }
         function toggleTheme() {
             const isDark = document.body.classList.contains('theme-dark');
@@ -388,8 +412,16 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.post-card').forEach(card => {
                 const slug = card.dataset.slug;
+                const dateStr = card.dataset.date;
                 const urlEl = card.querySelector('.post-author-url');
-                if (urlEl) urlEl.textContent = `mikevincent.dev/read?p=${slug}`;
+                const dateEl = card.querySelector('.post-author-date');
+                if (urlEl) urlEl.textContent = `mikevincent.dev/blog/${slug}`;
+                if (dateEl && dateStr) {
+                    const d = new Date(dateStr + 'T12:00:00');
+                    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    dateEl.textContent = `${days[d.getDay()]} ${months[d.getMonth()]} ${d.getDate()} ${d.getFullYear()}`;
+                }
             });
         });
     </script>
@@ -420,15 +452,16 @@
                 <div class="row">
                     <div class="column large-centered large-10 small-12">
                         <div class="posts-grid">
-            <article class="post-card" data-slug="Xk9mNp2qR7w">
+            <article class="post-card" data-slug="Xk9mNp2qR7w" data-date="2026-01-27">
                 <div class="post-card-content">
                     <div class="post-meta">
                         <div class="post-author">
                             <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
                             <div class="post-author-info">
                                 <span class="post-author-name">Mike Vincent</span>
+                                <span class="post-author-url"></span>
+                                <span class="post-author-date"></span>
                                 <span class="post-author-url-row">
-                                    <span class="post-author-url"></span>
                                     <div class="post-menu-container">
                                         <button class="post-menu-btn" onclick="togglePostMenu(this)">
                                             <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
@@ -443,23 +476,25 @@
                             </div>
                         </div>
                     </div>
-                    <h2><a href="/read?p=Xk9mNp2qR7w">Lorem Ipsum Dolor Sit</a></h2>
-                    <p class="subtitle"><time datetime="2026-01-27">Jan 27, 2026</time> — Lorem ipsum dolor sit amet,</p>
+                    <h2><a href="/blog/Xk9mNp2qR7w">Lorem Ipsum Dolor Sit</a></h2>
+                    <p class="subtitle">A brief exploration of placeholder text</p>
                     <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <ul class="post-tags"><li><a href="/tags/lorem">#lorem</a></li><li><a href="/tags/ipsum">#ipsum</a></li><li><a href="/tags/placeholder">#placeholder</a></li></ul>
                 </div>
                 <div class="post-card-thumb">
                     <img src="https://i.imgur.com/ZVnaSxU.jpeg" alt="">
                 </div>
             </article>
-            <article class="post-card" data-slug="Lp3vTn8sY4a">
+            <article class="post-card" data-slug="Lp3vTn8sY4a" data-date="2026-01-20">
                 <div class="post-card-content">
                     <div class="post-meta">
                         <div class="post-author">
                             <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
                             <div class="post-author-info">
                                 <span class="post-author-name">Mike Vincent</span>
+                                <span class="post-author-url"></span>
+                                <span class="post-author-date"></span>
                                 <span class="post-author-url-row">
-                                    <span class="post-author-url"></span>
                                     <div class="post-menu-container">
                                         <button class="post-menu-btn" onclick="togglePostMenu(this)">
                                             <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
@@ -474,23 +509,25 @@
                             </div>
                         </div>
                     </div>
-                    <h2><a href="/read?p=Lp3vTn8sY4a">Consectetur Adipiscing</a></h2>
-                    <p class="subtitle"><time datetime="2026-01-20">Jan 20, 2026</time> — Ut enim ad minim veniam,</p>
+                    <h2><a href="/blog/Lp3vTn8sY4a">Consectetur Adipiscing</a></h2>
+                    <p class="subtitle">Understanding the origins of dummy text</p>
                     <p class="body">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <ul class="post-tags"><li><a href="/tags/history">#history</a></li><li><a href="/tags/typography">#typography</a></li></ul>
                 </div>
                 <div class="post-card-thumb">
                     <img src="https://i.imgur.com/QXuZ1ab.jpeg" alt="">
                 </div>
             </article>
-            <article class="post-card" data-slug="Bsd7maXz2xY">
+            <article class="post-card" data-slug="Bsd7maXz2xY" data-date="2026-01-15">
                 <div class="post-card-content">
                     <div class="post-meta">
                         <div class="post-author">
                             <img src="/assets/images/headshot.jpg" alt="Mike Vincent">
                             <div class="post-author-info">
                                 <span class="post-author-name">Mike Vincent</span>
+                                <span class="post-author-url"></span>
+                                <span class="post-author-date"></span>
                                 <span class="post-author-url-row">
-                                    <span class="post-author-url"></span>
                                     <div class="post-menu-container">
                                         <button class="post-menu-btn" onclick="togglePostMenu(this)">
                                             <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="3" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="13" r="1.5"/></svg>
@@ -505,9 +542,10 @@
                             </div>
                         </div>
                     </div>
-                    <h2><a href="/read?p=Bsd7maXz2xY">Sed Do Eiusmod Tempor</a></h2>
-                    <p class="subtitle"><time datetime="2026-01-15">Jan 15, 2026</time> — Duis aute irure dolor in reprehenderit,</p>
+                    <h2><a href="/blog/Bsd7maXz2xY">Sed Do Eiusmod Tempor</a></h2>
+                    <p class="subtitle">The art of filling space meaningfully</p>
                     <p class="body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <ul class="post-tags"><li><a href="/tags/design">#design</a></li><li><a href="/tags/content">#content</a></li></ul>
                 </div>
                 <div class="post-card-thumb">
                     <img src="https://i.imgur.com/8RKXAIV.jpeg" alt="">

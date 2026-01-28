@@ -74,6 +74,12 @@
         .theme-light .theme-toggle { color: rgba(0, 0, 0, 0.8); }
         .theme-toggle:hover { text-decoration: underline; }
         .theme-toggle .material-symbols-outlined { font-size: 18px; }
+        .theme-toggle .chevrons {
+            display: flex;
+            flex-direction: column;
+            line-height: 0;
+        }
+        .theme-toggle .chevrons .material-symbols-outlined { font-size: 12px; }
         .search-btn {
             background: none;
             border: none;
@@ -182,8 +188,8 @@
             document.body.classList.toggle('theme-light', !isDark);
             const btn = document.querySelector('.theme-toggle');
             if (btn) btn.innerHTML = isDark
-                ? '<span class="material-symbols-outlined">light_mode</span>Light<span class="material-symbols-outlined">expand_more</span>'
-                : '<span class="material-symbols-outlined">dark_mode</span>Dark<span class="material-symbols-outlined">expand_more</span>';
+                ? '<span class="material-symbols-outlined">light_mode</span>Light<span class="chevrons"><span class="material-symbols-outlined">expand_less</span><span class="material-symbols-outlined">expand_more</span></span>'
+                : '<span class="material-symbols-outlined">dark_mode</span>Dark<span class="chevrons"><span class="material-symbols-outlined">expand_less</span><span class="material-symbols-outlined">expand_more</span></span>';
         }
         function toggleTheme() {
             const isDark = document.body.classList.contains('theme-dark');

@@ -189,8 +189,8 @@ a:hover { text-decoration: underline; }
 .body p { margin: 0 0 16px; }
 
 .post-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 12px;

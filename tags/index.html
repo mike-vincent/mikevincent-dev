@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/icon.png" />
+    <link rel="icon" href="/icon.png" />
+    <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" type="text/css" media="all">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Tags - Mike Vincent</title>
+    <meta name="description" content="Browse posts by tag" />
+    <style>
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; }
+        .theme-dark { background: #000; color: #fff; }
+        .theme-light { background: #fff; color: #000; }
+        .section-content { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+        .row { display: flex; flex-wrap: wrap; }
+        .column { width: 100%; }
+        .large-10 { max-width: 83.333%; }
+        .large-centered { margin-left: auto; margin-right: auto; }
+        @media (max-width: 734px) { .large-10 { max-width: 100%; } }
+        .site-header-wrapper { position: sticky; top: 0; z-index: 100; margin-bottom: 10px; }
+        .theme-dark .site-header-wrapper { background: #000; }
+        .theme-light .site-header-wrapper { background: #fff; }
+        .site-header {
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-header-left a {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .theme-dark .site-header-left a { color: #fff; }
+        .theme-light .site-header-left a { color: #000; }
+        .site-header-left a:hover { text-decoration: underline; }
+        .site-header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .site-header-right a {
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .theme-dark .site-header-right a { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .site-header-right a { color: rgba(0, 0, 0, 0.8); }
+        .site-header-right a:hover .nav-text { text-decoration: underline; }
+        .site-header-right a .material-symbols-outlined { font-size: 18px; }
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .theme-dark .theme-toggle { color: rgba(255, 255, 255, 0.8); }
+        .theme-light .theme-toggle { color: rgba(0, 0, 0, 0.8); }
+        .theme-toggle:hover .theme-text { text-decoration: underline; }
+        .theme-toggle .material-symbols-outlined { font-size: 18px; }
+        .theme-toggle .chevrons {
+            display: flex;
+            flex-direction: column;
+            line-height: 0;
+            margin-top: -2px;
+        }
+        .theme-toggle .chevrons .material-symbols-outlined { font-size: 12px; margin: -3px 0; }
+        .site-footer {
+            padding: 24px 0;
+            font-size: 14px;
+            border-top: 1px solid rgba(128, 128, 128, 0.2);
+        }
+        .theme-dark .site-footer { color: rgba(255, 255, 255, 0.5); }
+        .theme-light .site-footer { color: rgba(0, 0, 0, 0.5); }
+        .tags-content h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 32px;
+        }
+        .tag-section {
+            margin-bottom: 32px;
+        }
+        .tag-section h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 16px;
+            color: #007AFF;
+        }
+        .tag-section h2::before {
+            content: '#';
+        }
+        .tag-posts {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .tag-posts li {
+            margin-bottom: 12px;
+        }
+        .tag-posts a {
+            font-size: 16px;
+            color: #007AFF;
+            text-decoration: none;
+        }
+        .tag-posts a:hover { text-decoration: underline; }
+        .tag-posts .post-date {
+            font-size: 14px;
+            margin-left: 8px;
+        }
+        .theme-dark .tag-posts .post-date { color: rgba(255, 255, 255, 0.5); }
+        .theme-light .tag-posts .post-date { color: rgba(0, 0, 0, 0.5); }
+        @media (max-width: 500px) {
+            .site-header { padding: 0 16px; }
+            .site-header-right { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let manualTheme = localStorage.getItem('theme');
+        function setTheme() {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = manualTheme ? manualTheme === 'dark' : prefersDark;
+            document.body.classList.toggle('theme-dark', isDark);
+            document.body.classList.toggle('theme-light', !isDark);
+            const btn = document.querySelector('.theme-toggle');
+            if (btn) btn.innerHTML = isDark
+                ? '<span class="material-symbols-outlined">dark_mode</span><span class="theme-text">Dark</span><span class="chevrons"><span class="material-symbols-outlined">expand_less</span><span class="material-symbols-outlined">expand_more</span></span>'
+                : '<span class="material-symbols-outlined">light_mode</span><span class="theme-text">Light</span><span class="chevrons"><span class="material-symbols-outlined">expand_less</span><span class="material-symbols-outlined">expand_more</span></span>';
+        }
+        function toggleTheme() {
+            const isDark = document.body.classList.contains('theme-dark');
+            manualTheme = isDark ? 'light' : 'dark';
+            localStorage.setItem('theme', manualTheme);
+            setTheme();
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            if (!manualTheme) setTheme();
+        });
+        document.addEventListener('DOMContentLoaded', setTheme);
+        setTheme();
+    </script>
+
+    <div class="site-header-wrapper">
+        <div class="section-content">
+            <div class="row">
+                <div class="column large-centered large-10 small-12">
+                    <header class="site-header">
+                        <div class="site-header-left">
+                            <a href="/">Mike Vincent</a>
+                        </div>
+                        <nav class="site-header-right">
+                            <a href="/"><span class="material-symbols-outlined">dynamic_feed</span><span class="nav-text">Posts</span></a>
+                            <a href="/about"><span class="material-symbols-outlined">person</span><span class="nav-text">Bio</span></a>
+                            <a href="/resume"><span class="material-symbols-outlined">article</span><span class="nav-text">Resume</span></a>
+                            <button class="theme-toggle" onclick="toggleTheme()">Light</button>
+                        </nav>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="section-content">
+            <div class="row">
+                <div class="column large-centered large-10 small-12">
+                    <div class="tags-content">
+                        <h1>Tags</h1>
+
+                        <div class="tag-section" id="content">
+                            <h2>content</h2>
+                            <ul class="tag-posts">
+                                <li><a href="/blog/2026/01/15/sed-do-eiusmod-tempor/">Sed Do Eiusmod Tempor</a><span class="post-date">Jan 15, 2026</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="tag-section" id="design">
+                            <h2>design</h2>
+                            <ul class="tag-posts">
+                                <li><a href="/blog/2026/01/15/sed-do-eiusmod-tempor/">Sed Do Eiusmod Tempor</a><span class="post-date">Jan 15, 2026</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="tag-section" id="history">
+                            <h2>history</h2>
+                            <ul class="tag-posts">
+                                <li><a href="/blog/2026/01/20/consectetur-adipiscing/">Consectetur Adipiscing</a><span class="post-date">Jan 20, 2026</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="tag-section" id="ipsum">
+                            <h2>ipsum</h2>
+                            <ul class="tag-posts">
+                                <li><a href="/blog/2026/01/27/lorem-ipsum-dolor-sit/">Lorem Ipsum Dolor Sit</a><span class="post-date">Jan 27, 2026</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="tag-section" id="lorem">
+                            <h2>lorem</h2>
+                            <ul class="tag-posts">
+                                <li><a href="/blog/2026/01/27/lorem-ipsum-dolor-sit/">Lorem Ipsum Dolor Sit</a><span class="post-date">Jan 27, 2026</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="tag-section" id="placeholder">
+                            <h2>placeholder</h2>
+                            <ul class="tag-posts">
+                                <li><a href="/blog/2026/01/27/lorem-ipsum-dolor-sit/">Lorem Ipsum Dolor Sit</a><span class="post-date">Jan 27, 2026</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="tag-section" id="typography">
+                            <h2>typography</h2>
+                            <ul class="tag-posts">
+                                <li><a href="/blog/2026/01/20/consectetur-adipiscing/">Consectetur Adipiscing</a><span class="post-date">Jan 20, 2026</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="site-footer-wrapper">
+        <div class="section-content">
+            <div class="row">
+                <div class="column large-centered large-10 small-12">
+                    <footer class="site-footer">
+                        Copyright &copy; 2026 Mike Vincent. All rights reserved.
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

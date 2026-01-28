@@ -43,6 +43,8 @@
         }
         .theme-dark .site-header-left a { color: #fff; }
         .theme-light .site-header-left a { color: #000; }
+        .site-header-left a:hover { text-decoration: underline; }
+        .site-header-wrapper { margin-bottom: 10px; }
         .site-header-right {
             display: flex;
             align-items: center;
@@ -193,13 +195,14 @@
             border-radius: 6px;
             transition: transform 0.15s;
         }
+        .share-links a { text-decoration: none; }
         .share-links a:hover { transform: rotate(6deg); }
         .share-links svg { width: 24px; height: 24px; }
-        .share-links svg.icon-fill { fill: currentColor; }
-        .share-links svg.icon-stroke { fill: none; stroke: currentColor; stroke-width: 2; }
-        .share-links svg.icon-x { fill: currentColor; }
-        .theme-dark .share-links { color: rgba(255, 255, 255, 0.7); }
-        .theme-light .share-links { color: rgba(0, 0, 0, 0.6); }
+        .theme-dark .share-links svg { fill: rgba(255, 255, 255, 0.7); }
+        .theme-light .share-links svg { fill: rgba(0, 0, 0, 0.6); }
+        .share-links svg.icon-stroke { fill: none; stroke-width: 2; }
+        .theme-dark .share-links svg.icon-stroke { stroke: rgba(255, 255, 255, 0.7); }
+        .theme-light .share-links svg.icon-stroke { stroke: rgba(0, 0, 0, 0.6); }
         .post-nav {
             display: flex;
             justify-content: space-between;
@@ -219,9 +222,9 @@
             text-align: right;
             flex-direction: row-reverse;
         }
-        .nav-chevron { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
-        .theme-dark .nav-chevron { stroke: rgba(255, 255, 255, 0.5); }
-        .theme-light .nav-chevron { stroke: rgba(0, 0, 0, 0.5); }
+        .nav-chevron { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; fill: none; }
+        .theme-dark .nav-chevron { stroke: rgba(255, 255, 255, 0.5) !important; }
+        .theme-light .nav-chevron { stroke: rgba(0, 0, 0, 0.5) !important; }
         .nav-label {
             display: block;
             font-size: 14px;
@@ -307,9 +310,9 @@
                                 <p><time class="dateline" datetime="2026-01-27">Jan 27, 2026</time> — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                             <ul class="post-tags">
-                                <li><a href="/tags/lorem">#lorem</a></li>
-                                <li><a href="/tags/ipsum">#ipsum</a></li>
-                                <li><a href="/tags/placeholder">#placeholder</a></li>
+                                <li><a href="/tags/#lorem">#lorem</a></li>
+                                <li><a href="/tags/#ipsum">#ipsum</a></li>
+                                <li><a href="/tags/#placeholder">#placeholder</a></li>
                             </ul>
                         </div>
                         <div class="share-section">

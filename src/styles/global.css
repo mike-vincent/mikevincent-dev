@@ -69,7 +69,7 @@ main { flex: 1; }
 }
 .theme-dark .site-header-left a { color: #fff; }
 .theme-light .site-header-left a { color: #000; }
-.site-header-left a:hover { text-decoration: none; font-weight: 900; }
+.site-header-left a:hover { text-decoration: none; }
 
 .site-header-right {
   display: flex;
@@ -88,19 +88,9 @@ main { flex: 1; }
 }
 .theme-dark .site-header-right a { color: rgba(255, 255, 255, 0.8); }
 .theme-light .site-header-right a { color: rgba(0, 0, 0, 0.8); }
-.site-header-right a:hover { text-decoration: none; font-weight: 700; }
+.site-header-right a:hover { text-decoration: none; }
 .site-header-right a .nav-text {
   display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-}
-.site-header-right a .nav-text::after {
-  content: attr(data-text);
-  font-weight: 700;
-  height: 0;
-  visibility: hidden;
-  overflow: hidden;
-  pointer-events: none;
 }
 .site-header-right a.active .nav-text {
   font-weight: 700;
@@ -125,7 +115,7 @@ main { flex: 1; }
 }
 .theme-dark .theme-toggle { color: rgba(255, 255, 255, 0.8); }
 .theme-light .theme-toggle { color: rgba(0, 0, 0, 0.8); }
-.theme-toggle:hover { font-weight: 700; }
+.theme-toggle:hover { }
 .theme-toggle .material-symbols-outlined { font-size: 18px; }
 .theme-toggle .chevrons {
   display: flex;

@@ -78,4 +78,11 @@ import Base from '../layouts/Base.astro';
   }
   :global(.theme-dark) .bio-content :global(li) { color: rgba(255, 255, 255, 0.8); }
   :global(.theme-light) .bio-content :global(li) { color: rgba(0, 0, 0, 0.8); }
+
+  .bio-content :global(h2) {
+    margin: 24px 0 12px;
+  }
+  .bio-content :global(h2:first-of-type) {
+    margin-top: 0;
+  }
 </style>

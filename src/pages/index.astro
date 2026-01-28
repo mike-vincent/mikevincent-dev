@@ -65,7 +65,6 @@ const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.
               <div class="post-card" data-index={index} style={index >= 10 ? 'display:none' : ''}>
                 <div class="post-card-content">
                   <div class="post-header">
-                    <img src="/assets/images/headshot.jpg" alt="Mike Vincent" class="post-avatar" transition:name={`avatar-${post.id}`} />
                     <div class="post-header-text">
                       <div class="title-row">
                         <h2><a href={post.url} {...linkProps} transition:name={`title-${post.id}`}>{post.title}</a> <span class="post-age">· {compactTime}</span></h2>

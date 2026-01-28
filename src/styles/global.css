@@ -273,19 +273,6 @@ a:hover { text-decoration: underline; }
 .post-card .post-header {
   margin-bottom: 8px;
 }
-.post-card .body,
-.post-card .post-card-thumb,
-.post-card .post-tags {
-  margin-left: 52px;
-}
-
-.post-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
 
 .post-header-text {
   flex: 1;

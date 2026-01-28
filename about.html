@@ -8,22 +8,22 @@
     <link rel="icon" href="icon.png" />
 
     <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" type="text/css" media="all">
-    <link rel="stylesheet" type="text/css" href="https://testflight.apple.com/styles/interstitial-main.css" />
-
+    
     <title>About - Mike Vincent</title>
     <meta name="description" content="About Mike Vincent - Software Engineer" />
 
     <style>
-        body { margin: 0; padding: 0; }
-        html { margin: 0; padding: 0; }
-        .site-header-wrapper {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif; }
+        .section-content { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+        .row { display: flex; flex-wrap: wrap; }
+        .column { width: 100%; }
+        .large-10 { max-width: 83.333%; }
+        .large-centered { margin-left: auto; margin-right: auto; }
+        @media (max-width: 734px) { .large-10 { max-width: 100%; } }
+        .site-header-wrapper { position: sticky; top: 0; z-index: 100; }
         .theme-dark .site-header-wrapper { background: #000; }
         .theme-light .site-header-wrapper { background: #fff; }
-        .site-header-wrapper .section-content { padding: 0; }
         .site-header {
             height: 55px;
             display: flex;

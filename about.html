@@ -8,6 +8,7 @@
     <link rel="icon" href="icon.png" />
 
     <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" type="text/css" media="all">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     
     <title>About - Mike Vincent</title>
     <meta name="description" content="About Mike Vincent - Software Engineer" />
@@ -65,12 +66,14 @@
             font-size: 14px;
             font-weight: 500;
             padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
         .theme-dark .theme-toggle { color: rgba(255, 255, 255, 0.8); }
         .theme-light .theme-toggle { color: rgba(0, 0, 0, 0.8); }
-        .theme-toggle:hover {
-            text-decoration: underline;
-        }
+        .theme-toggle:hover { text-decoration: underline; }
+        .theme-toggle .material-symbols-outlined { font-size: 18px; }
         .search-btn {
             background: none;
             border: none;
@@ -178,7 +181,9 @@
             document.body.classList.toggle('theme-dark', isDark);
             document.body.classList.toggle('theme-light', !isDark);
             const btn = document.querySelector('.theme-toggle');
-            if (btn) btn.textContent = isDark ? 'Light' : 'Dark';
+            if (btn) btn.innerHTML = isDark
+                ? '<span class="material-symbols-outlined">light_mode</span>Light<span class="material-symbols-outlined">expand_more</span>'
+                : '<span class="material-symbols-outlined">dark_mode</span>Dark<span class="material-symbols-outlined">expand_more</span>';
         }
         function toggleTheme() {
             const isDark = document.body.classList.contains('theme-dark');
@@ -219,19 +224,12 @@
                 <div class="row">
                     <div class="column large-centered large-10 small-12">
                         <div class="bio-content">
-                            <p>I'm Mike Vincent, a software engineer based in Los Angeles. I currently work at PwC, where I focus on infrastructure and platform engineering.</p>
+                            <p>I'm a software engineer in Los Angeles working on platform engineering at PwC. I build infrastructure for payment systems, tokenization platforms, and cloud-native applications using Go, Python, TypeScript, Kubernetes, and Terraform. Before PwC, I spent seven years at Cubic Transportation Systems shipping fare collection systems for DC Metro, NYC MTA, BART, and LA Metro.</p>
 
-                            <h2>Work</h2>
-                            <p>I build and maintain infrastructure that powers critical systems. My experience spans cloud platforms, container orchestration, CI/CD pipelines, and distributed systems. I've worked on products used by millions of people.</p>
+                            <p>Outside of work, I founded The Archive of American Radio, a 501(c)(3) nonprofit preserving American radio drama. We built Anthology, a mobile app for listening to public-domain audio from the golden age of radio. I also built Timer Fantasy, a macOS menu bar app with beautiful analog timers and iCloud sync, and Io Pictures Corporation, a film distribution company that has sold rights to Tubi, Amazon, Apple, and Google.</p>
 
-                            <h2>Projects</h2>
-                            <p>Outside of work, I build things I find interesting:</p>
-                            <ul>
-                                <li><strong>The Archive of American Radio</strong> - A nonprofit preserving classic radio broadcasts</li>
-                                <li><strong>Timer Fantasy</strong> - Beautiful analog timers for Mac</li>
-                            </ul>
-
-                            </div>
+                            <p>I write about Python on Dev.to and share open-source tools on GitHub. I studied linguistics and journalism at Penn State, then got a master's in industrial engineering from UT Tyler. I'm a U.S. citizen based in Los Angeles.</p>
+                        </div>
                     </div>
                 </div>
             </div>

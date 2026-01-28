@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="/icon.png" />
     <link rel="icon" href="/icon.png" />
     <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" type="text/css" media="all">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <title>Resume - Mike Vincent</title>
     <meta name="description" content="Resume of Mike Vincent - Software Engineer" />
     <style>
@@ -59,10 +60,14 @@
             font-size: 14px;
             font-weight: 500;
             padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
         .theme-dark .theme-toggle { color: rgba(255, 255, 255, 0.8); }
         .theme-light .theme-toggle { color: rgba(0, 0, 0, 0.8); }
         .theme-toggle:hover { text-decoration: underline; }
+        .theme-toggle .material-symbols-outlined { font-size: 18px; }
         .site-footer {
             padding: 24px 0;
             font-size: 12px;
@@ -176,7 +181,9 @@
             document.body.classList.toggle('theme-dark', isDark);
             document.body.classList.toggle('theme-light', !isDark);
             const btn = document.querySelector('.theme-toggle');
-            if (btn) btn.textContent = isDark ? 'Light' : 'Dark';
+            if (btn) btn.innerHTML = isDark
+                ? '<span class="material-symbols-outlined">light_mode</span>Light<span class="material-symbols-outlined">expand_more</span>'
+                : '<span class="material-symbols-outlined">dark_mode</span>Dark<span class="material-symbols-outlined">expand_more</span>';
         }
         function toggleTheme() {
             const isDark = document.body.classList.contains('theme-dark');

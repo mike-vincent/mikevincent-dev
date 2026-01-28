@@ -1,6 +1,6 @@
 ---
-title: "Sed Do Eiusmod Tempor"
-subtitle: "The art of filling space meaningfully"
+title: "Building Payment Systems"
+subtitle: "Lessons from PwC and Cubic"
 date: 2026-01-15
 tags: ["design", "content"]
 image: "https://picsum.photos/seed/post3/800/400"

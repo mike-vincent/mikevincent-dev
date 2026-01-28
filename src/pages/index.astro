@@ -14,27 +14,54 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
           {sortedPosts.map(post => {
             const dateStr = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
             const isoDate = post.data.date.toISOString().split('T')[0];
+            const minsAgo = Math.floor((Date.now() - post.data.date.getTime()) / (1000 * 60));
+            const hoursAgo = Math.floor(minsAgo / 60);
+            const daysAgo = Math.floor(hoursAgo / 24);
+            const weeksAgo = Math.floor(daysAgo / 7);
+            const monthsAgo = Math.floor(daysAgo / 30);
+            const yearsAgo = Math.floor(daysAgo / 365);
+            const relativeTime = daysAgo === 0 ? 'Today' : daysAgo === 1 ? '1 day ago' : `${daysAgo} days ago`;
+            const compactTime = yearsAgo >= 1 ? `${yearsAgo}y` : monthsAgo >= 1 ? `${monthsAgo}m` : weeksAgo >= 1 ? `${weeksAgo}w` : daysAgo >= 1 ? `${daysAgo}d` : hoursAgo >= 1 ? `${hoursAgo}h` : `${minsAgo}m`;
             return (
               <div class="post-card">
-                <div class="post-header">
-                  <img src="/assets/images/headshot.jpg" alt="Mike Vincent" class="post-avatar" />
-                  <div class="post-header-text">
-                    <div class="title-row">
-                      <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
-                      <button class="post-menu" aria-label="More options">&#8942;</button>
+                <div class="post-card-content">
+                  <div class="post-header">
+                    <img src="/assets/images/headshot.jpg" alt="Mike Vincent" class="post-avatar" transition:name={`avatar-${post.id}`} />
+                    <div class="post-header-text">
+                      <div class="title-row">
+                        <h2><a href={`/blog/${post.id}/`} transition:name={`title-${post.id}`}>{post.data.title}</a> <span class="post-age">· {compactTime}</span></h2>
+                        <div class="post-menu-wrapper">
+                          <button class="post-menu" aria-label="More options" onclick="this.parentElement.classList.toggle('open')"><span class="material-symbols-outlined">more_vert</span></button>
+                          <div class="post-menu-dropdown">
+                            <a href={`/blog/${post.id}/`} class="menu-item"><span class="material-symbols-outlined">open_in_new</span>Open</a>
+                            <button class="menu-item" onclick="navigator.clipboard.writeText(window.location.origin + '/blog/' + this.dataset.slug + '/'); this.querySelector('span:last-child').textContent='Copied!'; setTimeout(() => this.querySelector('span:last-child').textContent='Copy link', 1500)" data-slug={post.id}><span class="material-symbols-outlined">link</span><span>Copy link</span></button>
+                            <button class="menu-item" onclick="navigator.clipboard.writeText('[' + this.dataset.title + '](' + window.location.origin + '/blog/' + this.dataset.slug + '/)'); this.querySelector('span:last-child').textContent='Copied!'; setTimeout(() => this.querySelector('span:last-child').textContent='Copy markdown', 1500)" data-slug={post.id} data-title={post.data.title}><span class="material-symbols-outlined">content_copy</span><span>Copy markdown</span></button>
+                            <button class="menu-item" onclick="navigator.share?.({url: window.location.origin + '/blog/' + this.dataset.slug + '/', title: this.dataset.title})" data-slug={post.id} data-title={post.data.title}><span class="material-symbols-outlined">share</span><span>Share</span></button>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="subtitle">{post.data.subtitle}</p>
                     </div>
-                    <p class="subtitle">{post.data.subtitle}</p>
                   </div>
+                  <div class="body">
+                    <p><time class="dateline" datetime={isoDate}>{dateStr}</time>&nbsp;—&nbsp;{post.body?.slice(0, 250)}<span class="show-more">...&nbsp;Show&nbsp;more</span></p>
+                  </div>
+                  {post.data.image && (
+                    <div class="post-card-thumb">
+                      <img src={post.data.image} alt="" />
+                      <div class="thumb-overlay">
+                        <span class="thumb-title">{post.data.title}</span>
+                        <span class="thumb-subtitle">{post.data.subtitle}</span>
+                        <span class="thumb-meta">By Mike Vincent · {relativeTime}</span>
+                      </div>
+                    </div>
+                  )}
+                  <ul class="post-tags">
+                    {post.data.tags.map(tag => (
+                      <li><a href={`/tags/#${tag}`}>#{tag}</a></li>
+                    ))}
+                  </ul>
                 </div>
-                {post.data.image && <img src={post.data.image} alt="" class="post-image" />}
-                <div class="body">
-                  <p><time class="dateline" datetime={isoDate}>{dateStr}</time> — {post.body?.slice(0, 150)}...</p>
-                </div>
-                <ul class="post-tags">
-                  {post.data.tags.map(tag => (
-                    <li><a href={`/tags/#${tag}`}>#{tag}</a></li>
-                  ))}
-                </ul>
               </div>
             );
           })}

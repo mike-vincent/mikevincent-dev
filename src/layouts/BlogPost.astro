@@ -25,27 +25,25 @@ const isoDate = date.toISOString().split('T')[0];
 const url = `https://mikevincent.dev/blog/${slug}/`;
 ---
 
-<Base title={`${title} - Mike Vincent`} description={subtitle}>
-  <article class="section">
-    <div class="section-content">
-      <div class="row">
-        <div class="column large-centered large-10 small-12">
-          <div class="post-content">
+<Base title={`${title} - Mike Vincent`} description={subtitle} image={image}>
+  <div class="section-content">
+    <div class="row">
+      <div class="column large-centered large-10 small-12">
+        <div class="post-content">
             <div class="post-header">
-              <img src="/assets/images/headshot.jpg" alt="Mike Vincent" class="post-avatar">
               <div class="post-header-text">
                 <div class="title-row">
-                  <h1>{title}</h1>
-                  <button class="post-menu" aria-label="More options">&#8942;</button>
+                  <h1 transition:name={`title-${slug}`}>{title}</h1>
+                  <button class="post-menu" aria-label="More options"><span class="material-symbols-outlined">more_vert</span></button>
                 </div>
                 <p class="subtitle">{subtitle}</p>
               </div>
             </div>
 
-            {image && <img src={image} alt="" class="post-image" />}
+            {image && <img src={image} alt="" class="post-image" transition:name={`image-${slug}`} />}
 
             <div class="body">
-              <p><time class="dateline" datetime={isoDate}>{dateStr}</time> — <slot /></p>
+              <span class="dateline">{dateStr} — </span><slot />
             </div>
 
             <ul class="post-tags">
@@ -84,7 +82,7 @@ const url = `https://mikevincent.dev/blog/${slug}/`;
         </div>
       </div>
     </div>
-  </article>
+  </div>
 </Base>
 
 <style>
@@ -92,6 +90,14 @@ const url = `https://mikevincent.dev/blog/${slug}/`;
     font-size: 18px;
     font-weight: 600;
     margin: 0 0 4px;
-    color: #007AFF;
+  }
+  :global(.theme-dark) .post-content h1 { color: #fff; }
+  :global(.theme-light) .post-content h1 { color: #000; }
+
+  .post-content .body .dateline {
+    font-size: 16px;
+  }
+  .post-content .body > :first-child {
+    display: inline;
   }
 </style>

@@ -1,10 +1,20 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description = "Mike Vincent - Software Engineer" } = Astro.props;
+const { title, description = "Mike Vincent - Software Engineer", image } = Astro.props;
+const pathname = Astro.url.pathname;
+const isPost = pathname.startsWith('/blog/') && pathname !== '/blog/';
+const isHome = pathname === '/';
+const isBio = pathname === '/about' || pathname === '/about/';
+const isResume = pathname === '/resume' || pathname === '/resume/';
+const ogImage = image || "https://mikevincent.dev/assets/images/og-default.jpg";
+const canonicalURL = new URL(Astro.url.pathname, "https://mikevincent.dev");
 ---
 
 <!DOCTYPE html>
@@ -13,10 +23,26 @@ const { title, description = "Mike Vincent - Software Engineer" } = Astro.props;
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="/icon.png" />
+  <link rel="canonical" href={canonicalURL} />
   <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <title>{title}</title>
   <meta name="description" content={description} />
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <ViewTransitions />
 </head>
 <body>
   <script is:inline>
@@ -41,7 +67,32 @@ const { title, description = "Mike Vincent - Software Engineer" } = Astro.props;
       if (!manualTheme) setTheme();
     });
     document.addEventListener('DOMContentLoaded', setTheme);
+    document.addEventListener('astro:after-swap', setTheme);
     setTheme();
+
+    // Hide header on scroll down, show on scroll up
+    function initScrollHeader() {
+      let lastScroll = 0;
+      let scrollUpAmount = 0;
+      const header = document.querySelector('.site-header-wrapper');
+      if (!header) return;
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+        const isAtBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10;
+        if (currentScroll > lastScroll && currentScroll > 60) {
+          header.classList.add('hidden');
+          scrollUpAmount = 0;
+        } else if (!isAtBottom) {
+          scrollUpAmount += lastScroll - currentScroll;
+          if (scrollUpAmount > 30 || currentScroll < 60) {
+            header.classList.remove('hidden');
+          }
+        }
+        lastScroll = currentScroll;
+      });
+    }
+    document.addEventListener('DOMContentLoaded', initScrollHeader);
+    document.addEventListener('astro:after-swap', initScrollHeader);
   </script>
 
   <div class="site-header-wrapper">
@@ -49,14 +100,30 @@ const { title, description = "Mike Vincent - Software Engineer" } = Astro.props;
       <div class="row">
         <div class="column large-centered large-10 small-12">
           <header class="site-header">
-            <div class="site-header-left">
-              <a href="/">Mike Vincent</a>
+            <div class="site-header-top">
+              <div class="site-header-left">
+                <a href="/">Mike Vincent</a>
+              </div>
+              <button class="theme-toggle" onclick="toggleTheme()">Light</button>
             </div>
             <nav class="site-header-right">
-              <a href="/"><span class="material-symbols-outlined">dynamic_feed</span><span class="nav-text">Posts</span></a>
-              <a href="/about"><span class="material-symbols-outlined">person</span><span class="nav-text">Bio</span></a>
-              <a href="/resume"><span class="material-symbols-outlined">article</span><span class="nav-text">Resume</span></a>
-              <button class="theme-toggle" onclick="toggleTheme()">Light</button>
+              {(isBio || isResume || isPost) ? (
+                <a href="/" class="nav-back">
+                  <span class="material-symbols-outlined" transition:animate="fade">west</span>
+                  {isBio ? (
+                    <span class="nav-text" data-text="Bio" transition:name="nav-bio">Bio</span>
+                  ) : isResume ? (
+                    <span class="nav-text" data-text="Resume" transition:name="nav-resume">Resume</span>
+                  ) : (
+                    <span class="nav-text" data-text="Post">Post</span>
+                  )}
+                </a>
+              ) : (
+                <>
+                  <a href="/about"><span class="material-symbols-outlined" transition:animate="fade">person</span><span class="nav-text" data-text="Bio" transition:name="nav-bio">Bio</span></a>
+                  <a href="/resume"><span class="material-symbols-outlined" transition:animate="fade">article</span><span class="nav-text" data-text="Resume" transition:name="nav-resume">Resume</span></a>
+                </>
+              )}
             </nav>
           </header>
         </div>

@@ -17,21 +17,28 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <script is:inline>
-  fetch('https://raw.githubusercontent.com/mike-vincent/mike-vincent/main/README.md')
-    .then(r => r.text())
-    .then(md => {
-      let html = md
-        .replace(/^# Hi, I'm Mike\n+/, '')
-        .replace(/📍 \*\*(.+?)\*\* \| 📻 \*\*(.+?)\*\* \| ⚙️ \*\*(.+?)\*\*/g, '<p class="bio-location">$1 · $2 · $3</p>')
-        .replace(/^> (.+)$/gm, '<p class="bio-tagline">$1</p>')
-        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
-        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-        .replace(/^- (.+)$/gm, '<li>$1</li>');
-      html = html.replace(/(<li>[\s\S]*?<\/li>\n?)+/g, '<ul>$&</ul>');
-      html = html.replace(/<h2>(.+?)<\/h2>([\s\S]*?)(?=<h2>|$)/g, '<h2 class="bio-section-header">$1</h2><div class="bio-section">$2</div>');
-      document.getElementById('bio-content').innerHTML = html;
-    });
+  function loadBio() {
+    const el = document.getElementById('bio-content');
+    if (!el || el.dataset.loaded) return;
+    el.dataset.loaded = 'true';
+    fetch('https://raw.githubusercontent.com/mike-vincent/mike-vincent/main/README.md')
+      .then(r => r.text())
+      .then(md => {
+        let html = md
+          .replace(/^# Hi, I'm Mike\n+/, '')
+          .replace(/📍 \*\*(.+?)\*\* \| 📻 \*\*(.+?)\*\* \| ⚙️ \*\*(.+?)\*\*/g, '<p class="bio-location">$1 · $2 · $3</p>')
+          .replace(/^> (.+)$/gm, '<p class="bio-tagline">$1</p>')
+          .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+          .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+          .replace(/^- (.+)$/gm, '<li>$1</li>');
+        html = html.replace(/(<li>[\s\S]*?<\/li>\n?)+/g, '<ul>$&</ul>');
+        html = html.replace(/<h2>(.+?)<\/h2>([\s\S]*?)(?=<h2>|$)/g, '<h2 class="bio-section-header">$1</h2><div class="bio-section">$2</div>');
+        el.innerHTML = html;
+      });
+  }
+  document.addEventListener('astro:page-load', loadBio);
+  loadBio();
 </script>
 
 <style>

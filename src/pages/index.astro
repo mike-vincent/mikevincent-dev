@@ -38,8 +38,8 @@ const mappedDevtoPosts = devtoPosts.map(article => ({
   tags: article.tag_list || [],
   image: article.cover_image,
   body: article.description,
-  isExternal: false,
-  url: `/devto/${article.slug}/`,
+  isExternal: true,
+  url: article.url,
 }));
 
 // Combine and sort by date (newest first)

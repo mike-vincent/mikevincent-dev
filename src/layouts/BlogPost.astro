@@ -20,7 +20,7 @@ const currentIndex = sortedPosts.findIndex(post => post.id === slug);
 const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
 const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
 
-const url = `https://mikevincent.dev/blog/${slug}/`;
+const url = `https://mikevincent.dev/${slug}/`;
 const dateStr = date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
 ---
 
@@ -57,7 +57,7 @@ const dateStr = date.toLocaleDateString('en-US', { weekday: 'short', month: 'sho
 
           <div class="post-nav">
             {prevPost && (
-              <a href={`/blog/${prevPost.id}/`} class="post-nav-item prev">
+              <a href={`/${prevPost.id}/`} class="post-nav-item prev">
                 <svg class="nav-chevron" viewBox="0 0 24 24">
                   <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -68,7 +68,7 @@ const dateStr = date.toLocaleDateString('en-US', { weekday: 'short', month: 'sho
               </a>
             )}
             {nextPost && (
-              <a href={`/blog/${nextPost.id}/`} class="post-nav-item next">
+              <a href={`/${nextPost.id}/`} class="post-nav-item next">
                 <svg class="nav-chevron" viewBox="0 0 24 24">
                   <path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>

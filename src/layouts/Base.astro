@@ -9,7 +9,8 @@ interface Props {
 
 const { title, description = "Mike Vincent - Software Engineer", image } = Astro.props;
 const pathname = Astro.url.pathname;
-const isPost = pathname.startsWith('/blog/') && pathname !== '/blog/';
+const knownPages = ['/', '/about', '/about/', '/resume', '/resume/', '/tags', '/tags/'];
+const isPost = !knownPages.includes(pathname) && pathname !== '/';
 const isHome = pathname === '/';
 const isBio = pathname === '/about' || pathname === '/about/';
 const isResume = pathname === '/resume' || pathname === '/resume/';
@@ -46,25 +47,28 @@ const canonicalURL = new URL(Astro.url.pathname, "https://mikevincent.dev");
 </head>
 <body>
   <script is:inline>
-    let manualTheme = localStorage.getItem('theme');
+    let themeMode = localStorage.getItem('theme') || 'system';
     function setTheme() {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDark = manualTheme ? manualTheme === 'dark' : prefersDark;
+      const isDark = themeMode === 'system' ? prefersDark : themeMode === 'dark';
       document.body.classList.toggle('theme-dark', isDark);
       document.body.classList.toggle('theme-light', !isDark);
       const btn = document.querySelector('.theme-toggle');
-      if (btn) btn.innerHTML = isDark
-        ? '<span class="material-symbols-outlined">dark_mode</span><span class="theme-text">Dark</span><span class="chevrons"><span class="material-symbols-outlined">expand_less</span><span class="material-symbols-outlined">expand_more</span></span>'
-        : '<span class="material-symbols-outlined">light_mode</span><span class="theme-text">Light</span><span class="chevrons"><span class="material-symbols-outlined">expand_less</span><span class="material-symbols-outlined">expand_more</span></span>';
+      if (btn) {
+        const icon = themeMode === 'system' ? 'contrast' : (themeMode === 'dark' ? 'dark_mode' : 'light_mode');
+        const label = themeMode === 'system' ? 'System' : (themeMode === 'dark' ? 'Dark' : 'Light');
+        btn.innerHTML = `<span class="material-symbols-outlined">${icon}</span><span class="theme-text">${label}</span><span class="chevrons"><span class="material-symbols-outlined">expand_less</span><span class="material-symbols-outlined">expand_more</span></span>`;
+      }
     }
     function toggleTheme() {
-      const isDark = document.body.classList.contains('theme-dark');
-      manualTheme = isDark ? 'light' : 'dark';
-      localStorage.setItem('theme', manualTheme);
+      if (themeMode === 'system') themeMode = 'light';
+      else if (themeMode === 'light') themeMode = 'dark';
+      else themeMode = 'system';
+      localStorage.setItem('theme', themeMode);
       setTheme();
     }
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      if (!manualTheme) setTheme();
+      if (themeMode === 'system') setTheme();
     });
     document.addEventListener('DOMContentLoaded', setTheme);
     document.addEventListener('astro:after-swap', setTheme);

@@ -34,7 +34,7 @@ const sortedTags = [...tagMap.entries()].sort((a, b) => a[0].localeCompare(b[0])
                     const dateStr = post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
                     return (
                       <li>
-                        <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+                        <a href={`/${post.id}/`}>{post.data.title}</a>
                         <span class="post-date">{dateStr}</span>
                       </li>
                     );

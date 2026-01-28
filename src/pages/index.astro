@@ -34,7 +34,7 @@ const sortedPosts = localPosts
       image: post.data.image,
       body: text,
       truncated,
-      url: `/blog/${post.id}/`,
+      url: `/${post.id}/`,
     };
   })
   .sort((a, b) => b.date.valueOf() - a.date.valueOf());

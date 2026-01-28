@@ -2,48 +2,20 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
-// Fetch local posts
 const localPosts = await getCollection('blog', ({ data }) => !data.draft);
 
-// Fetch dev.to posts
-let devtoPosts: any[] = [];
-try {
-  const response = await fetch('https://dev.to/api/articles?username=mike-vincent');
-  if (response.ok) {
-    devtoPosts = await response.json();
-  }
-} catch (e) {
-  console.error('Failed to fetch dev.to posts:', e);
-}
-
-// Map local posts to unified structure
-const mappedLocalPosts = localPosts.map(post => ({
-  id: post.id,
-  title: post.data.title,
-  subtitle: post.data.subtitle,
-  date: post.data.date,
-  tags: post.data.tags,
-  image: post.data.image,
-  body: post.body,
-  isExternal: false,
-  url: `/blog/${post.id}/`,
-}));
-
-// Map dev.to posts to unified structure
-const mappedDevtoPosts = devtoPosts.map(article => ({
-  id: `devto-${article.id}`,
-  title: article.title,
-  subtitle: article.description,
-  date: new Date(article.published_at),
-  tags: article.tag_list || [],
-  image: article.cover_image,
-  body: '',
-  isExternal: true,
-  url: article.url,
-}));
-
-// Combine and sort by date (newest first)
-const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.date.valueOf() - a.date.valueOf());
+const sortedPosts = localPosts
+  .map(post => ({
+    id: post.id,
+    title: post.data.title,
+    subtitle: post.data.subtitle,
+    date: post.data.date,
+    tags: post.data.tags,
+    image: post.data.image,
+    body: post.body,
+    url: `/blog/${post.id}/`,
+  }))
+  .sort((a, b) => b.date.valueOf() - a.date.valueOf());
 ---
 
 <Base title="Mike Vincent">
@@ -60,18 +32,17 @@ const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.
             const yearsAgo = Math.floor(daysAgo / 365);
             const relativeTime = daysAgo === 0 ? 'Today' : daysAgo === 1 ? '1 day ago' : `${daysAgo} days ago`;
             const compactTime = yearsAgo >= 1 ? `${yearsAgo}y` : monthsAgo >= 1 ? `${monthsAgo}mo` : weeksAgo >= 1 ? `${weeksAgo}w` : daysAgo >= 1 ? `${daysAgo}d` : hoursAgo >= 1 ? `${hoursAgo}h` : `${minsAgo}m`;
-            const linkProps = post.isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
             return (
               <div class="post-card" data-index={index} style={index >= 10 ? 'display:none' : ''}>
                 <div class="post-card-content">
                   <div class="post-header">
                     <div class="post-header-text">
                       <div class="title-row">
-                        <h2><a href={post.url} {...linkProps} transition:name={`title-${post.id}`}>{post.title}</a> <span class="post-age">· {compactTime}</span></h2>
+                        <h2><a href={post.url} transition:name={`title-${post.id}`}>{post.title}</a> <span class="post-age">· {compactTime}</span></h2>
                         <div class="post-menu-wrapper">
                           <button class="post-menu" aria-label="More options" onclick="this.parentElement.classList.toggle('open')"><span class="material-symbols-outlined">more_vert</span></button>
                           <div class="post-menu-dropdown">
-                            <a href={post.url} {...linkProps} class="menu-item"><span class="material-symbols-outlined">open_in_new</span>Open</a>
+                            <a href={post.url} class="menu-item"><span class="material-symbols-outlined">open_in_new</span>Open</a>
                             <button class="menu-item" onclick={`navigator.clipboard.writeText('${post.url}'); this.querySelector('span:last-child').textContent='Copied!'; setTimeout(() => this.querySelector('span:last-child').textContent='Copy link', 1500)`}><span class="material-symbols-outlined">link</span><span>Copy link</span></button>
                             <button class="menu-item" onclick={`navigator.clipboard.writeText('[${post.title.replace(/'/g, "\\'")}](${post.url})'); this.querySelector('span:last-child').textContent='Copied!'; setTimeout(() => this.querySelector('span:last-child').textContent='Copy markdown', 1500)`}><span class="material-symbols-outlined">content_copy</span><span>Copy markdown</span></button>
                             <button class="menu-item" onclick={`navigator.share?.({url: '${post.url}', title: '${post.title.replace(/'/g, "\\'")}'});`}><span class="material-symbols-outlined">share</span><span>Share</span></button>
@@ -84,11 +55,11 @@ const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.
                   {post.body && (
                     <div class="body">
                       <p>{post.body}</p>
-                      <a href={post.url} class="show-more" {...linkProps}>...&nbsp;Show&nbsp;more</a>
+                      <a href={post.url} class="show-more">...&nbsp;Show&nbsp;more</a>
                     </div>
                   )}
                   {post.image && (
-                    <a href={post.url} class="post-card-thumb" {...linkProps}>
+                    <a href={post.url} class="post-card-thumb">
                       <img src={post.image} alt="" />
                       <div class="thumb-overlay">
                         <span class="thumb-title">{post.title}</span>
@@ -116,7 +87,7 @@ const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.
 
   {/* Prefetch next 5 posts */}
   {sortedPosts.slice(10, 15).map(post => (
-    !post.isExternal && <link rel="prefetch" href={post.url} />
+    <link rel="prefetch" href={post.url} />
   ))}
 </Base>
 

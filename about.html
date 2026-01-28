@@ -160,16 +160,7 @@
         }
         .theme-dark .bio-content h2 { color: #fff; }
         .theme-light .bio-content h2 { color: #000; }
-        .bio-list {
-            margin: 0 0 16px;
-            padding-left: 0;
-            list-style: none;
-        }
-        .bio-list li {
-            font-size: 15px;
-            line-height: 1.8;
-        }
-        .bio-content a {
+                .bio-content a {
             color: #007AFF;
             text-decoration: none;
         }
@@ -281,7 +272,7 @@
                                         .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
                                         .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
                                         .replace(/^- (.+)$/gm, '<li>$1</li>');
-                                    html = html.replace(/(<li>[\s\S]*?<\/li>\n?)+/g, '<ul class="bio-list">$&</ul>');
+                                    html = html.replace(/(<li>[\s\S]*?<\/li>\n?)+/g, '<ul>$&</ul>');
                                     document.getElementById('bio-content').innerHTML = html;
                                 });
                         </script>

@@ -280,6 +280,7 @@ a:hover { text-decoration: underline; }
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .post-header-text {

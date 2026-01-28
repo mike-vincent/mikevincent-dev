@@ -14,17 +14,29 @@ const stripMarkdown = (md: string) => md
   .replace(/^[-*]\s+/gm, '')           // list items
   .trim();
 
+// Truncate to ~400 chars at word boundary
+const truncate = (text: string, max = 400) => {
+  if (text.length <= max) return { text, truncated: false };
+  const cut = text.slice(0, max).replace(/\s+\S*$/, '');
+  return { text: cut, truncated: true };
+};
+
 const sortedPosts = localPosts
-  .map(post => ({
-    id: post.id,
-    title: post.data.title,
-    subtitle: post.data.subtitle,
-    date: post.data.date,
-    tags: post.data.tags,
-    image: post.data.image,
-    body: stripMarkdown(post.body || ''),
-    url: `/blog/${post.id}/`,
-  }))
+  .map(post => {
+    const stripped = stripMarkdown(post.body || '');
+    const { text, truncated } = truncate(stripped);
+    return {
+      id: post.id,
+      title: post.data.title,
+      subtitle: post.data.subtitle,
+      date: post.data.date,
+      tags: post.data.tags,
+      image: post.data.image,
+      body: text,
+      truncated,
+      url: `/blog/${post.id}/`,
+    };
+  })
   .sort((a, b) => b.date.valueOf() - a.date.valueOf());
 ---
 
@@ -64,7 +76,7 @@ const sortedPosts = localPosts
                   </div>
                   {post.body && (
                     <div class="body">
-                      <p>{post.body} <a href={post.url} class="show-more">...&nbsp;Show&nbsp;more</a></p>
+                      <p>{post.body}{post.truncated && <a href={post.url} class="show-more">...&nbsp;Show&nbsp;more</a>}</p>
                     </div>
                   )}
                   {post.image && (

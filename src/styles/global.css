@@ -407,8 +407,6 @@ a:hover { text-decoration: underline; }
 .theme-light .body { color: rgba(0, 0, 0, 0.8); }
 .body p { margin: 0 0 16px; }
 .post-card .body p {
-  max-height: 7em;
-  overflow: hidden;
   line-height: 1.4;
 }
 .show-more {

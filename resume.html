@@ -79,10 +79,17 @@
         .resume-header h1 {
             font-size: 20px;
             font-weight: 600;
-            margin: 0;
+            margin: 0 0 4px;
         }
         .theme-dark .resume-header h1 { color: #fff; }
         .theme-light .resume-header h1 { color: #000; }
+        .resume-tagline {
+            font-size: 14px;
+            margin: 0;
+        }
+        .theme-dark .resume-tagline { color: rgba(255, 255, 255, 0.6); }
+        .theme-light .resume-tagline { color: rgba(0, 0, 0, 0.6); }
+        .resume-tagline a { color: inherit; }
         .resume-actions {
             display: flex;
             gap: 12px;
@@ -343,7 +350,8 @@ Founded 501(c)(3) tax-exempt nonprofit preserving American radio drama. Develope
                 <div class="row">
                     <div class="column large-centered large-10 small-12">
                         <div class="resume-header">
-                            <h1>Resume</h1>
+                            <h1>Software Engineer, Full Stack, Payments & Infrastructure</h1>
+                            <p class="resume-tagline">Los Angeles, CA | U.S. Citizen | <a href="https://mikevincent.dev">https://mikevincent.dev</a></p>
                             <!-- <div class="resume-actions">
                                 <button id="copy-btn" onclick="copyMarkdown()">Copy Markdown</button>
                                 <a href="/assets/resume.pdf" download>Download PDF</a>

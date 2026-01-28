@@ -165,26 +165,34 @@
         .share-links svg { width: 16px; height: 16px; }
         .theme-dark .share-links svg { fill: #fff; }
         .theme-light .share-links svg { fill: #000; }
-        .prev-post {
+        .post-nav {
+            display: flex;
+            justify-content: space-between;
             padding: 24px 0;
             border-top: 1px solid rgba(128, 128, 128, 0.2);
         }
-        .prev-post h3 {
+        .post-nav-item {
+        }
+        .post-nav-item.next {
+            text-align: right;
+            margin-left: auto;
+        }
+        .post-nav-item h3 {
             font-size: 12px;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin: 0 0 8px;
         }
-        .theme-dark .prev-post h3 { color: rgba(255, 255, 255, 0.4); }
-        .theme-light .prev-post h3 { color: rgba(0, 0, 0, 0.4); }
-        .prev-post a {
+        .theme-dark .post-nav-item h3 { color: rgba(255, 255, 255, 0.4); }
+        .theme-light .post-nav-item h3 { color: rgba(0, 0, 0, 0.4); }
+        .post-nav-item a {
             font-size: 18px;
             font-weight: 600;
             text-decoration: none;
             color: #007AFF;
         }
-        .prev-post a:hover { text-decoration: underline; }
+        .post-nav-item a:hover { text-decoration: underline; }
         @media (max-width: 500px) {
             .post-content { padding: 16px 0 24px; }
             .site-header { padding: 0 16px; }
@@ -272,9 +280,11 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="prev-post">
-                            <h3>Previous Post</h3>
-                            <a href="/blog/Lp3vTn8sY4a">Consectetur Adipiscing</a>
+                        <div class="post-nav">
+                            <div class="post-nav-item next">
+                                <h3>Next Post</h3>
+                                <a href="/blog/Lp3vTn8sY4a">Consectetur Adipiscing</a>
+                            </div>
                         </div>
                     </div>
                 </div>

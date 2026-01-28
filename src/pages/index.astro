@@ -64,8 +64,7 @@ const sortedPosts = localPosts
                   </div>
                   {post.body && (
                     <div class="body">
-                      <p>{post.body}</p>
-                      <a href={post.url} class="show-more">...&nbsp;Show&nbsp;more</a>
+                      <p>{post.body} <a href={post.url} class="show-more">...&nbsp;Show&nbsp;more</a></p>
                     </div>
                   )}
                   {post.image && (

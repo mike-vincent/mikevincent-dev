@@ -51,7 +51,7 @@ const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.
     <div class="row">
       <div class="column large-centered large-10 small-12">
         <div class="posts-grid">
-          {sortedPosts.map(post => {
+          {sortedPosts.map((post, index) => {
             const minsAgo = Math.floor((Date.now() - post.date.getTime()) / (1000 * 60));
             const hoursAgo = Math.floor(minsAgo / 60);
             const daysAgo = Math.floor(hoursAgo / 24);
@@ -62,7 +62,7 @@ const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.
             const compactTime = yearsAgo >= 1 ? `${yearsAgo}y` : monthsAgo >= 1 ? `${monthsAgo}m` : weeksAgo >= 1 ? `${weeksAgo}w` : daysAgo >= 1 ? `${daysAgo}d` : hoursAgo >= 1 ? `${hoursAgo}h` : `${minsAgo}m`;
             const linkProps = post.isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
             return (
-              <div class="post-card">
+              <div class="post-card" data-index={index} style={index >= 10 ? 'display:none' : ''}>
                 <div class="post-card-content">
                   <div class="post-header">
                     <img src="/assets/images/headshot.jpg" alt="Mike Vincent" class="post-avatar" transition:name={`avatar-${post.id}`} />
@@ -82,9 +82,11 @@ const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.
                       <p class="subtitle">{post.subtitle}</p>
                     </div>
                   </div>
-                  <div class="body">
-                    <p>{post.body}</p>
-                  </div>
+                  {post.body && (
+                    <div class="body">
+                      <p>{post.body}</p>
+                    </div>
+                  )}
                   {post.image && (
                     <div class="post-card-thumb">
                       <img src={post.image} alt="" />
@@ -105,7 +107,62 @@ const sortedPosts = [...mappedLocalPosts, ...mappedDevtoPosts].sort((a, b) => b.
             );
           })}
         </div>
+        {sortedPosts.length > 10 && (
+          <button id="load-more" class="load-more-btn">Show more</button>
+        )}
       </div>
     </div>
   </div>
+
+  {/* Prefetch next 5 posts */}
+  {sortedPosts.slice(10, 15).map(post => (
+    !post.isExternal && <link rel="prefetch" href={post.url} />
+  ))}
 </Base>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('load-more');
+    if (!btn) return;
+
+    let shown = 10;
+    const posts = document.querySelectorAll('.post-card[data-index]');
+    const total = posts.length;
+
+    if (shown >= total) btn.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+      const nextBatch = Math.min(shown + 10, total);
+      posts.forEach((post, i) => {
+        if (i < nextBatch) post.style.display = '';
+      });
+      shown = nextBatch;
+      if (shown >= total) btn.style.display = 'none';
+    });
+  });
+</script>
+
+<style>
+  .load-more-btn {
+    display: block;
+    margin: 24px auto;
+    padding: 12px 32px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    min-height: 44px;
+  }
+  :global(.theme-dark) .load-more-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  :global(.theme-light) .load-more-btn {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000;
+  }
+  .load-more-btn:hover {
+    opacity: 0.8;
+  }
+</style>

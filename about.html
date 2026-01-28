@@ -183,6 +183,14 @@
         }
         .theme-dark .bio-content h2 { color: #fff; }
         .theme-light .bio-content h2 { color: #000; }
+        .bio-section {
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .theme-dark .bio-section { border: 1px solid rgba(255, 255, 255, 0.2); }
+        .theme-light .bio-section { border: 1px solid rgba(0, 0, 0, 0.15); }
+        .bio-section h2 { margin-top: 0; }
         .bio-content p {
             font-size: 16px;
             line-height: 1.6;
@@ -277,6 +285,8 @@
                                         .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
                                         .replace(/^- (.+)$/gm, '<li>$1</li>');
                                     html = html.replace(/(<li>[\s\S]*?<\/li>\n?)+/g, '<ul>$&</ul>');
+                                    // Wrap each h2 and its content in a bio-section div
+                                    html = html.replace(/<h2>(.+?)<\/h2>([\s\S]*?)(?=<h2>|$)/g, '<div class="bio-section"><h2>$1</h2>$2</div>');
                                     document.getElementById('bio-content').innerHTML = html;
                                 });
                         </script>

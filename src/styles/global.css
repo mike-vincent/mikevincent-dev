@@ -428,6 +428,10 @@ a:hover { text-decoration: underline; }
 }
 .show-more {
   color: #007AFF;
+  text-decoration: none;
+}
+.show-more:hover {
+  text-decoration: none;
 }
 
 .post-image {

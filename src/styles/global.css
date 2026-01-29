@@ -571,4 +571,14 @@ a:hover { text-decoration: underline; }
 /* Responsive */
 @media (max-width: 499px) {
   /* Nav stays left-aligned on mobile */
+
+  /* Reorder post card elements: header, image, body, tags */
+  .post-card-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .post-header { order: 1; }
+  .post-card-thumb { order: 2; }
+  .body { order: 3; }
+  .post-tags { order: 4; }
 }

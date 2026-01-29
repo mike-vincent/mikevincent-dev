@@ -3,7 +3,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "SF Mono", Menlo, Monaco, "Courier New", monospace;
   font-size: 14px;
   min-height: 100vh;
 }
@@ -399,7 +399,6 @@ a:hover { text-decoration: underline; }
 .theme-light .subtitle { color: rgba(0, 0, 0, 0.6); }
 
 .body {
-  font-family: "SF Mono", Menlo, Monaco, "Courier New", monospace;
   font-size: 15px;
   font-weight: 400;
   line-height: 1.618;
